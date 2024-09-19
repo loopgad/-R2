@@ -1,8 +1,8 @@
 template\cmsis_os2.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c
-template\cmsis_os2.o: F:\stm32\Keil5\ARM\ARMCC\Bin\..\include\string.h
+template\cmsis_os2.o: D:\Keil5\ARM\ARMCC\Bin\..\include\string.h
 template\cmsis_os2.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-template\cmsis_os2.o: F:\stm32\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
-template\cmsis_os2.o: F:\stm32\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
+template\cmsis_os2.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+template\cmsis_os2.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
 template\cmsis_os2.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 template\cmsis_os2.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 template\cmsis_os2.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h

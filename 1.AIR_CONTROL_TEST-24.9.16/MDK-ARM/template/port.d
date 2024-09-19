@@ -1,7 +1,7 @@
 template\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/port.c
 template\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-template\port.o: F:\stm32\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
-template\port.o: F:\stm32\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+template\port.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
+template\port.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
 template\port.o: ../Core/Inc/FreeRTOSConfig.h
 template\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 template\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

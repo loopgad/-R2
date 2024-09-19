@@ -229,7 +229,7 @@ void Air_Pump_Control(uint16_t buf[10])//control the pumps to push the ball
 {
 	
 	//put the two pumps into the same state
-	if(buf[7]>1500){
+	if(buf[6]>1500){
 		HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
 	}

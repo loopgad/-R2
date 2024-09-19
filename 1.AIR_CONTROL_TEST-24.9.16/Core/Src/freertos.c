@@ -181,7 +181,7 @@ void move_base(void *argument)
   for(;;)
   {
 	Contor_FSM();                   //遥控模式状态机
-//	Air_Pump_Control(PPM_Databuf);  //气缸拨杆与遥控开关拨杆冲突，注释
+  Air_Pump_Control(PPM_Databuf);  //气缸拨杆与遥控开关拨杆冲突，注释
 	osDelay(10);
 }
   /* USER CODE END move_base */

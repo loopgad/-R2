@@ -116,10 +116,10 @@ extern uint16_t Time_Sys[4];
 #define SWC		PPM_Databuf[6]				//AUX3 1000-1500-2000
 #define SWD		PPM_Databuf[7]			    //AUX1 1000~2000
 
-#define ROCK_R_X			PPM_Databuf[3]				//YAW  1000-1500-2000
-#define ROCK_R_Y			PPM_Databuf[2]				//THR  1000-1500-2000
-#define ROCK_L_Y			PPM_Databuf[1]				//ROLL 1000-1500-2000     
-#define	ROCK_L_X		  PPM_Databuf[0]				//PITCH 1000-1500-2000P
+#define ROCK_R_X			PPM_Databuf[3]				//YAW  1000~1500~2000
+#define ROCK_R_Y			PPM_Databuf[2]				//THR  1000~1500~2000
+#define ROCK_L_Y			PPM_Databuf[1]				//ROLL 1000~1500~2000     
+#define	ROCK_L_X		  PPM_Databuf[0]				//PITCH 1000~1500~2000P
 
 #define LEFT_BUTTON		Device.Remote.BUX1
 #define RIGHT_BUTTON	Device.Remote.BUX2			

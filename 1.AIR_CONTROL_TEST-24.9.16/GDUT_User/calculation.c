@@ -3,9 +3,9 @@
 
 /*!
  * \fn     Kinematic_Analysis
- * \brief  三全向轮运动逆解算
- *          直接设置目标速度值--->单位是米每秒
- * 			程序内部计算：米每秒--->转每分钟（轮子）--->转每分钟（转子）
+ * \brief  锟斤拷全锟斤拷锟斤拷锟剿讹拷锟斤拷锟斤拷锟?
+ *          直锟斤拷锟斤拷锟斤拷目锟斤拷锟劫讹拷值--->锟斤拷位锟斤拷锟斤拷每锟斤拷
+ * 			锟斤拷锟斤拷锟节诧拷锟斤拷锟姐：锟斤拷每锟斤拷--->转每锟斤拷锟接ｏ拷锟斤拷锟接ｏ拷--->转每锟斤拷锟接ｏ拷转锟接ｏ拷
  * \param  [in] float Vx   #
  * \param  [in] float Vy   #
  * 
@@ -21,10 +21,10 @@ void Kinematic_Analysis_Inverse(void)
 }
 /*!
  * \fn     Axis_analyse_for_WORLDtoROBOT
- * \brief  完成世界坐标系下速度向机器人坐标系下的速度转
-           换
+ * \brief  锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟较碉拷锟斤拷俣锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷系锟铰碉拷锟劫讹拷转
+           锟斤拷
  *          
- *		   用的是线速度
+ *		   锟矫碉拷锟斤拷锟斤拷锟劫讹拷
  * \param  [in] ROBOT_CHASSIS* ROBOT_NOW_INFO_IN_ITSELF   #
  * \param  [in] ROBOT_CHASSIS* ROBOT_NOW_INFO_IN_WORLD    #
  * 
@@ -32,23 +32,23 @@ void Kinematic_Analysis_Inverse(void)
  */
 void Axis_analyse_for_WORLDtoROBOT(void)
 {
-	/*改動了用於計算的角度值*/
-	// x方向上的转换
+	/*锟侥勶拷锟斤拷锟斤拷锟接嬶拷锟侥角讹拷值*/
+	// x锟斤拷锟斤拷锟较碉拷转锟斤拷
 	Robot_Chassis.Robot_V[x]= cos(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[x]) + sin(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[y]);
-	// y方向上的转换
+	// y锟斤拷锟斤拷锟较碉拷转锟斤拷
 	Robot_Chassis.Robot_V[y]= -sin(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[x]) + cos(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180)*(Robot_Chassis.World_V[y]);
 	
-//	// x方向上的转换
+//	// x锟斤拷锟斤拷锟较碉拷转锟斤拷
 //	Robot_Chassis.Robot_V[x]= Robot_Chassis.World_V[x];
-//	// y方向上的转换.
+//	// y锟斤拷锟斤拷锟较碉拷转锟斤拷.
 //	Robot_Chassis.Robot_V[y]= Robot_Chassis.World_V[y];
 	
-	// W方向上的转换
+	// W锟斤拷锟斤拷锟较碉拷转锟斤拷
 	Robot_Chassis.Robot_V[w]= Robot_Chassis.World_V[w];
 	
 }
 float KEEP_YAW=0;
-void World_Control(void)        //始终以世界坐标下的Y方向为正Y
+void World_Control(void)        //始锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟铰碉拷Y锟斤拷锟斤拷为锟斤拷Y
 {
 	Robot_Chassis.World_V[x]=-(ROCK_L_X-1500)*0.003f;
 	Robot_Chassis.World_V[y]=(ROCK_L_Y-1500)*0.003f;
@@ -65,7 +65,7 @@ void World_Control(void)        //始终以世界坐标下的Y方向为正Y
 	else 
 	{
 		Robot_Chassis.World_V[w]=(ROCK_R_X-1500)*0.01f;
-		KEEP_YAW=ACTION_GL_POS_DATA.REAL_YAW;    //到时候会用消息队列传递，现在有缺陷
+		KEEP_YAW=ACTION_GL_POS_DATA.REAL_YAW;    //锟斤拷时锟斤拷锟斤拷锟斤拷锟较?锟斤拷锟叫达拷锟捷ｏ拷锟斤拷锟斤拷锟斤拷缺锟斤拷
 	}
 	
 	
@@ -73,22 +73,28 @@ void World_Control(void)        //始终以世界坐标下的Y方向为正Y
 
 /*
 9.21
-沒改
+锟絔锟斤拷
 */
 
-void Robot_Control(void)    //始终以机头方向为正Y
-{
+void Robot_Control(void)    //始锟斤拷锟皆伙拷头锟斤拷锟斤拷为锟斤拷Y
+{	
+	static int flag = 0;//makesure only read angle when the first time entry "KEEP_YAW" 
 	
 	Robot_Chassis.Robot_V[x]=-(ROCK_L_X-1500)*0.03f;
 	Robot_Chassis.Robot_V[y]=(ROCK_L_Y-1500)*0.03f;
 	if(ROCK_R_X==1500)
-	{
-		Robot_Chassis.Robot_V[w]=(ROCK_R_X-1500)*0.01f;
-		KEEP_YAW=ACTION_GL_POS_DATA.REAL_YAW;
+	{	
+		if(flag == 0){
+			KEEP_YAW=ACTION_GL_POS_DATA.REAL_YAW;
+			YawAdjust(KEEP_YAW);
+			flag = 1;
+		}
+
 	}
 	else 
 	{
-		YawAdjust(KEEP_YAW);
+		Robot_Chassis.Robot_V[w]=(ROCK_R_X-1500)*0.01f;
+		flag = 0;
 	}
 	
 	
@@ -96,13 +102,13 @@ void Robot_Control(void)    //始终以机头方向为正Y
 }
 void AUTO_Control(void)
 {
-	//自动路径规划，避障，敬请期待
+	//锟皆讹拷路锟斤拷锟芥划锟斤拷锟斤拷锟较ｏ拷锟斤拷锟斤拷锟节达拷
 }
 void Contor_FSM(void)
 {
-	if(SWD==2000)   //拨杆D是开关
+	if(SWD==2000)   //锟斤拷锟斤拷D锟角匡拷锟斤拷
 	{
-		switch(SWB)  //拨杆B是模式控制
+		switch(SWB)  //锟斤拷锟斤拷B锟斤拷模式锟斤拷锟斤拷
 		{
 			case 1000:
 				Robot_Control();

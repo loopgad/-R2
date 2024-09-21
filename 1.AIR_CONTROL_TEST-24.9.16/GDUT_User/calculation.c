@@ -11,6 +11,7 @@
  * 
  * \retval void
  */
+ 	 
 void Kinematic_Analysis_Inverse(void)
 {
 
@@ -31,11 +32,18 @@ void Kinematic_Analysis_Inverse(void)
  */
 void Axis_analyse_for_WORLDtoROBOT(void)
 {
+	/*改動了用於計算的角度值*/
 	// x方向上的转换
-	Robot_Chassis.Robot_V[x]= cos(ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[x]) + sin(ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[y]);
+	Robot_Chassis.Robot_V[x]= cos(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[x]) + sin(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[y]);
 	// y方向上的转换
-	Robot_Chassis.Robot_V[y]= -sin(ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[x]) + cos(ACTION_GL_POS_DATA.REAL_YAW* PI / 180)*(Robot_Chassis.World_V[y]);
-	// y方向上的转换
+	Robot_Chassis.Robot_V[y]= -sin(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[x]) + cos(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180)*(Robot_Chassis.World_V[y]);
+	
+//	// x方向上的转换
+//	Robot_Chassis.Robot_V[x]= Robot_Chassis.World_V[x];
+//	// y方向上的转换.
+//	Robot_Chassis.Robot_V[y]= Robot_Chassis.World_V[y];
+	
+	// W方向上的转换
 	Robot_Chassis.Robot_V[w]= Robot_Chassis.World_V[w];
 	
 }
@@ -44,20 +52,29 @@ void World_Control(void)        //始终以世界坐标下的Y方向为正Y
 {
 	Robot_Chassis.World_V[x]=-(ROCK_L_X-1500)*0.003f;
 	Robot_Chassis.World_V[y]=(ROCK_L_Y-1500)*0.003f;
-	Robot_Chassis.World_V[w]=(ROCK_R_X-1500)*0.01f;
+
 	if(ROCK_R_X==1500)
 	{
-		Robot_Chassis.World_V[w]=(ROCK_R_X-1500)*0.01f;
-		KEEP_YAW=ACTION_GL_POS_DATA.REAL_YAW;    //到时候会用消息队列传递，现在有缺陷
+		 if(ROCK_L_X==1500 && ROCK_L_Y == 1500){
+ 			Robot_Chassis.World_V[w]= 0;
+		 }
+		 else{
+			//YawAdjust(KEEP_YAW);
+		 }
 	}
 	else 
 	{
-		YawAdjust(KEEP_YAW);
+		Robot_Chassis.World_V[w]=(ROCK_R_X-1500)*0.01f;
+		KEEP_YAW=ACTION_GL_POS_DATA.REAL_YAW;    //到时候会用消息队列传递，现在有缺陷
 	}
 	
 	
 }
 
+/*
+9.21
+沒改
+*/
 
 void Robot_Control(void)    //始终以机头方向为正Y
 {

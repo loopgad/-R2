@@ -40,7 +40,7 @@ I (../Core/Inc/main.h)(0x66E704E4)
 I (../GDUT_User/elmo.h)(0x6424B34A)
 I (../GDUT_User/moto.h)(0x66E5FF78)
 I (D:\Keil5\ARM\ARMCC\include\math.h)(0x60252378)
-I (../GDUT_User/HareWare.h)(0x66E6ED08)
+I (../GDUT_User/HareWare.h)(0x66EC22D7)
 I (../GDUT_User/comunication.h)(0x66E68CA0)
 I (../GDUT_User/FSM.h)(0x669DF7A0)
 I (../GDUT_User/calculation.h)(0x66E70480)
@@ -91,7 +91,7 @@ I (../GDUT_User/PID.h)(0x669785B6)
 I (D:\Keil5\ARM\ARMCC\include\math.h)(0x60252378)
 I (../Core/Inc/can.h)(0x669D545A)
 I (../GDUT_User/MIT.h)(0x64291A1A)
-I (../GDUT_User/HareWare.h)(0x66E6ED08)
+I (../GDUT_User/HareWare.h)(0x66EC22D7)
 I (../GDUT_User/comunication.h)(0x66E68CA0)
 I (../GDUT_User/FSM.h)(0x669DF7A0)
 I (../GDUT_User/calculation.h)(0x66E70480)
@@ -154,7 +154,7 @@ I (../GDUT_User/PID.h)(0x669785B6)
 I (D:\Keil5\ARM\ARMCC\include\math.h)(0x60252378)
 I (../Core/Inc/can.h)(0x669D545A)
 I (../GDUT_User/MIT.h)(0x64291A1A)
-I (../GDUT_User/HareWare.h)(0x66E6ED08)
+I (../GDUT_User/HareWare.h)(0x66EC22D7)
 I (../GDUT_User/comunication.h)(0x66E68CA0)
 I (../GDUT_User/FSM.h)(0x669DF7A0)
 I (../GDUT_User/calculation.h)(0x66E70480)
@@ -165,7 +165,7 @@ I (../GDUT_User/robot.h)(0x669DED3C)
 I (D:\Keil5\ARM\ARMCC\include\string.h)(0x6025237E)
 I (../Core/Inc/usart.h)(0x66E5E812)
 I (../GDUT_User/DataScope_DP.h)(0x62502010)
-F (../Core/Src/freertos.c)(0x66E70538)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../GDUT_User-I.\RTE\_template-ID:\Keil5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\Keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="540" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o template\freertos.o --omf_browse template\freertos.crf --depend template\freertos.d)
+F (../Core/Src/freertos.c)(0x66EC3477)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../GDUT_User-I.\RTE\_template-ID:\Keil5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\Keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="540" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o template\freertos.o --omf_browse template\freertos.crf --depend template\freertos.d)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x66E0F9CA)
 I (D:\Keil5\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\Keil5\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -213,7 +213,7 @@ I (../GDUT_User/PID.h)(0x669785B6)
 I (D:\Keil5\ARM\ARMCC\include\math.h)(0x60252378)
 I (../Core/Inc/can.h)(0x669D545A)
 I (../GDUT_User/MIT.h)(0x64291A1A)
-I (../GDUT_User/HareWare.h)(0x66E6ED08)
+I (../GDUT_User/HareWare.h)(0x66EC22D7)
 I (../GDUT_User/comunication.h)(0x66E68CA0)
 I (../GDUT_User/FSM.h)(0x669DF7A0)
 I (../GDUT_User/calculation.h)(0x66E70480)
@@ -266,7 +266,7 @@ I (../GDUT_User/moto.h)(0x66E5FF78)
 I (../GDUT_User/PID.h)(0x669785B6)
 I (D:\Keil5\ARM\ARMCC\include\math.h)(0x60252378)
 I (../GDUT_User/MIT.h)(0x64291A1A)
-I (../GDUT_User/HareWare.h)(0x66E6ED08)
+I (../GDUT_User/HareWare.h)(0x66EC22D7)
 I (../GDUT_User/comunication.h)(0x66E68CA0)
 I (../GDUT_User/FSM.h)(0x669DF7A0)
 I (../GDUT_User/calculation.h)(0x66E70480)
@@ -318,7 +318,7 @@ I (../GDUT_User/PID.h)(0x669785B6)
 I (D:\Keil5\ARM\ARMCC\include\math.h)(0x60252378)
 I (../Core/Inc/can.h)(0x669D545A)
 I (../GDUT_User/MIT.h)(0x64291A1A)
-I (../GDUT_User/HareWare.h)(0x66E6ED08)
+I (../GDUT_User/HareWare.h)(0x66EC22D7)
 I (../GDUT_User/comunication.h)(0x66E68CA0)
 I (../GDUT_User/FSM.h)(0x669DF7A0)
 I (../GDUT_User/calculation.h)(0x66E70480)
@@ -369,7 +369,7 @@ I (../GDUT_User/PID.h)(0x669785B6)
 I (D:\Keil5\ARM\ARMCC\include\math.h)(0x60252378)
 I (../Core/Inc/can.h)(0x669D545A)
 I (../GDUT_User/MIT.h)(0x64291A1A)
-I (../GDUT_User/HareWare.h)(0x66E6ED08)
+I (../GDUT_User/HareWare.h)(0x66EC22D7)
 I (../GDUT_User/comunication.h)(0x66E68CA0)
 I (../GDUT_User/FSM.h)(0x669DF7A0)
 I (../GDUT_User/calculation.h)(0x66E70480)
@@ -419,7 +419,7 @@ I (../GDUT_User/PID.h)(0x669785B6)
 I (D:\Keil5\ARM\ARMCC\include\math.h)(0x60252378)
 I (../Core/Inc/can.h)(0x669D545A)
 I (../GDUT_User/MIT.h)(0x64291A1A)
-I (../GDUT_User/HareWare.h)(0x66E6ED08)
+I (../GDUT_User/HareWare.h)(0x66EC22D7)
 I (../GDUT_User/comunication.h)(0x66E68CA0)
 I (../GDUT_User/FSM.h)(0x669DF7A0)
 I (../GDUT_User/calculation.h)(0x66E70480)
@@ -471,7 +471,7 @@ I (../GDUT_User/PID.h)(0x669785B6)
 I (D:\Keil5\ARM\ARMCC\include\math.h)(0x60252378)
 I (../Core/Inc/can.h)(0x669D545A)
 I (../GDUT_User/MIT.h)(0x64291A1A)
-I (../GDUT_User/HareWare.h)(0x66E6ED08)
+I (../GDUT_User/HareWare.h)(0x66EC22D7)
 I (../GDUT_User/comunication.h)(0x66E68CA0)
 I (../GDUT_User/FSM.h)(0x669DF7A0)
 I (../GDUT_User/calculation.h)(0x66E70480)
@@ -515,8 +515,8 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x66E0FA08)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x66E0FA08)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x66E0FA08)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x66E0FA08)
-F (..\GDUT_User\HareWare.c)(0x66E704C4)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../GDUT_User-I.\RTE\_template-ID:\Keil5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\Keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="540" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o template\hareware.o --omf_browse template\hareware.crf --depend template\hareware.d)
-I (..\GDUT_User\HareWare.h)(0x66E6ED08)
+F (..\GDUT_User\HareWare.c)(0x66EC34A3)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../GDUT_User-I.\RTE\_template-ID:\Keil5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\Keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="540" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o template\hareware.o --omf_browse template\hareware.crf --depend template\hareware.d)
+I (..\GDUT_User\HareWare.h)(0x66EC22D7)
 I (..\GDUT_User\elmo.h)(0x6424B34A)
 I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x66E0FA08)
 I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x66E0FA08)
@@ -606,7 +606,7 @@ I (../Core/Inc/can.h)(0x669D545A)
 I (../Core/Inc/main.h)(0x66E704E4)
 I (../GDUT_User/elmo.h)(0x6424B34A)
 I (../GDUT_User/MIT.h)(0x64291A1A)
-I (../GDUT_User/HareWare.h)(0x66E6ED08)
+I (../GDUT_User/HareWare.h)(0x66EC22D7)
 I (../GDUT_User/comunication.h)(0x66E68CA0)
 I (../GDUT_User/FSM.h)(0x669DF7A0)
 I (../GDUT_User/calculation.h)(0x66E70480)
@@ -618,7 +618,7 @@ I (../GDUT_User/robot.h)(0x669DED3C)
 I (D:\Keil5\ARM\ARMCC\include\string.h)(0x6025237E)
 I (../Core/Inc/usart.h)(0x66E5E812)
 I (../GDUT_User/DataScope_DP.h)(0x62502010)
-F (..\GDUT_User\calculation.c)(0x66E707E4)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../GDUT_User-I.\RTE\_template-ID:\Keil5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\Keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="540" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o template\calculation.o --omf_browse template\calculation.crf --depend template\calculation.d)
+F (..\GDUT_User\calculation.c)(0x66EEDE2E)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../GDUT_User-I.\RTE\_template-ID:\Keil5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-ID:\Keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="540" -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o template\calculation.o --omf_browse template\calculation.crf --depend template\calculation.d)
 I (../Core/Inc/main.h)(0x66E704E4)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x66E0FA08)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x66E59AA8)
@@ -657,7 +657,7 @@ I (../GDUT_User/PID.h)(0x669785B6)
 I (D:\Keil5\ARM\ARMCC\include\math.h)(0x60252378)
 I (../Core/Inc/can.h)(0x669D545A)
 I (../GDUT_User/MIT.h)(0x64291A1A)
-I (../GDUT_User/HareWare.h)(0x66E6ED08)
+I (../GDUT_User/HareWare.h)(0x66EC22D7)
 I (../GDUT_User/comunication.h)(0x66E68CA0)
 I (../GDUT_User/FSM.h)(0x669DF7A0)
 I (../GDUT_User/calculation.h)(0x66E70480)

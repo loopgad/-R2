@@ -31,7 +31,7 @@ extern uint16_t Microsecond_Cnt;
 
 void Air_Pump_Control(uint16_t buf[10]);
 void Update_Action(float value[6]);
-
+void Action_Reset();
 //struct
 typedef struct
 {

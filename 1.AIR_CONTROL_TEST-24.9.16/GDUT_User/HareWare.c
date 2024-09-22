@@ -100,6 +100,14 @@ ROBOT_REAL_POS ROBOT_TARGET_POS_DATA = {0, 0, 0};
 volatile float action_Data[6];
 extern UART_HandleTypeDef huart3;
 
+//reset action module(with toggle switch)
+void Action_Reset() {
+    const char *str = "ACT0";
+    while (*str) {
+        HAL_UART_Transmit(&huart3, (uint8_t *)str++, 1, HAL_MAX_DELAY);
+    }
+}
+
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	

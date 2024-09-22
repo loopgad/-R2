@@ -57,12 +57,18 @@ void World_Control(void)        //始终以世界坐标下的Y方向为正Y
 
 	if(ROCK_R_X==1500)
 	{
-		YawAdjust(KEEP_YAW);
+		if(ROCK_L_X == 1500 && ROCK_L_Y == 1500){
+			//Robot_Chassis.World_V[w];
+			Robot_Chassis.World_V[w] = 0;
+			
+		}
+		KEEP_YAW=ACTION_GL_POS_DATA.REAL_YAW;
+		//YawAdjust(KEEP_YAW);
 	}
 	else 
 	{
 		Robot_Chassis.World_V[w]=(ROCK_R_X-1500)*0.01f;
-		KEEP_YAW=ACTION_GL_POS_DATA.REAL_YAW;    //到时候会用消息队列传递，现在有缺陷
+		    //到时候会用消息队列传递，现在有缺陷
 	}
 	
 	
@@ -98,9 +104,14 @@ void AUTO_Control(void)
 }
 void Contor_FSM(void)
 {
+	static int flag = 1;
 	if(SWD==2000)   //拨杆D是开关
 	{
-		Action_Reset();
+		if(flag == 1)
+		{
+			Action_Reset();
+			flag = 0;
+		}
 		switch(SWB)  //拨杆B是模式控制
 		{
 			case 1000:
@@ -112,9 +123,10 @@ void Contor_FSM(void)
 			case 2000:
 				AUTO_Control();
 			break;
-				
-		}
-				
-				
+		}				
+	}
+	else
+	{
+		flag = 1;
 	}
 }

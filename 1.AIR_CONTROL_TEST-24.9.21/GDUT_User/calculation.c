@@ -50,17 +50,14 @@ void Axis_analyse_for_WORLDtoROBOT(void)
 float KEEP_YAW=0;
 void World_Control(void)        //始终以世界坐标下的Y方向为正Y
 {
+	static float KEEP_YAW=0;
+	
 	Robot_Chassis.World_V[x]=-(ROCK_L_X-1500)*0.003f;
 	Robot_Chassis.World_V[y]=(ROCK_L_Y-1500)*0.003f;
 
 	if(ROCK_R_X==1500)
 	{
-		 if(ROCK_L_X==1500 && ROCK_L_Y == 1500){
- 			Robot_Chassis.World_V[w]= 0;
-		 }
-		 else{
-			//YawAdjust(KEEP_YAW);
-		 }
+		YawAdjust(KEEP_YAW);
 	}
 	else 
 	{
@@ -70,6 +67,7 @@ void World_Control(void)        //始终以世界坐标下的Y方向为正Y
 	
 	
 }
+
 
 /*
 9.21
@@ -102,6 +100,7 @@ void Contor_FSM(void)
 {
 	if(SWD==2000)   //拨杆D是开关
 	{
+		Action_Reset();
 		switch(SWB)  //拨杆B是模式控制
 		{
 			case 1000:

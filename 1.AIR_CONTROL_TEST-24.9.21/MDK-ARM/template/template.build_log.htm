@@ -27,38 +27,16 @@ Project File Date:  09/22/2024
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Keil5\ARM\ARMCC\Bin'
 Build target 'template'
-compiling calculation.c...
+compiling freertos.c...
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
   #define __FPU_PRESENT             1U       /*!< FPU present                                   */
 ../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
         #define __FPU_USED       1U
-..\GDUT_User\calculation.c(18): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	MOTOR_REAL_INFO[0].TARGET_RPM = 19*((0 + Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);
-..\GDUT_User\calculation.c(19): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	MOTOR_REAL_INFO[1].TARGET_RPM = 19*((-(number/2) * Robot_Chassis.Robot_V[y] - (0.5) * Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);
-..\GDUT_User\calculation.c(19): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	MOTOR_REAL_INFO[1].TARGET_RPM = 19*((-(number/2) * Robot_Chassis.Robot_V[y] - (0.5) * Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);
-..\GDUT_User\calculation.c(20): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	MOTOR_REAL_INFO[2].TARGET_RPM = 19*(((number/2) * Robot_Chassis.Robot_V[y] - (0.5) * Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);
-..\GDUT_User\calculation.c(20): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	MOTOR_REAL_INFO[2].TARGET_RPM = 19*(((number/2) * Robot_Chassis.Robot_V[y] - (0.5) * Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);
-..\GDUT_User\calculation.c(37): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	Robot_Chassis.Robot_V[x]= cos(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[x]) + sin(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[y]);
-..\GDUT_User\calculation.c(37): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	Robot_Chassis.Robot_V[x]= cos(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[x]) + sin(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[y]);
-..\GDUT_User\calculation.c(39): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	Robot_Chassis.Robot_V[y]= -sin(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[x]) + cos(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180)*(Robot_Chassis.World_V[y]);
-..\GDUT_User\calculation.c(39): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	Robot_Chassis.Robot_V[y]= -sin(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[x]) + cos(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180)*(Robot_Chassis.World_V[y]);
-..\GDUT_User\calculation.c(53): warning:  #550-D: variable "KEEP_YAW"  was set but never used
-  	static float KEEP_YAW=0;
-..\GDUT_User\calculation.c(132): warning:  #1-D: last line of file ends without a newline
-  }
-..\GDUT_User\calculation.c: 13 warnings, 0 errors
+../Core/Src/freertos.c: 2 warnings, 0 errors
 linking...
 Program Size: Code=25476 RO-data=944 RW-data=268 ZI-data=22332  
 FromELF: creating hex file...
-"template\template.axf" - 0 Error(s), 13 Warning(s).
+"template\template.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -81,7 +59,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE@6.1.0
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

@@ -178,7 +178,7 @@
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>MOTOR_REAL_INFO</ItemText>
+          <ItemText>MOTOR_REAL_INFO,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>3</count>

@@ -69,10 +69,11 @@ private:
 
 public:
     LADRC_Control();
+    LADRC_Control(float LADRC_r,float LADRC_h,float LADRC_w0,float LADRC_wc,float LADRC_b0);
     ~LADRC_Control();
 
     //成员函数
-    void LADRC_DeInit(float v1,float v2,float r,float h,float w0,float wc,float b0);//重定义参数
+    void LADRC_DeInit(float LADRC_v1,float LADRC_v2,float LADRC_r,float LADRC_h,float LADRC_wc,float LADRC_b0);//重定义参数
     void LADRC_TD(float Expect);//LADRC跟踪微分部分，期望值Expect(v0)
     void LADRC_ESO(float FeedBack);//LADRC线性状态观测器
     void LADRC_LF();//线性控制率

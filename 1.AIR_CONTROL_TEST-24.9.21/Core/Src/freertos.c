@@ -230,7 +230,7 @@ void motor_control(void *argument)
   {
 		
 	MotorCtrl();//所有的电机的控制
-    osDelay(1);
+  osDelay(1);
   }
   /* USER CODE END motor_control */
 }

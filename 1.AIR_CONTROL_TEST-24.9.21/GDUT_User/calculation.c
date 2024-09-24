@@ -98,10 +98,13 @@ void Robot_Control(void)    //始终以机头方向为正Y
 	
 	
 }
+
 void AUTO_Control(void)
 {
 	//自动路径规划，避障，敬请期待
 }
+
+//遥感状态机
 void Contor_FSM(void)
 {
 	static int flag = 1;

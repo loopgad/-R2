@@ -1,7 +1,7 @@
 #include "PID.h"
 #include "math.h"
 //初始化PID参数
-//位置式有积分限幅，增量式没有先父
+//位置式有积分限幅，增量式没有限幅
 
 void PID_parameter_init(PID *pp, float Kp, float Ki, float Kd, float outputmax, float Integralmax, float deadzone)  
 {  

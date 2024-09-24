@@ -5,22 +5,46 @@
 #include "LADRC_Control.h"
 
 LADRC_Control::LADRC_Control(){
-    float v1 = 0,v2 = 0;         //最速输出值
-    float r = 0.01;             //速度因子
-    float h = 0.1;             //积分步长
-    float z1 = 0,z2 = 0,z3 = 0;      //观测器输出
-    float w0 = 400,wc = 100,b0 = 0,u = 0;    //观测器带宽 控制器带宽 系统参数 控制器输出
+    v1 = 0;
+    v2 = 0;         //最速输出值
+    r = 0.01;             //速度因子
+    h = 0.1;             //积分步长
+    z1 = 0;
+    z2 = 0;
+    z3 = 0;      //观测器输出
+    w0 = 400;   //观测器带宽
+    wc = 100;   //控制器带宽
+    b0 = 0;     //系统参数
+    u = 0;      //控制器输出 
 }
 
-void LADRC_Control::LADRC_DeInit(float v1,float v2,float r,float h,float w0,float wc,float b0)
+LADRC_Control::LADRC_Control(float LADRC_r,float LADRC_h,float LADRC_w0,float LADRC_wc,float LADRC_b0){
+    v1 = 0;
+    v2 = 0;
+    LADRC_Control::r = LADRC_r;
+    LADRC_Control::h = LADRC_h;
+    LADRC_Control::wc = LADRC_wc;
+    LADRC_Control::w0 = LADRC_wc * 4;
+    LADRC_Control::b0 = LADRC_b0;
+    z1 = 0;
+    z2 = 0;
+    z3 = 0;
+    u = 0;      //控制器输出 
+}
+
+LADRC_Control::~LADRC_Control(){
+    u = 0;
+}
+
+void LADRC_Control::LADRC_DeInit(float LADRC_v1,float LADRC_v2,float LADRC_r,float LADRC_h,float LADRC_wc,float LADRC_b0)
 {
-    LADRC_Control::v1 = v1;
-    LADRC_Control::v2 = v2;
-    LADRC_Control::r = r;
-    LADRC_Control::h = h;
-    LADRC_Control::wc = wc;
-    LADRC_Control::w0 = wc * 4;
-    LADRC_Control::b0 = b0;
+    LADRC_Control::v1 = LADRC_v1;
+    LADRC_Control::v2 = LADRC_v2;
+    LADRC_Control::r = LADRC_r;
+    LADRC_Control::h = LADRC_h;
+    LADRC_Control::wc = LADRC_wc;
+    LADRC_Control::w0 = LADRC_wc * 4;
+    LADRC_Control::b0 = LADRC_b0;
     z1 = 0;
     z2 = 0;
     z3 = 0;
@@ -54,7 +78,6 @@ void LADRC_Control::LADRC_LF()
        *@Brief  按自抗扰入门书上kd = 2wc
        *@Before Kd=3*wc;
        *@Now    Kd=2*wc;
-       *@WangShun  2022-04-27  注释
        */
     float e1=v1-z1;
     float e2=v2-z2;

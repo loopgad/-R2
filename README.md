@@ -10,3 +10,8 @@ store the history code for R2
 
   修正了角度计算的逻辑错误与机器人坐标系解算的问题
   注：action归零命令为 *ACT0*
+
+
+## v0.12
+
+  尝试了自带的角度纠正pid，效果一般

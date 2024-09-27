@@ -3344,43 +3344,43 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1072        146          0         12          0       3293   calculation.o
-       692         62          0         20        104       4239   can.o
-       326         22          0          4       1720      65547   cmsis_os2.o
-         0          0          0          0          0      19556   event_groups.o
-       176         40        204         20          0       3804   freertos.o
-       452         26          0          0          0       1247   gpio.o
-       996         98          0         42        196       6839   hareware.o
-       472         24          0         32      15360       4991   heap_4.o
-       138          0          0          0          0       3674   list.o
-       372         52          0          0          0      13720   main.o
-         0          0          0          0          0     701956   mit.o
-      2250        166          0         24       2072      12214   moto.o
-       650         20          0          0          0       3950   pid.o
-       786         82          0         12          0      11769   port.o
-      1514         20          0          0         64      17740   queue.o
-        36          8        392          0       1024        856   startup_stm32f407xx.o
-        80         14          0         12          0       8210   stm32f4xx_hal.o
-      1658          6          0          0          0      14751   stm32f4xx_hal_can.o
-       158         14          0          0          0      33138   stm32f4xx_hal_cortex.o
-       182          0          0          0          0       2163   stm32f4xx_hal_dma.o
-       530         52          0          0          0       2907   stm32f4xx_hal_gpio.o
-        56          4          0          0          0        910   stm32f4xx_hal_msp.o
-      1408         82          0          0          0       6053   stm32f4xx_hal_rcc.o
-      1072         74          0          0          0      10641   stm32f4xx_hal_tim.o
-       148         28          0          0          0       2577   stm32f4xx_hal_tim_ex.o
-       152         20          0          0         72       1547   stm32f4xx_hal_timebase_tim.o
-      1642         16          0          0          0      11732   stm32f4xx_hal_uart.o
-       208         72          0          0          0       9870   stm32f4xx_it.o
+      1072        146          0         12          0       3269   calculation.o
+       692         62          0         20        104       4187   can.o
+       326         22          0          4       1720      65451   cmsis_os2.o
+         0          0          0          0          0      19528   event_groups.o
+       176         40        204         20          0       3768   freertos.o
+       452         26          0          0          0       1239   gpio.o
+       996         98          0         42        196       6803   hareware.o
+       472         24          0         32      15360       4963   heap_4.o
+       138          0          0          0          0       3642   list.o
+       372         52          0          0          0      13672   main.o
+         0          0          0          0          0     701888   mit.o
+      2250        166          0         24       2072      12150   moto.o
+       650         20          0          0          0       3926   pid.o
+       786         82          0         12          0      11705   port.o
+      1514         20          0          0         64      17668   queue.o
+        36          8        392          0       1024        852   startup_stm32f407xx.o
+        80         14          0         12          0       8186   stm32f4xx_hal.o
+      1658          6          0          0          0      14655   stm32f4xx_hal_can.o
+       158         14          0          0          0      33110   stm32f4xx_hal_cortex.o
+       182          0          0          0          0       2147   stm32f4xx_hal_dma.o
+       530         52          0          0          0       2883   stm32f4xx_hal_gpio.o
+        56          4          0          0          0        902   stm32f4xx_hal_msp.o
+      1408         82          0          0          0       6013   stm32f4xx_hal_rcc.o
+      1072         74          0          0          0      10557   stm32f4xx_hal_tim.o
+       148         28          0          0          0       2553   stm32f4xx_hal_tim_ex.o
+       152         20          0          0         72       1531   stm32f4xx_hal_timebase_tim.o
+      1642         16          0          0          0      11672   stm32f4xx_hal_uart.o
+       208         72          0          0          0       9770   stm32f4xx_it.o
          0          0          0          0          0        384   stream_buffer.o
         16          4         24          4          0       4163   system_stm32f4xx.o
-      2224        176          0         60       1220      28642   tasks.o
-       160         12          0          0         72       1782   tim.o
-       972         80          0         20        280      32503   timers.o
-       316         38          0          1        144       2599   usart.o
+      2224        176          0         60       1220      28514   tasks.o
+       160         12          0          0         72       1766   tim.o
+       972         80          0         20        280      32419   timers.o
+       316         38          0          1        144       2567   usart.o
 
     ----------------------------------------------------------------------
-     20956       1458        656        264      22332    1049967   Object Totals
+     20956       1458        656        264      22332    1048503   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         42          0          4          1          4          0   (incl. Padding)
 
@@ -3451,8 +3451,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     25476       1748        944        268      22332    1032667   Grand Totals
-     25476       1748        944        268      22332    1032667   ELF Image Totals
+     25476       1748        944        268      22332    1031203   Grand Totals
+     25476       1748        944        268      22332    1031203   ELF Image Totals
      25476       1748        944        268          0          0   ROM Totals
 
 ==============================================================================

@@ -3,63 +3,295 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: μVision V5.40.0.0
-Copyright (C) 2024 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: lee hm, null, LIC=8VRJ7-EM9KL-56QQ2-9F0U5-UXXRY-XTUVW
+IDE-Version: μVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: li huanming, GDUT, LIC=TIVNB-2JNE3-X7DRZ-J5PI5-S04QY-3NNVZ
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.40.0.3
-Toolchain Path:  D:\Keil5\ARM\ARMCC\Bin
+Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
+Toolchain Path:  D:\Keil\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 7 (build 960)
 Assembler:       Armasm.exe V5.06 update 7 (build 960)
 Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
 Library Manager: ArmAr.exe V5.06 update 7 (build 960)
 Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
-CPU DLL:         SARMCM3.DLL V5.40.0.3
-Dialog DLL:      DCM.DLL V1.17.5.0
-Target DLL:      CMSIS_AGDI.dll V1.33.18.0
-Dialog DLL:      TCM.DLL V1.56.4.0
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      CMSIS_AGDI.dll V1.33.0.0
+Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
-C:\Users\32806\Desktop\九期R2\1.AIR_CONTROL_TEST-24.9.21\MDK-ARM\template.uvprojx
-Project File Date:  09/22/2024
+D:\STM32CubeMx_Projest\-R2\1.AIR_CONTROL_TEST-24.9.21\MDK-ARM\template.uvprojx
+Project File Date:  09/24/2024
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Keil5\ARM\ARMCC\Bin'
-Build target 'template'
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Keil\ARM\ARMCC\Bin'
+Rebuild target 'template'
+assembling startup_stm32f407xx.s...
+compiling PID.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+..\GDUT_User\PID.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_can.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_msp.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Core/Src/stm32f4xx_hal_msp.c: 2 warnings, 0 errors
+compiling stm32f4xx_it.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Core/Src/stm32f4xx_it.c: 2 warnings, 0 errors
+compiling HareWare.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+..\GDUT_User\HareWare.c(230): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	ROBOT_REAL_POS_DATA.POS_X = (ACTION_GL_POS_DATA.REAL_X - 128.901f*sin(ROBOT_REAL_POS_DATA.POS_YAW * PI / 180+0.30688)) * 0.001;
+..\GDUT_User\HareWare.c(231): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	ROBOT_REAL_POS_DATA.POS_Y = (ACTION_GL_POS_DATA.REAL_Y - 128.901f*cos(ROBOT_REAL_POS_DATA.POS_YAW * PI / 180+0.30688)) * 0.001;	 
+..\GDUT_User\HareWare.c: 4 warnings, 0 errors
+compiling tim.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Core/Src/tim.c: 2 warnings, 0 errors
+compiling can.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Core/Src/can.c: 2 warnings, 0 errors
+compiling calculation.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+..\GDUT_User\calculation.c(18): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	MOTOR_REAL_INFO[0].TARGET_RPM = 19*((0 + Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);
+..\GDUT_User\calculation.c(19): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	MOTOR_REAL_INFO[1].TARGET_RPM = 19*((-(number/2) * Robot_Chassis.Robot_V[y] - (0.5) * Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);
+..\GDUT_User\calculation.c(19): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	MOTOR_REAL_INFO[1].TARGET_RPM = 19*((-(number/2) * Robot_Chassis.Robot_V[y] - (0.5) * Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);
+..\GDUT_User\calculation.c(20): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	MOTOR_REAL_INFO[2].TARGET_RPM = 19*(((number/2) * Robot_Chassis.Robot_V[y] - (0.5) * Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);
+..\GDUT_User\calculation.c(20): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	MOTOR_REAL_INFO[2].TARGET_RPM = 19*(((number/2) * Robot_Chassis.Robot_V[y] - (0.5) * Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);
+..\GDUT_User\calculation.c(37): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	Robot_Chassis.Robot_V[x]= cos(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[x]) + sin(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[y]);
+..\GDUT_User\calculation.c(37): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	Robot_Chassis.Robot_V[x]= cos(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[x]) + sin(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[y]);
+..\GDUT_User\calculation.c(39): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	Robot_Chassis.Robot_V[y]= -sin(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[x]) + cos(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180)*(Robot_Chassis.World_V[y]);
+..\GDUT_User\calculation.c(39): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	Robot_Chassis.Robot_V[y]= -sin(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180) * (Robot_Chassis.World_V[x]) + cos(-ACTION_GL_POS_DATA.REAL_YAW* PI / 180)*(Robot_Chassis.World_V[y]);
+..\GDUT_User\calculation.c(53): warning:  #550-D: variable "KEEP_YAW"  was set but never used
+  	static float KEEP_YAW=0;
+..\GDUT_User\calculation.c(132): warning:  #1-D: last line of file ends without a newline
+  }
+..\GDUT_User\calculation.c: 13 warnings, 0 errors
+compiling stm32f4xx_hal_timebase_tim.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Core/Src/stm32f4xx_hal_timebase_tim.c: 2 warnings, 0 errors
+compiling main.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Core/Src/main.c: 2 warnings, 0 errors
+compiling moto.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+..\GDUT_User\moto.c(266): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	 if(ABS(YawAdjust_error)<0.5)
+..\GDUT_User\moto.c(355): warning:  #550-D: variable "signvel"  was set but never used
+  	int signvel=1.0f;
+..\GDUT_User\moto.c(356): warning:  #177-D: variable "output"  was declared but never referenced
+  	float output;
+..\GDUT_User\moto.c(434): warning:  #550-D: parameter "next_flag"  was set but never used
+  float position_control_an_delay(PID *pp_po,PID *pp_rpm,MOTO_REAL_INFO *info,float v_xian,float tar_position,float current_key,int dalay_time,int next_flag,int first_flag)
+..\GDUT_User\moto.c(530): warning:  #177-D: variable "cnt"  was declared but never referenced
+  	static int cnt;//记时用
+..\GDUT_User\moto.c: 7 warnings, 0 errors
+compiling gpio.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Core/Src/gpio.c: 2 warnings, 0 errors
+compiling usart.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Core/Src/usart.c: 2 warnings, 0 errors
+compiling MIT.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+..\GDUT_User\MIT.c: 2 warnings, 0 errors
 compiling freertos.c...
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
   #define __FPU_PRESENT             1U       /*!< FPU present                                   */
 ../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
         #define __FPU_USED       1U
 ../Core/Src/freertos.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_rcc.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_rcc_ex.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_flash.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c: 2 warnings, 0 errors
+compiling croutine.c...
+compiling stm32f4xx_hal_flash_ex.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_flash_ramfunc.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c: 2 warnings, 0 errors
+compiling event_groups.c...
+compiling list.c...
+compiling stream_buffer.c...
+compiling queue.c...
+compiling tasks.c...
+compiling timers.c...
+compiling stm32f4xx_hal_gpio.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c: 2 warnings, 0 errors
+compiling heap_4.c...
+compiling port.c...
+compiling stm32f4xx_hal_dma_ex.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_pwr.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_dma.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_pwr_ex.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_cortex.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_exti.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_uart.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_tim_ex.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c: 2 warnings, 0 errors
+compiling stm32f4xx_hal_tim.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c: 2 warnings, 0 errors
+compiling cmsis_os2.c...
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c: 2 warnings, 0 errors
 linking...
 Program Size: Code=25476 RO-data=944 RW-data=268 ZI-data=22332  
 FromELF: creating hex file...
-"template\template.axf" - 0 Error(s), 2 Warning(s).
+"template\template.axf" - 0 Error(s), 82 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
                 https://www.keil.com/pack/ARM.CMSIS.6.1.0.pack
-                ARM::CMSIS@6.1.0
+                ARM.CMSIS.6.1.0
                 CMSIS (Common Microcontroller Software Interface Standard)
    * Component: CORE Version: 6.1.0
 
 Package Vendor: Keil
                 https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.1.pack
-                Keil::STM32F4xx_DFP@2.17.1
+                Keil.STM32F4xx_DFP.2.17.1
                 STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
-  ./RTE/_template
-  D:/Keil5/ARM/PACK/ARM/CMSIS/6.1.0/CMSIS/Core/Include
-  D:/Keil5/ARM/PACK/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+  .\RTE\_template
+  D:\Keil\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include
+  D:\Keil\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE@6.1.0
-Build Time Elapsed:  00:00:02
+   * Component: ARM::CMSIS:CORE:6.1.0
+Build Time Elapsed:  00:00:16
 </pre>
 </body>
 </html>

@@ -3,11 +3,11 @@
 <title>Static Call Graph - [IIT6_Template\IIT6_Template.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image IIT6_Template\IIT6_Template.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Fri Sep 27 18:22:42 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Fri Sep 27 22:21:27 2024
 <BR><P>
-<H3>Maximum Stack Usage =        528 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        536 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; MX_SPI6_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
+__rt_entry_main &rArr; main &rArr; MX_SPI6_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 <P>
 <H3>
 Functions with no stack information
@@ -200,19 +200,21 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 </UL>
 
-<P><STRONG><a name="[9d]"></a>__scatterload_rt2</STRONG> (Thumb, 44 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[9d]"></a>__scatterload_rt2</STRONG> (Thumb, 84 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 </UL>
 
-<P><STRONG><a name="[14d]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[14c]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
-<P><STRONG><a name="[14e]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[14d]"></a>__scatterload_loop</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
 <P><STRONG><a name="[9e]"></a>__scatterload_copy</STRONG> (Thumb, 26 bytes, Stack size unknown bytes, __scatter_copy.o(!!handler_copy), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
 </UL>
+
+<P><STRONG><a name="[14e]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, __scatter.o(!!handler_null), UNUSED)
 
 <P><STRONG><a name="[14f]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
 
@@ -224,70 +226,72 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_init
 </UL>
 
-<P><STRONG><a name="[150]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
+<P><STRONG><a name="[150]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
 
-<P><STRONG><a name="[151]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
+<P><STRONG><a name="[151]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
 
-<P><STRONG><a name="[152]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
+<P><STRONG><a name="[152]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
 
-<P><STRONG><a name="[153]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
+<P><STRONG><a name="[153]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
 
-<P><STRONG><a name="[154]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
+<P><STRONG><a name="[154]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000034))
 
-<P><STRONG><a name="[155]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
+<P><STRONG><a name="[155]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
 
-<P><STRONG><a name="[156]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
+<P><STRONG><a name="[156]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
 
-<P><STRONG><a name="[157]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
+<P><STRONG><a name="[157]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
 
-<P><STRONG><a name="[158]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
+<P><STRONG><a name="[158]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
 
-<P><STRONG><a name="[159]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
+<P><STRONG><a name="[159]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
 
-<P><STRONG><a name="[15a]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
+<P><STRONG><a name="[15a]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
 
-<P><STRONG><a name="[15b]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
+<P><STRONG><a name="[15b]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
 
-<P><STRONG><a name="[15c]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
+<P><STRONG><a name="[15c]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
 
-<P><STRONG><a name="[15d]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
+<P><STRONG><a name="[15d]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
 
-<P><STRONG><a name="[15e]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
+<P><STRONG><a name="[15e]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000006))
 
-<P><STRONG><a name="[15f]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
+<P><STRONG><a name="[15f]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000010))
 
-<P><STRONG><a name="[160]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
+<P><STRONG><a name="[160]"></a>__rt_lib_init_relocate_pie_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
 
-<P><STRONG><a name="[161]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
+<P><STRONG><a name="[161]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000035))
 
-<P><STRONG><a name="[162]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
+<P><STRONG><a name="[162]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
 
-<P><STRONG><a name="[163]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
+<P><STRONG><a name="[163]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000027))
+
+<P><STRONG><a name="[164]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
 
 <P><STRONG><a name="[a9]"></a>__rt_lib_shutdown</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_ls
 </UL>
 
-<P><STRONG><a name="[164]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
+<P><STRONG><a name="[165]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
 
-<P><STRONG><a name="[165]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
+<P><STRONG><a name="[166]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
 
-<P><STRONG><a name="[166]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
+<P><STRONG><a name="[167]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
 
-<P><STRONG><a name="[167]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
+<P><STRONG><a name="[168]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
 
-<P><STRONG><a name="[168]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
+<P><STRONG><a name="[169]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
 
-<P><STRONG><a name="[169]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
+<P><STRONG><a name="[16a]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
 
-<P><STRONG><a name="[16a]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
+<P><STRONG><a name="[16b]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
 
 <P><STRONG><a name="[9c]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
 </UL>
 
-<P><STRONG><a name="[16b]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
+<P><STRONG><a name="[16c]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
 
 <P><STRONG><a name="[a1]"></a>__rt_entry_sh</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry4.o(.ARM.Collect$$rtentry$$00000004))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -300,17 +304,17 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init
 </UL>
 
-<P><STRONG><a name="[16c]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
+<P><STRONG><a name="[16d]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[a5]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 528 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; MX_SPI6_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 536 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; MX_SPI6_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 </UL>
 
-<P><STRONG><a name="[16d]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
+<P><STRONG><a name="[16e]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
 
 <P><STRONG><a name="[b2]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -320,7 +324,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_shutdown
 </UL>
 
-<P><STRONG><a name="[16e]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
+<P><STRONG><a name="[16f]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
 
 <P><STRONG><a name="[aa]"></a>__rt_exit_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
@@ -757,18 +761,18 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
 </UL>
 
-<P><STRONG><a name="[16f]"></a>_ll_udiv</STRONG> (Thumb, 240 bytes, Stack size 48 bytes, lludivv7m.o(.text), UNUSED)
+<P><STRONG><a name="[170]"></a>_ll_udiv</STRONG> (Thumb, 240 bytes, Stack size 48 bytes, lludivv7m.o(.text), UNUSED)
 
-<P><STRONG><a name="[149]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<P><STRONG><a name="[148]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 </UL>
 
 <P><STRONG><a name="[ac]"></a>__rt_memcpy</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 
-<P><STRONG><a name="[170]"></a>_memcpy_lastbytes</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_v6.o(.text), UNUSED)
+<P><STRONG><a name="[171]"></a>_memcpy_lastbytes</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_v6.o(.text), UNUSED)
 
 <P><STRONG><a name="[ae]"></a>__aeabi_memset4</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, aeabi_memset4.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = __aeabi_memset4 &rArr; _memset_w
@@ -778,15 +782,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
-<P><STRONG><a name="[171]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, aeabi_memset4.o(.text), UNUSED)
+<P><STRONG><a name="[172]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, aeabi_memset4.o(.text), UNUSED)
 
 <P><STRONG><a name="[102]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr_w.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM1_Init
+<BR><BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM1_Init
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI6_Init
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI4_Init
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI3_Init
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[cd]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr_w.o(.text))
@@ -796,7 +800,7 @@ Global Symbols
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[172]"></a>__rt_memclr_w</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr_w.o(.text), UNUSED)
+<P><STRONG><a name="[173]"></a>__rt_memclr_w</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr_w.o(.text), UNUSED)
 
 <P><STRONG><a name="[af]"></a>_memset_w</STRONG> (Thumb, 74 bytes, Stack size 4 bytes, rt_memclr_w.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = _memset_w
@@ -804,21 +808,21 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset4
 </UL>
 
-<P><STRONG><a name="[173]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[174]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[174]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[175]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[175]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[176]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
 <P><STRONG><a name="[ad]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memcpy
 </UL>
 
-<P><STRONG><a name="[176]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
+<P><STRONG><a name="[177]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[177]"></a>__rt_memcpy_w</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
+<P><STRONG><a name="[178]"></a>__rt_memcpy_w</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[178]"></a>_memcpy_lastbytes_aligned</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_w.o(.text), UNUSED)
+<P><STRONG><a name="[179]"></a>_memcpy_lastbytes_aligned</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_w.o(.text), UNUSED)
 
 <P><STRONG><a name="[a2]"></a>__user_setup_stackheap</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, sys_stackheap_outer.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -839,29 +843,29 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[179]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[17a]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[b0]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[17a]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[17b]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[ab]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
 </UL>
 
-<P><STRONG><a name="[17b]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[17c]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[17c]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[17d]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[17d]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
+<P><STRONG><a name="[17e]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
 
 <P><STRONG><a name="[b3]"></a>ADC_ConfigureBoostMode</STRONG> (Thumb, 300 bytes, Stack size 16 bytes, stm32h7xx_hal_adc.o(.text.ADC_ConfigureBoostMode))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = ADC_ConfigureBoostMode &rArr; HAL_RCCEx_GetPeriphCLKFreq &rArr; HAL_RCCEx_GetPLL3ClockFreq
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = ADC_ConfigureBoostMode &rArr; HAL_RCCEx_GetPeriphCLKFreq &rArr; HAL_RCCEx_GetPLL1ClockFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetHCLKFreq
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPeriphCLKFreq
+<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPeriphCLKFreq
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetHCLKFreq
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetREVID
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_Init
@@ -908,31 +912,31 @@ Global Symbols
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC1_Init
 </UL>
 
-<P><STRONG><a name="[f2]"></a>HAL_ADCEx_MultiModeConfigChannel</STRONG> (Thumb, 184 bytes, Stack size 24 bytes, stm32h7xx_hal_adc_ex.o(.text.HAL_ADCEx_MultiModeConfigChannel))
+<P><STRONG><a name="[f2]"></a>HAL_ADCEx_MultiModeConfigChannel</STRONG> (Thumb, 176 bytes, Stack size 24 bytes, stm32h7xx_hal_adc_ex.o(.text.HAL_ADCEx_MultiModeConfigChannel))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_ADCEx_MultiModeConfigChannel
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC1_Init
 </UL>
 
-<P><STRONG><a name="[f3]"></a>HAL_ADC_ConfigChannel</STRONG> (Thumb, 996 bytes, Stack size 24 bytes, stm32h7xx_hal_adc.o(.text.HAL_ADC_ConfigChannel))
+<P><STRONG><a name="[f3]"></a>HAL_ADC_ConfigChannel</STRONG> (Thumb, 968 bytes, Stack size 24 bytes, stm32h7xx_hal_adc.o(.text.HAL_ADC_ConfigChannel))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_ADC_ConfigChannel
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC2_Init
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC1_Init
 </UL>
 
-<P><STRONG><a name="[b7]"></a>HAL_ADC_Init</STRONG> (Thumb, 634 bytes, Stack size 24 bytes, stm32h7xx_hal_adc.o(.text.HAL_ADC_Init))
+<P><STRONG><a name="[b7]"></a>HAL_ADC_Init</STRONG> (Thumb, 598 bytes, Stack size 24 bytes, stm32h7xx_hal_adc.o(.text.HAL_ADC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = HAL_ADC_Init &rArr; HAL_ADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetREVID
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ConfigureBoostMode
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ConfigureBoostMode
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetREVID
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_MspInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC2_Init
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC1_Init
 </UL>
 
-<P><STRONG><a name="[b8]"></a>HAL_ADC_MspInit</STRONG> (Thumb, 442 bytes, Stack size 48 bytes, adc.o(.text.HAL_ADC_MspInit))
+<P><STRONG><a name="[b8]"></a>HAL_ADC_MspInit</STRONG> (Thumb, 424 bytes, Stack size 56 bytes, adc.o(.text.HAL_ADC_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = HAL_ADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -940,8 +944,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_Init
 </UL>
 
-<P><STRONG><a name="[ba]"></a>HAL_FDCAN_Init</STRONG> (Thumb, 1032 bytes, Stack size 56 bytes, stm32h7xx_hal_fdcan.o(.text.HAL_FDCAN_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = HAL_FDCAN_Init &rArr; HAL_FDCAN_MspInit &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[ba]"></a>HAL_FDCAN_Init</STRONG> (Thumb, 1020 bytes, Stack size 48 bytes, stm32h7xx_hal_fdcan.o(.text.HAL_FDCAN_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = HAL_FDCAN_Init &rArr; HAL_FDCAN_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FDCAN_MspInit
@@ -950,20 +954,20 @@ Global Symbols
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FDCAN1_Init
 </UL>
 
-<P><STRONG><a name="[bc]"></a>HAL_FDCAN_MspInit</STRONG> (Thumb, 230 bytes, Stack size 32 bytes, fdcan.o(.text.HAL_FDCAN_MspInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_FDCAN_MspInit &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[bc]"></a>HAL_FDCAN_MspInit</STRONG> (Thumb, 226 bytes, Stack size 32 bytes, fdcan.o(.text.HAL_FDCAN_MspInit))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = HAL_FDCAN_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FDCAN_Init
 </UL>
 
-<P><STRONG><a name="[b9]"></a>HAL_GPIO_Init</STRONG> (Thumb, 482 bytes, Stack size 56 bytes, stm32h7xx_hal_gpio.o(.text.HAL_GPIO_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = HAL_GPIO_Init
+<P><STRONG><a name="[b9]"></a>HAL_GPIO_Init</STRONG> (Thumb, 422 bytes, Stack size 48 bytes, stm32h7xx_hal_gpio.o(.text.HAL_GPIO_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = HAL_GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_MspPostInit
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Encoder_MspInit
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_MspPostInit
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_QSPI_MspInit
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_MspInit
@@ -983,10 +987,10 @@ Global Symbols
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCCEx_PLL2_Config
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_QSPI_Init
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FDCAN_Init
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PWREx_ConfigSupply
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_CheckIdleState
 </UL>
@@ -1005,8 +1009,8 @@ Global Symbols
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
 </UL>
 
-<P><STRONG><a name="[bd]"></a>HAL_I2C_Init</STRONG> (Thumb, 174 bytes, Stack size 8 bytes, stm32h7xx_hal_i2c.o(.text.HAL_I2C_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = HAL_I2C_Init &rArr; HAL_I2C_MspInit &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[bd]"></a>HAL_I2C_Init</STRONG> (Thumb, 176 bytes, Stack size 8 bytes, stm32h7xx_hal_i2c.o(.text.HAL_I2C_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_I2C_Init &rArr; HAL_I2C_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_MspInit
 </UL>
@@ -1016,8 +1020,8 @@ Global Symbols
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
 </UL>
 
-<P><STRONG><a name="[be]"></a>HAL_I2C_MspInit</STRONG> (Thumb, 418 bytes, Stack size 32 bytes, i2c.o(.text.HAL_I2C_MspInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_I2C_MspInit &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[be]"></a>HAL_I2C_MspInit</STRONG> (Thumb, 398 bytes, Stack size 32 bytes, i2c.o(.text.HAL_I2C_MspInit))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = HAL_I2C_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
@@ -1039,7 +1043,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c2]"></a>HAL_InitTick</STRONG> (Thumb, 164 bytes, Stack size 56 bytes, stm32h7xx_hal_timebase_tim.o(.text.HAL_InitTick))
+<P><STRONG><a name="[c2]"></a>HAL_InitTick</STRONG> (Thumb, 168 bytes, Stack size 56 bytes, stm32h7xx_hal_timebase_tim.o(.text.HAL_InitTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start_IT
@@ -1061,11 +1065,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 </UL>
 
-<P><STRONG><a name="[c5]"></a>HAL_NVIC_EnableIRQ</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, stm32h7xx_hal_cortex.o(.text.HAL_NVIC_EnableIRQ))
+<P><STRONG><a name="[c5]"></a>HAL_NVIC_EnableIRQ</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, stm32h7xx_hal_cortex.o(.text.HAL_NVIC_EnableIRQ))
 <BR><BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
-<P><STRONG><a name="[c4]"></a>HAL_NVIC_SetPriority</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, stm32h7xx_hal_cortex.o(.text.HAL_NVIC_SetPriority))
+<P><STRONG><a name="[c4]"></a>HAL_NVIC_SetPriority</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, stm32h7xx_hal_cortex.o(.text.HAL_NVIC_SetPriority))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_NVIC_SetPriority
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
@@ -1084,9 +1088,9 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[cb]"></a>HAL_QSPI_Init</STRONG> (Thumb, 254 bytes, Stack size 16 bytes, stm32h7xx_hal_qspi.o(.text.HAL_QSPI_Init))
+<P><STRONG><a name="[cb]"></a>HAL_QSPI_Init</STRONG> (Thumb, 222 bytes, Stack size 16 bytes, stm32h7xx_hal_qspi.o(.text.HAL_QSPI_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 320 + Unknown Stack Size
-<LI>Call Chain = HAL_QSPI_Init &rArr; HAL_QSPI_MspInit &rArr; HAL_GPIO_Init
+<LI>Call Chain = HAL_QSPI_Init &rArr; HAL_QSPI_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_QSPI_MspInit
@@ -1094,13 +1098,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_QUADSPI_Init
 </UL>
 
-<P><STRONG><a name="[cc]"></a>HAL_QSPI_MspInit</STRONG> (Thumb, 236 bytes, Stack size 248 bytes, quadspi.o(.text.HAL_QSPI_MspInit))
+<P><STRONG><a name="[cc]"></a>HAL_QSPI_MspInit</STRONG> (Thumb, 234 bytes, Stack size 248 bytes, quadspi.o(.text.HAL_QSPI_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 304 + Unknown Stack Size
-<LI>Call Chain = HAL_QSPI_MspInit &rArr; HAL_GPIO_Init
+<LI>Call Chain = HAL_QSPI_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_QSPI_Init
@@ -1114,39 +1118,39 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
 </UL>
 
-<P><STRONG><a name="[d2]"></a>HAL_RCCEx_GetPLL1ClockFreq</STRONG> (Thumb, 392 bytes, Stack size 8 bytes, stm32h7xx_hal_rcc_ex.o(.text.HAL_RCCEx_GetPLL1ClockFreq))
+<P><STRONG><a name="[d3]"></a>HAL_RCCEx_GetPLL1ClockFreq</STRONG> (Thumb, 380 bytes, Stack size 8 bytes, stm32h7xx_hal_rcc_ex.o(.text.HAL_RCCEx_GetPLL1ClockFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_RCCEx_GetPLL1ClockFreq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPeriphCLKFreq
 </UL>
 
-<P><STRONG><a name="[d1]"></a>HAL_RCCEx_GetPLL2ClockFreq</STRONG> (Thumb, 392 bytes, Stack size 8 bytes, stm32h7xx_hal_rcc_ex.o(.text.HAL_RCCEx_GetPLL2ClockFreq))
+<P><STRONG><a name="[d1]"></a>HAL_RCCEx_GetPLL2ClockFreq</STRONG> (Thumb, 376 bytes, Stack size 8 bytes, stm32h7xx_hal_rcc_ex.o(.text.HAL_RCCEx_GetPLL2ClockFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_RCCEx_GetPLL2ClockFreq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPeriphCLKFreq
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
 </UL>
 
-<P><STRONG><a name="[d3]"></a>HAL_RCCEx_GetPLL3ClockFreq</STRONG> (Thumb, 392 bytes, Stack size 8 bytes, stm32h7xx_hal_rcc_ex.o(.text.HAL_RCCEx_GetPLL3ClockFreq))
+<P><STRONG><a name="[d2]"></a>HAL_RCCEx_GetPLL3ClockFreq</STRONG> (Thumb, 376 bytes, Stack size 8 bytes, stm32h7xx_hal_rcc_ex.o(.text.HAL_RCCEx_GetPLL3ClockFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_RCCEx_GetPLL3ClockFreq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPeriphCLKFreq
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
 </UL>
 
-<P><STRONG><a name="[b5]"></a>HAL_RCCEx_GetPeriphCLKFreq</STRONG> (Thumb, 1276 bytes, Stack size 24 bytes, stm32h7xx_hal_rcc_ex.o(.text.HAL_RCCEx_GetPeriphCLKFreq))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = HAL_RCCEx_GetPeriphCLKFreq &rArr; HAL_RCCEx_GetPLL3ClockFreq
+<P><STRONG><a name="[b5]"></a>HAL_RCCEx_GetPeriphCLKFreq</STRONG> (Thumb, 1022 bytes, Stack size 24 bytes, stm32h7xx_hal_rcc_ex.o(.text.HAL_RCCEx_GetPeriphCLKFreq))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = HAL_RCCEx_GetPeriphCLKFreq &rArr; HAL_RCCEx_GetPLL1ClockFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPLL3ClockFreq
+<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPLL1ClockFreq
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPLL3ClockFreq
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPLL2ClockFreq
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPLL1ClockFreq
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetHCLKFreq
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK1Freq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ConfigureBoostMode
 </UL>
 
-<P><STRONG><a name="[ce]"></a>HAL_RCCEx_PeriphCLKConfig</STRONG> (Thumb, 2880 bytes, Stack size 32 bytes, stm32h7xx_hal_rcc_ex.o(.text.HAL_RCCEx_PeriphCLKConfig))
+<P><STRONG><a name="[ce]"></a>HAL_RCCEx_PeriphCLKConfig</STRONG> (Thumb, 2828 bytes, Stack size 32 bytes, stm32h7xx_hal_rcc_ex.o(.text.HAL_RCCEx_PeriphCLKConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCCEx_PLL3_Config
@@ -1159,7 +1163,7 @@ Global Symbols
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d6]"></a>HAL_RCC_ClockConfig</STRONG> (Thumb, 616 bytes, Stack size 32 bytes, stm32h7xx_hal_rcc.o(.text.HAL_RCC_ClockConfig))
+<P><STRONG><a name="[d6]"></a>HAL_RCC_ClockConfig</STRONG> (Thumb, 596 bytes, Stack size 32 bytes, stm32h7xx_hal_rcc.o(.text.HAL_RCC_ClockConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
@@ -1201,7 +1205,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
 </UL>
 
-<P><STRONG><a name="[c1]"></a>HAL_RCC_GetSysClockFreq</STRONG> (Thumb, 368 bytes, Stack size 0 bytes, stm32h7xx_hal_rcc.o(.text.HAL_RCC_GetSysClockFreq))
+<P><STRONG><a name="[c1]"></a>HAL_RCC_GetSysClockFreq</STRONG> (Thumb, 356 bytes, Stack size 0 bytes, stm32h7xx_hal_rcc.o(.text.HAL_RCC_GetSysClockFreq))
 <BR><BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK2Freq
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetHCLKFreq
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK1Freq
@@ -1209,7 +1213,7 @@ Global Symbols
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 </UL>
 
-<P><STRONG><a name="[d8]"></a>HAL_RCC_OscConfig</STRONG> (Thumb, 1376 bytes, Stack size 24 bytes, stm32h7xx_hal_rcc.o(.text.HAL_RCC_OscConfig))
+<P><STRONG><a name="[d8]"></a>HAL_RCC_OscConfig</STRONG> (Thumb, 1388 bytes, Stack size 24 bytes, stm32h7xx_hal_rcc.o(.text.HAL_RCC_OscConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_RCC_OscConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
@@ -1218,9 +1222,9 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[d9]"></a>HAL_SPI_Init</STRONG> (Thumb, 422 bytes, Stack size 32 bytes, stm32h7xx_hal_spi.o(.text.HAL_SPI_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 328 + Unknown Stack Size
-<LI>Call Chain = HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[d9]"></a>HAL_SPI_Init</STRONG> (Thumb, 444 bytes, Stack size 40 bytes, stm32h7xx_hal_spi.o(.text.HAL_SPI_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 336 + Unknown Stack Size
+<LI>Call Chain = HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
 </UL>
@@ -1230,13 +1234,13 @@ Global Symbols
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
 </UL>
 
-<P><STRONG><a name="[da]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 488 bytes, Stack size 240 bytes, spi.o(.text.HAL_SPI_MspInit))
+<P><STRONG><a name="[da]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 484 bytes, Stack size 240 bytes, spi.o(.text.HAL_SPI_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 296 + Unknown Stack Size
-<LI>Call Chain = HAL_SPI_MspInit &rArr; HAL_GPIO_Init
+<LI>Call Chain = HAL_SPI_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
@@ -1254,13 +1258,13 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_IRQHandler
 </UL>
 
-<P><STRONG><a name="[10a]"></a>HAL_TIMEx_ConfigBreakDeadTime</STRONG> (Thumb, 158 bytes, Stack size 16 bytes, stm32h7xx_hal_tim_ex.o(.text.HAL_TIMEx_ConfigBreakDeadTime))
+<P><STRONG><a name="[10a]"></a>HAL_TIMEx_ConfigBreakDeadTime</STRONG> (Thumb, 152 bytes, Stack size 16 bytes, stm32h7xx_hal_tim_ex.o(.text.HAL_TIMEx_ConfigBreakDeadTime))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_TIMEx_ConfigBreakDeadTime
 </UL>
 <BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM1_Init
 </UL>
 
-<P><STRONG><a name="[108]"></a>HAL_TIMEx_MasterConfigSynchronization</STRONG> (Thumb, 202 bytes, Stack size 16 bytes, stm32h7xx_hal_tim_ex.o(.text.HAL_TIMEx_MasterConfigSynchronization))
+<P><STRONG><a name="[108]"></a>HAL_TIMEx_MasterConfigSynchronization</STRONG> (Thumb, 206 bytes, Stack size 16 bytes, stm32h7xx_hal_tim_ex.o(.text.HAL_TIMEx_MasterConfigSynchronization))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_TIMEx_MasterConfigSynchronization
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM8_Init
@@ -1281,7 +1285,7 @@ Global Symbols
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM1_Init
 </UL>
 
-<P><STRONG><a name="[db]"></a>HAL_TIM_Base_MspInit</STRONG> (Thumb, 50 bytes, Stack size 4 bytes, tim.o(.text.HAL_TIM_Base_MspInit))
+<P><STRONG><a name="[db]"></a>HAL_TIM_Base_MspInit</STRONG> (Thumb, 46 bytes, Stack size 4 bytes, tim.o(.text.HAL_TIM_Base_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = HAL_TIM_Base_MspInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
@@ -1291,14 +1295,14 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
-<P><STRONG><a name="[107]"></a>HAL_TIM_ConfigClockSource</STRONG> (Thumb, 508 bytes, Stack size 8 bytes, stm32h7xx_hal_tim.o(.text.HAL_TIM_ConfigClockSource))
+<P><STRONG><a name="[107]"></a>HAL_TIM_ConfigClockSource</STRONG> (Thumb, 512 bytes, Stack size 8 bytes, stm32h7xx_hal_tim.o(.text.HAL_TIM_ConfigClockSource))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_TIM_ConfigClockSource
 </UL>
 <BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM1_Init
 </UL>
 
 <P><STRONG><a name="[dd]"></a>HAL_TIM_Encoder_Init</STRONG> (Thumb, 184 bytes, Stack size 32 bytes, stm32h7xx_hal_tim.o(.text.HAL_TIM_Encoder_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = HAL_TIM_Encoder_Init &rArr; HAL_TIM_Encoder_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = HAL_TIM_Encoder_Init &rArr; HAL_TIM_Encoder_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Encoder_MspInit
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Base_SetConfig
@@ -1310,7 +1314,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[de]"></a>HAL_TIM_Encoder_MspInit</STRONG> (Thumb, 350 bytes, Stack size 32 bytes, tim.o(.text.HAL_TIM_Encoder_MspInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_TIM_Encoder_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = HAL_TIM_Encoder_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
@@ -1321,23 +1325,23 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_IRQHandler
 </UL>
 
-<P><STRONG><a name="[df]"></a>HAL_TIM_IRQHandler</STRONG> (Thumb, 380 bytes, Stack size 24 bytes, stm32h7xx_hal_tim.o(.text.HAL_TIM_IRQHandler))
+<P><STRONG><a name="[df]"></a>HAL_TIM_IRQHandler</STRONG> (Thumb, 364 bytes, Stack size 24 bytes, stm32h7xx_hal_tim.o(.text.HAL_TIM_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_TIM_IRQHandler
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PeriodElapsedCallback
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_CommutCallback
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_TriggerCallback
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_PulseFinishedCallback
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_Break2Callback
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_BreakCallback
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_OC_DelayElapsedCallback
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_IC_CaptureCallback
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_CommutCallback
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_BreakCallback
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_Break2Callback
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_PulseFinishedCallback
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
 </UL>
 
 <P><STRONG><a name="[e8]"></a>HAL_TIM_MspPostInit</STRONG> (Thumb, 190 bytes, Stack size 40 bytes, tim.o(.text.HAL_TIM_MspPostInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = HAL_TIM_MspPostInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_TIM_MspPostInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
@@ -1349,7 +1353,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_IRQHandler
 </UL>
 
-<P><STRONG><a name="[109]"></a>HAL_TIM_PWM_ConfigChannel</STRONG> (Thumb, 1214 bytes, Stack size 24 bytes, stm32h7xx_hal_tim.o(.text.HAL_TIM_PWM_ConfigChannel))
+<P><STRONG><a name="[109]"></a>HAL_TIM_PWM_ConfigChannel</STRONG> (Thumb, 1202 bytes, Stack size 24 bytes, stm32h7xx_hal_tim.o(.text.HAL_TIM_PWM_ConfigChannel))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_TIM_PWM_ConfigChannel
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM2_Init
@@ -1366,7 +1370,7 @@ Global Symbols
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM1_Init
 </UL>
 
-<P><STRONG><a name="[ea]"></a>HAL_TIM_PWM_MspInit</STRONG> (Thumb, 46 bytes, Stack size 4 bytes, tim.o(.text.HAL_TIM_PWM_MspInit))
+<P><STRONG><a name="[ea]"></a>HAL_TIM_PWM_MspInit</STRONG> (Thumb, 42 bytes, Stack size 4 bytes, tim.o(.text.HAL_TIM_PWM_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = HAL_TIM_PWM_MspInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Init
@@ -1395,7 +1399,7 @@ Global Symbols
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_UART5_Init
 </UL>
 
-<P><STRONG><a name="[112]"></a>HAL_UARTEx_SetRxFifoThreshold</STRONG> (Thumb, 144 bytes, Stack size 16 bytes, stm32h7xx_hal_uart_ex.o(.text.HAL_UARTEx_SetRxFifoThreshold))
+<P><STRONG><a name="[112]"></a>HAL_UARTEx_SetRxFifoThreshold</STRONG> (Thumb, 140 bytes, Stack size 16 bytes, stm32h7xx_hal_uart_ex.o(.text.HAL_UARTEx_SetRxFifoThreshold))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_UARTEx_SetRxFifoThreshold
 </UL>
 <BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
@@ -1406,7 +1410,7 @@ Global Symbols
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_UART5_Init
 </UL>
 
-<P><STRONG><a name="[111]"></a>HAL_UARTEx_SetTxFifoThreshold</STRONG> (Thumb, 144 bytes, Stack size 16 bytes, stm32h7xx_hal_uart_ex.o(.text.HAL_UARTEx_SetTxFifoThreshold))
+<P><STRONG><a name="[111]"></a>HAL_UARTEx_SetTxFifoThreshold</STRONG> (Thumb, 140 bytes, Stack size 16 bytes, stm32h7xx_hal_uart_ex.o(.text.HAL_UARTEx_SetTxFifoThreshold))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_UARTEx_SetTxFifoThreshold
 </UL>
 <BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
@@ -1417,13 +1421,13 @@ Global Symbols
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_UART5_Init
 </UL>
 
-<P><STRONG><a name="[ec]"></a>HAL_UART_Init</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, stm32h7xx_hal_uart.o(.text.HAL_UART_Init))
+<P><STRONG><a name="[ec]"></a>HAL_UART_Init</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, stm32h7xx_hal_uart.o(.text.HAL_UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 304 + Unknown Stack Size
-<LI>Call Chain = HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
+<LI>Call Chain = HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_CheckIdleState
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_AdvFeatureConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
@@ -1434,13 +1438,13 @@ Global Symbols
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_UART5_Init
 </UL>
 
-<P><STRONG><a name="[ed]"></a>HAL_UART_MspInit</STRONG> (Thumb, 720 bytes, Stack size 240 bytes, usart.o(.text.HAL_UART_MspInit))
+<P><STRONG><a name="[ed]"></a>HAL_UART_MspInit</STRONG> (Thumb, 704 bytes, Stack size 240 bytes, usart.o(.text.HAL_UART_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 296 + Unknown Stack Size
-<LI>Call Chain = HAL_UART_MspInit &rArr; HAL_GPIO_Init
+<LI>Call Chain = HAL_UART_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
@@ -1453,29 +1457,29 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32h743xx.o(RESET)
 </UL>
-<P><STRONG><a name="[f1]"></a>MX_ADC1_Init</STRONG> (Thumb, 186 bytes, Stack size 56 bytes, adc.o(.text.MX_ADC1_Init))
+<P><STRONG><a name="[f1]"></a>MX_ADC1_Init</STRONG> (Thumb, 182 bytes, Stack size 56 bytes, adc.o(.text.MX_ADC1_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = MX_ADC1_Init &rArr; HAL_ADC_Init &rArr; HAL_ADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_Init
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConfigChannel
+<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConfigChannel
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADCEx_MultiModeConfigChannel
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f4]"></a>MX_ADC2_Init</STRONG> (Thumb, 156 bytes, Stack size 48 bytes, adc.o(.text.MX_ADC2_Init))
+<P><STRONG><a name="[f4]"></a>MX_ADC2_Init</STRONG> (Thumb, 152 bytes, Stack size 48 bytes, adc.o(.text.MX_ADC2_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = MX_ADC2_Init &rArr; HAL_ADC_Init &rArr; HAL_ADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_Init
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConfigChannel
+<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConfigChannel
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[f5]"></a>MX_FDCAN1_Init</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, fdcan.o(.text.MX_FDCAN1_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = MX_FDCAN1_Init &rArr; HAL_FDCAN_Init &rArr; HAL_FDCAN_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = MX_FDCAN1_Init &rArr; HAL_FDCAN_Init &rArr; HAL_FDCAN_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FDCAN_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
@@ -1484,7 +1488,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[f6]"></a>MX_FDCAN2_Init</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, fdcan.o(.text.MX_FDCAN2_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = MX_FDCAN2_Init &rArr; HAL_FDCAN_Init &rArr; HAL_FDCAN_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = MX_FDCAN2_Init &rArr; HAL_FDCAN_Init &rArr; HAL_FDCAN_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_FDCAN_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
@@ -1493,15 +1497,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[f7]"></a>MX_FREERTOS_Init</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, freertos.o(.text.MX_FREERTOS_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = MX_FREERTOS_Init &rArr; osThreadNew &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = MX_FREERTOS_Init &rArr; osThreadNew &rArr; xTaskCreate &rArr; vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadNew
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f9]"></a>MX_GPIO_Init</STRONG> (Thumb, 192 bytes, Stack size 32 bytes, gpio.o(.text.MX_GPIO_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[f9]"></a>MX_GPIO_Init</STRONG> (Thumb, 202 bytes, Stack size 32 bytes, gpio.o(.text.MX_GPIO_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
@@ -1509,44 +1513,44 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[fa]"></a>MX_I2C1_Init</STRONG> (Thumb, 106 bytes, Stack size 8 bytes, i2c.o(.text.MX_I2C1_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = MX_I2C1_Init &rArr; HAL_I2C_Init &rArr; HAL_I2C_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MX_I2C1_Init &rArr; HAL_I2C_Init &rArr; HAL_I2C_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2CEx_ConfigDigitalFilter
+<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2CEx_ConfigDigitalFilter
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2CEx_ConfigAnalogFilter
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[fd]"></a>MX_I2C2_Init</STRONG> (Thumb, 106 bytes, Stack size 8 bytes, i2c.o(.text.MX_I2C2_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = MX_I2C2_Init &rArr; HAL_I2C_Init &rArr; HAL_I2C_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MX_I2C2_Init &rArr; HAL_I2C_Init &rArr; HAL_I2C_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2CEx_ConfigDigitalFilter
+<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2CEx_ConfigDigitalFilter
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2CEx_ConfigAnalogFilter
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[fe]"></a>MX_I2C3_Init</STRONG> (Thumb, 106 bytes, Stack size 8 bytes, i2c.o(.text.MX_I2C3_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = MX_I2C3_Init &rArr; HAL_I2C_Init &rArr; HAL_I2C_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MX_I2C3_Init &rArr; HAL_I2C_Init &rArr; HAL_I2C_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2CEx_ConfigDigitalFilter
+<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2CEx_ConfigDigitalFilter
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2CEx_ConfigAnalogFilter
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[ff]"></a>MX_I2C4_Init</STRONG> (Thumb, 106 bytes, Stack size 8 bytes, i2c.o(.text.MX_I2C4_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = MX_I2C4_Init &rArr; HAL_I2C_Init &rArr; HAL_I2C_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MX_I2C4_Init &rArr; HAL_I2C_Init &rArr; HAL_I2C_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2CEx_ConfigDigitalFilter
+<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2CEx_ConfigDigitalFilter
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2CEx_ConfigAnalogFilter
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1554,7 +1558,7 @@ Global Symbols
 
 <P><STRONG><a name="[100]"></a>MX_QUADSPI_Init</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, quadspi.o(.text.MX_QUADSPI_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 328 + Unknown Stack Size
-<LI>Call Chain = MX_QUADSPI_Init &rArr; HAL_QSPI_Init &rArr; HAL_QSPI_MspInit &rArr; HAL_GPIO_Init
+<LI>Call Chain = MX_QUADSPI_Init &rArr; HAL_QSPI_Init &rArr; HAL_QSPI_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_QSPI_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
@@ -1563,8 +1567,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[101]"></a>MX_SPI1_Init</STRONG> (Thumb, 98 bytes, Stack size 8 bytes, spi.o(.text.MX_SPI1_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 336 + Unknown Stack Size
-<LI>Call Chain = MX_SPI1_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
+<LI>Call Chain = MX_SPI1_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
@@ -1574,8 +1578,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[103]"></a>MX_SPI3_Init</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, spi.o(.text.MX_SPI3_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 336 + Unknown Stack Size
-<LI>Call Chain = MX_SPI3_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
+<LI>Call Chain = MX_SPI3_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
@@ -1585,8 +1589,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[104]"></a>MX_SPI4_Init</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, spi.o(.text.MX_SPI4_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 336 + Unknown Stack Size
-<LI>Call Chain = MX_SPI4_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
+<LI>Call Chain = MX_SPI4_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
@@ -1596,8 +1600,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[105]"></a>MX_SPI6_Init</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, spi.o(.text.MX_SPI6_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 336 + Unknown Stack Size
-<LI>Call Chain = MX_SPI6_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
+<LI>Call Chain = MX_SPI6_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
@@ -1607,36 +1611,36 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[106]"></a>MX_TIM1_Init</STRONG> (Thumb, 326 bytes, Stack size 112 bytes, tim.o(.text.MX_TIM1_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 200 + Unknown Stack Size
 <LI>Call Chain = MX_TIM1_Init &rArr; HAL_TIM_MspPostInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Init
+<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_MspPostInit
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_ConfigBreakDeadTime
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_ConfigChannel
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_MspPostInit
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Init
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_ConfigClockSource
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_ConfigBreakDeadTime
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[10b]"></a>MX_TIM2_Init</STRONG> (Thumb, 200 bytes, Stack size 48 bytes, tim.o(.text.MX_TIM2_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = MX_TIM2_Init &rArr; HAL_TIM_MspPostInit &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[10b]"></a>MX_TIM2_Init</STRONG> (Thumb, 194 bytes, Stack size 48 bytes, tim.o(.text.MX_TIM2_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = MX_TIM2_Init &rArr; HAL_TIM_MspPostInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Init
+<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_MspPostInit
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_ConfigChannel
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_MspPostInit
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[10c]"></a>MX_TIM3_Init</STRONG> (Thumb, 104 bytes, Stack size 56 bytes, tim.o(.text.MX_TIM3_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = MX_TIM3_Init &rArr; HAL_TIM_Encoder_Init &rArr; HAL_TIM_Encoder_MspInit &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[10c]"></a>MX_TIM3_Init</STRONG> (Thumb, 100 bytes, Stack size 56 bytes, tim.o(.text.MX_TIM3_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = MX_TIM3_Init &rArr; HAL_TIM_Encoder_Init &rArr; HAL_TIM_Encoder_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Encoder_Init
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
@@ -1645,8 +1649,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[10d]"></a>MX_TIM4_Init</STRONG> (Thumb, 104 bytes, Stack size 56 bytes, tim.o(.text.MX_TIM4_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = MX_TIM4_Init &rArr; HAL_TIM_Encoder_Init &rArr; HAL_TIM_Encoder_MspInit &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[10d]"></a>MX_TIM4_Init</STRONG> (Thumb, 100 bytes, Stack size 56 bytes, tim.o(.text.MX_TIM4_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = MX_TIM4_Init &rArr; HAL_TIM_Encoder_Init &rArr; HAL_TIM_Encoder_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Encoder_Init
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
@@ -1655,8 +1659,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[10e]"></a>MX_TIM5_Init</STRONG> (Thumb, 104 bytes, Stack size 56 bytes, tim.o(.text.MX_TIM5_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = MX_TIM5_Init &rArr; HAL_TIM_Encoder_Init &rArr; HAL_TIM_Encoder_MspInit &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[10e]"></a>MX_TIM5_Init</STRONG> (Thumb, 100 bytes, Stack size 56 bytes, tim.o(.text.MX_TIM5_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = MX_TIM5_Init &rArr; HAL_TIM_Encoder_Init &rArr; HAL_TIM_Encoder_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Encoder_Init
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
@@ -1666,7 +1670,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[10f]"></a>MX_TIM8_Init</STRONG> (Thumb, 108 bytes, Stack size 56 bytes, tim.o(.text.MX_TIM8_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = MX_TIM8_Init &rArr; HAL_TIM_Encoder_Init &rArr; HAL_TIM_Encoder_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = MX_TIM8_Init &rArr; HAL_TIM_Encoder_Init &rArr; HAL_TIM_Encoder_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Encoder_Init
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
@@ -1677,12 +1681,12 @@ Global Symbols
 
 <P><STRONG><a name="[110]"></a>MX_UART5_Init</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, usart.o(.text.MX_UART5_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312 + Unknown Stack Size
-<LI>Call Chain = MX_UART5_Init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
+<LI>Call Chain = MX_UART5_Init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetTxFifoThreshold
+<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_DisableFifoMode
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetRxFifoThreshold
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_DisableFifoMode
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetTxFifoThreshold
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1690,12 +1694,12 @@ Global Symbols
 
 <P><STRONG><a name="[114]"></a>MX_UART7_Init</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, usart.o(.text.MX_UART7_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312 + Unknown Stack Size
-<LI>Call Chain = MX_UART7_Init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
+<LI>Call Chain = MX_UART7_Init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetTxFifoThreshold
+<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_DisableFifoMode
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetRxFifoThreshold
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_DisableFifoMode
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetTxFifoThreshold
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1703,12 +1707,12 @@ Global Symbols
 
 <P><STRONG><a name="[115]"></a>MX_UART8_Init</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, usart.o(.text.MX_UART8_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312 + Unknown Stack Size
-<LI>Call Chain = MX_UART8_Init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
+<LI>Call Chain = MX_UART8_Init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetTxFifoThreshold
+<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_DisableFifoMode
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetRxFifoThreshold
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_DisableFifoMode
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetTxFifoThreshold
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1716,12 +1720,12 @@ Global Symbols
 
 <P><STRONG><a name="[116]"></a>MX_USART1_UART_Init</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, usart.o(.text.MX_USART1_UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312 + Unknown Stack Size
-<LI>Call Chain = MX_USART1_UART_Init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
+<LI>Call Chain = MX_USART1_UART_Init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetTxFifoThreshold
+<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_DisableFifoMode
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetRxFifoThreshold
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_DisableFifoMode
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetTxFifoThreshold
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1729,12 +1733,12 @@ Global Symbols
 
 <P><STRONG><a name="[117]"></a>MX_USART2_UART_Init</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, usart.o(.text.MX_USART2_UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312 + Unknown Stack Size
-<LI>Call Chain = MX_USART2_UART_Init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
+<LI>Call Chain = MX_USART2_UART_Init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetTxFifoThreshold
+<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_DisableFifoMode
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetRxFifoThreshold
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_DisableFifoMode
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetTxFifoThreshold
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1742,12 +1746,12 @@ Global Symbols
 
 <P><STRONG><a name="[118]"></a>MX_USART3_UART_Init</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, usart.o(.text.MX_USART3_UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312 + Unknown Stack Size
-<LI>Call Chain = MX_USART3_UART_Init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
+<LI>Call Chain = MX_USART3_UART_Init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetTxFifoThreshold
+<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_DisableFifoMode
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetRxFifoThreshold
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_DisableFifoMode
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_SetTxFifoThreshold
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1800,12 +1804,12 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32h743xx.o(RESET)
 </UL>
-<P><STRONG><a name="[11d]"></a>SystemClock_Config</STRONG> (Thumb, 320 bytes, Stack size 128 bytes, main.o(.text.SystemClock_Config))
+<P><STRONG><a name="[11d]"></a>SystemClock_Config</STRONG> (Thumb, 316 bytes, Stack size 128 bytes, main.o(.text.SystemClock_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 232 + Unknown Stack Size
 <LI>Call Chain = SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
+<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PWREx_ConfigSupply
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
@@ -1822,11 +1826,11 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32h743xx.o(RESET)
 </UL>
-<P><STRONG><a name="[dc]"></a>TIM_Base_SetConfig</STRONG> (Thumb, 356 bytes, Stack size 8 bytes, stm32h7xx_hal_tim.o(.text.TIM_Base_SetConfig))
+<P><STRONG><a name="[dc]"></a>TIM_Base_SetConfig</STRONG> (Thumb, 344 bytes, Stack size 8 bytes, stm32h7xx_hal_tim.o(.text.TIM_Base_SetConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = TIM_Base_SetConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Init
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Encoder_Init
+<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Encoder_Init
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Init
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
 </UL>
 
@@ -1834,7 +1838,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 </UL>
 
-<P><STRONG><a name="[f0]"></a>UART_CheckIdleState</STRONG> (Thumb, 374 bytes, Stack size 24 bytes, stm32h7xx_hal_uart.o(.text.UART_CheckIdleState))
+<P><STRONG><a name="[f0]"></a>UART_CheckIdleState</STRONG> (Thumb, 366 bytes, Stack size 24 bytes, stm32h7xx_hal_uart.o(.text.UART_CheckIdleState))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = UART_CheckIdleState &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
@@ -1843,12 +1847,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 </UL>
 
-<P><STRONG><a name="[ef]"></a>UART_SetConfig</STRONG> (Thumb, 1500 bytes, Stack size 32 bytes, stm32h7xx_hal_uart.o(.text.UART_SetConfig))
+<P><STRONG><a name="[ef]"></a>UART_SetConfig</STRONG> (Thumb, 1152 bytes, Stack size 32 bytes, stm32h7xx_hal_uart.o(.text.UART_SetConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = UART_SetConfig &rArr; __aeabi_uldivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPLL3ClockFreq
+<BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetD3PCLK1Freq
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPLL3ClockFreq
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPLL2ClockFreq
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetD3PCLK1Freq
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK2Freq
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK1Freq
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
@@ -1856,7 +1860,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 </UL>
 
-<P><STRONG><a name="[11e]"></a>UART_WaitOnFlagUntilTimeout</STRONG> (Thumb, 868 bytes, Stack size 24 bytes, stm32h7xx_hal_uart.o(.text.UART_WaitOnFlagUntilTimeout))
+<P><STRONG><a name="[11e]"></a>UART_WaitOnFlagUntilTimeout</STRONG> (Thumb, 856 bytes, Stack size 24 bytes, stm32h7xx_hal_uart.o(.text.UART_WaitOnFlagUntilTimeout))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
@@ -1872,12 +1876,12 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32h743xx.o(RESET)
 </UL>
 <P><STRONG><a name="[a6]"></a>main</STRONG> (Thumb, 250 bytes, Stack size 192 bytes, main.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 528 + Unknown Stack Size
-<LI>Call Chain = main &rArr; MX_SPI6_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 536 + Unknown Stack Size
+<LI>Call Chain = main &rArr; MX_SPI6_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelInitialize
-<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USB_OTG_FS_USB_Init
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART2_UART_Init
@@ -1900,13 +1904,13 @@ Global Symbols
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C3_Init
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C2_Init
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FDCAN2_Init
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FDCAN1_Init
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC2_Init
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC1_Init
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr8
 </UL>
@@ -1925,7 +1929,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[122]"></a>osKernelStart</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, cmsis_os2.o(.text.osKernelStart))
+<P><STRONG><a name="[122]"></a>osKernelStart</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, cmsis_os2.o(.text.osKernelStart))
 <BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = osKernelStart &rArr; vTaskStartScheduler &rArr; xTimerCreateTimerTask &rArr; xTaskCreateStatic &rArr; prvInitialiseNewTask &rArr; __aeabi_memset4 &rArr; _memset_w
 </UL>
 <BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
@@ -1933,129 +1937,127 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f8]"></a>osThreadNew</STRONG> (Thumb, 156 bytes, Stack size 40 bytes, cmsis_os2.o(.text.osThreadNew))
-<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = osThreadNew &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+<P><STRONG><a name="[f8]"></a>osThreadNew</STRONG> (Thumb, 148 bytes, Stack size 40 bytes, cmsis_os2.o(.text.osThreadNew))
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = osThreadNew &rArr; xTaskCreate &rArr; vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
 </UL>
 
-<P><STRONG><a name="[13c]"></a>pvPortMalloc</STRONG> (Thumb, 544 bytes, Stack size 24 bytes, heap_4.o(.text.pvPortMalloc))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+<P><STRONG><a name="[13b]"></a>pvPortMalloc</STRONG> (Thumb, 496 bytes, Stack size 16 bytes, heap_4.o(.text.pvPortMalloc))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<BR>[Calls]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
 </UL>
-<BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 
 <P><STRONG><a name="[130]"></a>pxPortInitialiseStack</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, port.o(.text.pxPortInitialiseStack))
 <BR><BR>[Called By]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
-<P><STRONG><a name="[12d]"></a>uxListRemove</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, list.o(.text.uxListRemove))
+<P><STRONG><a name="[12d]"></a>uxListRemove</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, list.o(.text.uxListRemove))
 <BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvTimerTask
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
-<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
-<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 </UL>
 
-<P><STRONG><a name="[13f]"></a>vApplicationGetIdleTaskMemory</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, cmsis_os2.o(.text.vApplicationGetIdleTaskMemory))
+<P><STRONG><a name="[13e]"></a>vApplicationGetIdleTaskMemory</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, cmsis_os2.o(.text.vApplicationGetIdleTaskMemory))
 <BR><BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 
-<P><STRONG><a name="[14c]"></a>vApplicationGetTimerTaskMemory</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, cmsis_os2.o(.text.vApplicationGetTimerTaskMemory))
-<BR><BR>[Called By]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<P><STRONG><a name="[14b]"></a>vApplicationGetTimerTaskMemory</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, cmsis_os2.o(.text.vApplicationGetTimerTaskMemory))
+<BR><BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
 </UL>
 
 <P><STRONG><a name="[129]"></a>vListInitialise</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, list.o(.text.vListInitialise))
-<BR><BR>[Called By]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<BR><BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreateStatic
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreateStatic
 </UL>
 
 <P><STRONG><a name="[12f]"></a>vListInitialiseItem</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, list.o(.text.vListInitialiseItem))
 <BR><BR>[Called By]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
-<P><STRONG><a name="[133]"></a>vListInsert</STRONG> (Thumb, 98 bytes, Stack size 8 bytes, list.o(.text.vListInsert))
+<P><STRONG><a name="[134]"></a>vListInsert</STRONG> (Thumb, 98 bytes, Stack size 8 bytes, list.o(.text.vListInsert))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = vListInsert
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvTimerTask
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
-<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
 </UL>
 
-<P><STRONG><a name="[12a]"></a>vListInsertEnd</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, list.o(.text.vListInsertEnd))
-<BR><BR>[Called By]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<P><STRONG><a name="[12a]"></a>vListInsertEnd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, list.o(.text.vListInsertEnd))
+<BR><BR>[Called By]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
-<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
-<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 </UL>
 
 <P><STRONG><a name="[128]"></a>vPortEnterCritical</STRONG> (Thumb, 74 bytes, Stack size 0 bytes, port.o(.text.vPortEnterCritical))
-<BR><BR>[Called By]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<BR><BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreateStatic
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreateStatic
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 </UL>
 
 <P><STRONG><a name="[12b]"></a>vPortExitCritical</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, port.o(.text.vPortExitCritical))
-<BR><BR>[Called By]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<BR><BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreateStatic
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreateStatic
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 </UL>
 
 <P><STRONG><a name="[12c]"></a>vPortFree</STRONG> (Thumb, 212 bytes, Stack size 16 bytes, heap_4.o(.text.vPortFree))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<BR>[Calls]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvTimerTask
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
 </UL>
 
-<P><STRONG><a name="[142]"></a>vPortSetupTimerInterrupt</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, port.o(.text.vPortSetupTimerInterrupt))
-<BR><BR>[Called By]<UL><LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<P><STRONG><a name="[141]"></a>vPortSetupTimerInterrupt</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, port.o(.text.vPortSetupTimerInterrupt))
+<BR><BR>[Called By]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 </UL>
 
-<P><STRONG><a name="[14b]"></a>vQueueAddToRegistry</STRONG> (Thumb, 176 bytes, Stack size 0 bytes, queue.o(.text.vQueueAddToRegistry))
-<BR><BR>[Called By]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<P><STRONG><a name="[14a]"></a>vQueueAddToRegistry</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, queue.o(.text.vQueueAddToRegistry))
+<BR><BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
 </UL>
 
-<P><STRONG><a name="[137]"></a>vQueueWaitForMessageRestricted</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, queue.o(.text.vQueueWaitForMessageRestricted))
+<P><STRONG><a name="[136]"></a>vQueueWaitForMessageRestricted</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, queue.o(.text.vQueueWaitForMessageRestricted))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vQueueWaitForMessageRestricted &rArr; prvUnlockQueue &rArr; xTaskRemoveFromEventList
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<BR>[Calls]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 </UL>
@@ -2065,76 +2067,76 @@ Global Symbols
 <P><STRONG><a name="[123]"></a>vTaskDelay</STRONG> (Thumb, 128 bytes, Stack size 16 bytes, tasks.o(.text.vTaskDelay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
 </UL>
 
-<P><STRONG><a name="[147]"></a>vTaskInternalSetTimeOutState</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, tasks.o(.text.vTaskInternalSetTimeOutState))
-<BR><BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<P><STRONG><a name="[146]"></a>vTaskInternalSetTimeOutState</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, tasks.o(.text.vTaskInternalSetTimeOutState))
+<BR><BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 </UL>
 
-<P><STRONG><a name="[13b]"></a>vTaskMissedYield</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, tasks.o(.text.vTaskMissedYield))
-<BR><BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<P><STRONG><a name="[13a]"></a>vTaskMissedYield</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, tasks.o(.text.vTaskMissedYield))
+<BR><BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 </UL>
 
-<P><STRONG><a name="[13e]"></a>vTaskPlaceOnEventList</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, tasks.o(.text.vTaskPlaceOnEventList))
+<P><STRONG><a name="[13d]"></a>vTaskPlaceOnEventList</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, tasks.o(.text.vTaskPlaceOnEventList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = vTaskPlaceOnEventList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 </UL>
 
-<P><STRONG><a name="[13d]"></a>vTaskPlaceOnEventListRestricted</STRONG> (Thumb, 122 bytes, Stack size 24 bytes, tasks.o(.text.vTaskPlaceOnEventListRestricted))
+<P><STRONG><a name="[13c]"></a>vTaskPlaceOnEventListRestricted</STRONG> (Thumb, 122 bytes, Stack size 24 bytes, tasks.o(.text.vTaskPlaceOnEventListRestricted))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = vTaskPlaceOnEventListRestricted &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
+<BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
 </UL>
 
 <P><STRONG><a name="[124]"></a>vTaskStartScheduler</STRONG> (Thumb, 232 bytes, Stack size 40 bytes, tasks.o(.text.vTaskStartScheduler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = vTaskStartScheduler &rArr; xTimerCreateTimerTask &rArr; xTaskCreateStatic &rArr; prvInitialiseNewTask &rArr; __aeabi_memset4 &rArr; _memset_w
 </UL>
-<BR>[Calls]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
-<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
-<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationGetIdleTaskMemory
-<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<BR>[Calls]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationGetIdleTaskMemory
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 <BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
 </UL>
 
-<P><STRONG><a name="[135]"></a>vTaskSuspendAll</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, tasks.o(.text.vTaskSuspendAll))
+<P><STRONG><a name="[131]"></a>vTaskSuspendAll</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, tasks.o(.text.vTaskSuspendAll))
 <BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvTimerTask
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 </UL>
 
-<P><STRONG><a name="[119]"></a>vTaskSwitchContext</STRONG> (Thumb, 188 bytes, Stack size 8 bytes, tasks.o(.text.vTaskSwitchContext))
+<P><STRONG><a name="[119]"></a>vTaskSwitchContext</STRONG> (Thumb, 200 bytes, Stack size 8 bytes, tasks.o(.text.vTaskSwitchContext))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = vTaskSwitchContext
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
-<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 </UL>
 
-<P><STRONG><a name="[141]"></a>xPortStartScheduler</STRONG> (Thumb, 390 bytes, Stack size 32 bytes, port.o(.text.xPortStartScheduler))
+<P><STRONG><a name="[140]"></a>xPortStartScheduler</STRONG> (Thumb, 394 bytes, Stack size 32 bytes, port.o(.text.xPortStartScheduler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = xPortStartScheduler &rArr; vTaskSwitchContext
 </UL>
-<BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortSetupTimerInterrupt
-<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnableVFP
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvPortStartFirstTask
+<BR>[Calls]<UL><LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortSetupTimerInterrupt
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvPortStartFirstTask
+<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnableVFP
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSwitchContext
 </UL>
 <BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
@@ -2143,156 +2145,154 @@ Global Symbols
 <P><STRONG><a name="[11c]"></a>xPortSysTickHandler</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, port.o(.text.xPortSysTickHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = xPortSysTickHandler &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<BR>[Calls]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
-<P><STRONG><a name="[146]"></a>xQueueGenericCreateStatic</STRONG> (Thumb, 224 bytes, Stack size 24 bytes, queue.o(.text.xQueueGenericCreateStatic))
+<P><STRONG><a name="[145]"></a>xQueueGenericCreateStatic</STRONG> (Thumb, 218 bytes, Stack size 24 bytes, queue.o(.text.xQueueGenericCreateStatic))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = xQueueGenericCreateStatic
 </UL>
 <BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
 </UL>
-<BR>[Called By]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
 </UL>
 
-<P><STRONG><a name="[134]"></a>xQueueGenericSend</STRONG> (Thumb, 570 bytes, Stack size 48 bytes, queue.o(.text.xQueueGenericSend))
+<P><STRONG><a name="[135]"></a>xQueueGenericSend</STRONG> (Thumb, 704 bytes, Stack size 48 bytes, queue.o(.text.xQueueGenericSend))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
-<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskInternalSetTimeOutState
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetSchedulerState
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<BR>[Calls]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskInternalSetTimeOutState
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetSchedulerState
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvTimerTask
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
 </UL>
 
-<P><STRONG><a name="[138]"></a>xQueueReceive</STRONG> (Thumb, 446 bytes, Stack size 48 bytes, queue.o(.text.xQueueReceive))
+<P><STRONG><a name="[137]"></a>xQueueReceive</STRONG> (Thumb, 574 bytes, Stack size 48 bytes, queue.o(.text.xQueueReceive))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = xQueueReceive &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
-<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskInternalSetTimeOutState
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetSchedulerState
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<BR>[Calls]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskInternalSetTimeOutState
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetSchedulerState
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvTimerTask
 </UL>
 
-<P><STRONG><a name="[148]"></a>xTaskCheckForTimeOut</STRONG> (Thumb, 158 bytes, Stack size 16 bytes, tasks.o(.text.xTaskCheckForTimeOut))
+<P><STRONG><a name="[147]"></a>xTaskCheckForTimeOut</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, tasks.o(.text.xTaskCheckForTimeOut))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xTaskCheckForTimeOut
 </UL>
 <BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 </UL>
-<BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 </UL>
 
-<P><STRONG><a name="[125]"></a>xTaskCreate</STRONG> (Thumb, 96 bytes, Stack size 40 bytes, tasks.o(.text.xTaskCreate))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+<P><STRONG><a name="[126]"></a>xTaskCreate</STRONG> (Thumb, 96 bytes, Stack size 40 bytes, tasks.o(.text.xTaskCreate))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = xTaskCreate &rArr; vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<BR>[Calls]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadNew
 </UL>
 
-<P><STRONG><a name="[126]"></a>xTaskCreateStatic</STRONG> (Thumb, 122 bytes, Stack size 40 bytes, tasks.o(.text.xTaskCreateStatic))
+<P><STRONG><a name="[125]"></a>xTaskCreateStatic</STRONG> (Thumb, 122 bytes, Stack size 40 bytes, tasks.o(.text.xTaskCreateStatic))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = xTaskCreateStatic &rArr; prvInitialiseNewTask &rArr; __aeabi_memset4 &rArr; _memset_w
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<BR>[Calls]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadNew
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
 </UL>
 
 <P><STRONG><a name="[11b]"></a>xTaskGetSchedulerState</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, tasks.o(.text.xTaskGetSchedulerState))
 <BR><BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvTimerTask
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 </UL>
 
 <P><STRONG><a name="[132]"></a>xTaskGetTickCount</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, tasks.o(.text.xTaskGetTickCount))
-<BR><BR>[Called By]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
+<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvTimerTask
 </UL>
 
-<P><STRONG><a name="[145]"></a>xTaskIncrementTick</STRONG> (Thumb, 260 bytes, Stack size 32 bytes, tasks.o(.text.xTaskIncrementTick))
+<P><STRONG><a name="[144]"></a>xTaskIncrementTick</STRONG> (Thumb, 260 bytes, Stack size 32 bytes, tasks.o(.text.xTaskIncrementTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortSysTickHandler
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 </UL>
 
-<P><STRONG><a name="[14a]"></a>xTaskPriorityDisinherit</STRONG> (Thumb, 138 bytes, Stack size 16 bytes, tasks.o(.text.xTaskPriorityDisinherit))
+<P><STRONG><a name="[149]"></a>xTaskPriorityDisinherit</STRONG> (Thumb, 142 bytes, Stack size 16 bytes, tasks.o(.text.xTaskPriorityDisinherit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xTaskPriorityDisinherit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 </UL>
 
-<P><STRONG><a name="[13a]"></a>xTaskRemoveFromEventList</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, tasks.o(.text.xTaskRemoveFromEventList))
+<P><STRONG><a name="[139]"></a>xTaskRemoveFromEventList</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, tasks.o(.text.xTaskRemoveFromEventList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xTaskRemoveFromEventList
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 </UL>
 
-<P><STRONG><a name="[136]"></a>xTaskResumeAll</STRONG> (Thumb, 238 bytes, Stack size 24 bytes, tasks.o(.text.xTaskResumeAll))
+<P><STRONG><a name="[133]"></a>xTaskResumeAll</STRONG> (Thumb, 238 bytes, Stack size 24 bytes, tasks.o(.text.xTaskResumeAll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<BR>[Calls]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvTimerTask
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 </UL>
 
-<P><STRONG><a name="[140]"></a>xTimerCreateTimerTask</STRONG> (Thumb, 172 bytes, Stack size 40 bytes, timers.o(.text.xTimerCreateTimerTask))
+<P><STRONG><a name="[13f]"></a>xTimerCreateTimerTask</STRONG> (Thumb, 172 bytes, Stack size 40 bytes, timers.o(.text.xTimerCreateTimerTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = xTimerCreateTimerTask &rArr; xTaskCreateStatic &rArr; prvInitialiseNewTask &rArr; __aeabi_memset4 &rArr; _memset_w
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationGetTimerTaskMemory
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreateStatic
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueAddToRegistry
+<BR>[Calls]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationGetTimerTaskMemory
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueAddToRegistry
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreateStatic
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
@@ -2304,9 +2304,9 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_fp_1
 </UL>
 
-<P><STRONG><a name="[17e]"></a>__fplib_config_fpu_vfp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
+<P><STRONG><a name="[17f]"></a>__fplib_config_fpu_vfp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
 
-<P><STRONG><a name="[17f]"></a>__fplib_config_pureend_doubles</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
+<P><STRONG><a name="[180]"></a>__fplib_config_pureend_doubles</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
 <P>
 <H3>
 Local Symbols
@@ -2327,17 +2327,29 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
 </UL>
 
-<P><STRONG><a name="[139]"></a>prvUnlockQueue</STRONG> (Thumb, 122 bytes, Stack size 24 bytes, queue.o(.text.prvUnlockQueue))
+<P><STRONG><a name="[138]"></a>prvUnlockQueue</STRONG> (Thumb, 122 bytes, Stack size 24 bytes, queue.o(.text.prvUnlockQueue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = prvUnlockQueue &rArr; xTaskRemoveFromEventList
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskMissedYield
+<BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskMissedYield
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 </UL>
-<BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
+<BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+</UL>
+
+<P><STRONG><a name="[12e]"></a>prvInitialiseNewTask</STRONG> (Thumb, 258 bytes, Stack size 32 bytes, tasks.o(.text.prvInitialiseNewTask))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = prvInitialiseNewTask &rArr; __aeabi_memset4 &rArr; _memset_w
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset4
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pxPortInitialiseStack
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialiseItem
+</UL>
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
 </UL>
 
 <P><STRONG><a name="[127]"></a>prvAddNewTaskToReadyList</STRONG> (Thumb, 650 bytes, Stack size 24 bytes, tasks.o(.text.prvAddNewTaskToReadyList))
@@ -2348,9 +2360,9 @@ Local Symbols
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
 </UL>
-<BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
 </UL>
 
 <P><STRONG><a name="[99]"></a>prvIdleTask</STRONG> (Thumb, 134 bytes, Stack size 0 bytes, tasks.o(.text.prvIdleTask))
@@ -2363,57 +2375,33 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> tasks.o(.text.vTaskStartScheduler)
 </UL>
-<P><STRONG><a name="[12e]"></a>prvInitialiseNewTask</STRONG> (Thumb, 294 bytes, Stack size 32 bytes, tasks.o(.text.prvInitialiseNewTask))
-<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = prvInitialiseNewTask &rArr; __aeabi_memset4 &rArr; _memset_w
-</UL>
-<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset4
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pxPortInitialiseStack
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialiseItem
-</UL>
-<BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
-</UL>
-
-<P><STRONG><a name="[131]"></a>prvSampleTimeNow</STRONG> (Thumb, 180 bytes, Stack size 56 bytes, timers.o(.text.prvSampleTimeNow))
-<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = prvSampleTimeNow &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+<P><STRONG><a name="[9a]"></a>prvTimerTask</STRONG> (Thumb, 890 bytes, Stack size 32 bytes, timers.o(.text.prvTimerTask))
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = prvTimerTask &rArr; xQueueReceive &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetSchedulerState
-</UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvTimerTask
-</UL>
-
-<P><STRONG><a name="[9a]"></a>prvTimerTask</STRONG> (Thumb, 586 bytes, Stack size 40 bytes, timers.o(.text.prvTimerTask))
-<BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = prvTimerTask &rArr; prvSampleTimeNow &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
-</UL>
-<BR>[Calls]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetSchedulerState
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetSchedulerState
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> timers.o(.text.xTimerCreateTimerTask)
 </UL>
-<P><STRONG><a name="[144]"></a>prvPortStartFirstTask</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, port.o(.text.prvPortStartFirstTask))
-<BR><BR>[Called By]<UL><LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
-</UL>
-
 <P><STRONG><a name="[98]"></a>prvTaskExitError</STRONG> (Thumb, 64 bytes, Stack size 4 bytes, port.o(.text.prvTaskExitError))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = prvTaskExitError
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> port.o(.text.pxPortInitialiseStack)
 </UL>
-<P><STRONG><a name="[143]"></a>vPortEnableVFP</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, port.o(.text.vPortEnableVFP))
-<BR><BR>[Called By]<UL><LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<P><STRONG><a name="[142]"></a>vPortEnableVFP</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, port.o(.text.vPortEnableVFP))
+<BR><BR>[Called By]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+</UL>
+
+<P><STRONG><a name="[143]"></a>prvPortStartFirstTask</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, port.o(.text.prvPortStartFirstTask))
+<BR><BR>[Called By]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 </UL>
 <P>
 <H3>

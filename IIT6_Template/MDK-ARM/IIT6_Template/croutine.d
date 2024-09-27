@@ -1,8 +1,6 @@
 iit6_template/croutine.o: \
   ..\Middlewares\Third_Party\FreeRTOS\Source\croutine.c \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
-  D:\Keil\ARM\ARMCLANG\Bin\..\include\stddef.h \
-  D:\Keil\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\Core\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\portable.h \

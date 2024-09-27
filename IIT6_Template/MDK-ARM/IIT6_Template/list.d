@@ -1,8 +1,5 @@
 iit6_template/list.o: ..\Middlewares\Third_Party\FreeRTOS\Source\list.c \
-  D:\Keil\ARM\ARMCLANG\Bin\..\include\stdlib.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
-  D:\Keil\ARM\ARMCLANG\Bin\..\include\stddef.h \
-  D:\Keil\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\Core\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\portable.h \

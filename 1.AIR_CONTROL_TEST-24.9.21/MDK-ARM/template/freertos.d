@@ -1,7 +1,7 @@
 template\freertos.o: ../Core/Src/freertos.c
 template\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-template\freertos.o: D:\Keil\ARM\ARMCC\Bin\..\include\stddef.h
-template\freertos.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+template\freertos.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
+template\freertos.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
 template\freertos.o: ../Core/Inc/FreeRTOSConfig.h
 template\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 template\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -45,7 +45,7 @@ template\freertos.o: ../GDUT_User/elmo.h
 template\freertos.o: ../GDUT_User/moto.h
 template\freertos.o: ../GDUT_User/PID.h
 template\freertos.o: ../GDUT_User/moto.h
-template\freertos.o: D:\Keil\ARM\ARMCC\Bin\..\include\math.h
+template\freertos.o: D:\Keil5\ARM\ARMCC\Bin\..\include\math.h
 template\freertos.o: ../Core/Inc/can.h
 template\freertos.o: ../Core/Inc/main.h
 template\freertos.o: ../GDUT_User/MIT.h
@@ -59,7 +59,7 @@ template\freertos.o: ../GDUT_User/Communication_STM32.h
 template\freertos.o: ../Core/Inc/gpio.h
 template\freertos.o: ../Core/Inc/tim.h
 template\freertos.o: ../GDUT_User/robot.h
-template\freertos.o: D:\Keil\ARM\ARMCC\Bin\..\include\string.h
+template\freertos.o: D:\Keil5\ARM\ARMCC\Bin\..\include\string.h
 template\freertos.o: ../Core/Inc/usart.h
 template\freertos.o: ../GDUT_User/DataScope_DP.h
 template\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h

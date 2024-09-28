@@ -3,7 +3,7 @@ template\mit.o: ..\GDUT_User\MIT.h
 template\mit.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 template\mit.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h
 template\mit.o: ../Drivers/CMSIS/Include/core_cm4.h
-template\mit.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+template\mit.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
 template\mit.o: ../Drivers/CMSIS/Include/cmsis_version.h
 template\mit.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 template\mit.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -15,7 +15,7 @@ template\mit.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
 template\mit.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 template\mit.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 template\mit.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-template\mit.o: D:\Keil\ARM\ARMCC\Bin\..\include\stddef.h
+template\mit.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
 template\mit.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 template\mit.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 template\mit.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
@@ -38,7 +38,7 @@ template\mit.o: ../Core/Inc/main.h
 template\mit.o: ../GDUT_User/elmo.h
 template\mit.o: ../GDUT_User/moto.h
 template\mit.o: ../GDUT_User/moto.h
-template\mit.o: D:\Keil\ARM\ARMCC\Bin\..\include\math.h
+template\mit.o: D:\Keil5\ARM\ARMCC\Bin\..\include\math.h
 template\mit.o: ../Core/Inc/can.h
 template\mit.o: ../GDUT_User/HareWare.h
 template\mit.o: ../GDUT_User/elmo.h
@@ -51,6 +51,6 @@ template\mit.o: ../Core/Inc/main.h
 template\mit.o: ../Core/Inc/gpio.h
 template\mit.o: ../Core/Inc/tim.h
 template\mit.o: ../GDUT_User/robot.h
-template\mit.o: D:\Keil\ARM\ARMCC\Bin\..\include\string.h
+template\mit.o: D:\Keil5\ARM\ARMCC\Bin\..\include\string.h
 template\mit.o: ../Core/Inc/usart.h
 template\mit.o: ../GDUT_User/DataScope_DP.h

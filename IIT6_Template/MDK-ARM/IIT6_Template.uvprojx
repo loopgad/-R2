@@ -1370,6 +1370,16 @@
               <FileType>5</FileType>
               <FilePath>..\R2_USER\Task_Manager.h</FilePath>
             </File>
+            <File>
+              <FileName>PID.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\R2_USER\PID.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PID.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\R2_USER\PID.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

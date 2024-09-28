@@ -55,7 +55,7 @@ public:
     void registerTask(int taskID, Task_Thread *instance); // 为任务分配ID并创建任务线程
                                                              // 存储任务信息
 
-    void customize(int taskID, uint8_t priority, uint32_t delay_ms, uint32_t stack_size = 1024); // 允许用户用指定的配置创建任务,但如果任务已经创建则无效
+    void customize(int taskID, uint8_t priority, uint32_t delay_ms, uint32_t stack_size = 2048); // 允许用户用指定的配置创建任务,但如果任务已经创建则无效
 
 };
 

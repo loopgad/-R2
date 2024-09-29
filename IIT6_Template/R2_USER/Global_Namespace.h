@@ -37,14 +37,22 @@ namespace Motor_Namespace {
 }
 
 namespace Remote_Namespace {
-
+	inline uint16_t SWA;
+	inline uint16_t SWB;
+	inline uint16_t SWC;
+	inline uint16_t SWD;
+	inline uint16_t ROCK_R_X;
+	inline uint16_t ROCK_R_Y;
+	inline uint16_t ROCK_L_Y;
+	inline uint16_t ROCK_L_X;
     
 
 }
 
 namespace Action_Namespace {
 
-    
+
+
 
 }
 

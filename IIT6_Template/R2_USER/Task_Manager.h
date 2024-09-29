@@ -2,6 +2,7 @@
 #ifndef TASK_MANAGER_H
 #define TASK_MANAGER_H
 
+#include <string>
 #ifdef __cplusplus
 extern "C"
 {
@@ -25,7 +26,7 @@ extern "C"
         public:
         virtual void Task_Function() = 0; // 纯虚函数,需要在派生类重写，内部为需要循环执行的内容
         virtual ~Task_Thread() {}; 
-        char name[20] = {'0'};           // 实例的名字(最大为20字节)，便于debug
+        std::string name = {'0'};           // 实例的名字(最大为20字节)，便于debug
     };
 
 

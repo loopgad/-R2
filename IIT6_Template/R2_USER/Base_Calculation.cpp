@@ -92,8 +92,8 @@ void Calculation::Robot_Control(void)    //始终以机头方向为正Y
 	
 }
 
-void Calculation::Task_Function(void)
-{
+void Calculation::Task_Function(void){
+	name = "Calculation_Task";
 	Robot_Control();
 	Axis_analyse_for_WORLDtoROBOT();
 	Kinematic_Analysis_Inverse();

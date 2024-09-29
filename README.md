@@ -19,3 +19,7 @@ store the history code for R2
 ## v1.1
 
   开始用cpp重构H743IIt6，并完成task和namespace的框架
+
+## v1.2
+
+  加入了Base_Calculation，部分全局变量需要等待相应的文件完成再改（目前注释掉了相关代码）

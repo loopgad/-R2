@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "callback_function.h": "c",
+        "global_namespace.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}

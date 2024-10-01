@@ -1,42 +1,24 @@
-#include "HareWare.h"
-#include "main.h"
+#include"Callback_Function.h"
 
-/***********************************************��ģң��<PPM>************************************/
-//��ģ�ṹ��ʵ��
-Air_Contorl  Device;
-//�������
 
-uint16_t Time_Sys[4]={0};
-uint16_t Microsecond_Cnt=0;
-static uint16_t PPM_buf[10]={0};
-uint16_t PPM_Databuf[10]={0};
-uint8_t ppm_update_flag=0;
-uint32_t now_ppm_time_send=0;
-uint32_t TIME_ISR_CNT=0,LAST_TIME_ISR_CNT=0;
-int PPM_Connected_Flag=0;
-/**
-  * ��������: �����ⲿ�жϻص�����
-  * �������: GPIO_Pin���ж�����
-  * �� �� ֵ: ��
-  * ˵    ��: ��
- */
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-	
+{   
+	static uint8_t ppm_update_flag=0;
+    static uint32_t now_ppm_time_send=0;
+    static int PPM_Connected_Flag=0;
 	static uint32_t last_ppm_time=0,now_ppm_time=0;
 	static uint8_t ppm_ready=0,ppm_sample_cnt=0;
-	static uint16_t ppm_time_delta=0;//�õ����������½��ص�ʱ��
+	static uint16_t ppm_time_delta=0;//记录脉冲时间
 	
-	if(GPIO_Pin==GPIO_PIN_7) //�ж��Ƿ�Ϊ�������������жϣ���������ΪPIN8
+	if(GPIO_Pin==GPIO_PIN_7) //判断是不是ppm通道的信息
 	{
 		PPM_Connected_Flag=1;
 		
-		//ϵͳ����ʱ���ȡ����λus
-		last_ppm_time=now_ppm_time;//��ȡ��һ�εĵ�ǰʱ����Ϊ�ϴ�ʱ��
+		last_ppm_time=now_ppm_time;//更新ppm时间节点
 		now_ppm_time_send=now_ppm_time=10000*TIME_ISR_CNT+TIM2->CNT;//us
-		ppm_time_delta=now_ppm_time-last_ppm_time;//����õ�һ������ʱ��
-		//PPM������ʼ
+		ppm_time_delta=now_ppm_time-last_ppm_time;//计算脉冲时间
+		
 		if(ppm_ready==1)//�ж�֡����ʱ����ʼ�����µ�һ��PPM
 		{
 			
@@ -59,7 +41,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 				ppm_ready=0;
 			}
 			
-		}else if(ppm_time_delta>=2200)//֡������ƽ����2ms=2000us
+		}else if(ppm_time_delta>=2200)//֡2ms=2000us
 		{
 			ppm_ready=1;
 			ppm_sample_cnt=0;
@@ -91,23 +73,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 
 /***********************************************action************************************/
-ACTION_GL_POS ACTION_GL_POS_DATA;
-ROBOT_REAL_POS ROBOT_REAL_POS_DATA = {0, 0, 0};
-ROBOT_CHASSIS Robot_Chassis;
-ROBOT_REAL_POS ROBOT_TARGET_POS_DATA = {0, 0, 0};
-
-// ����ȫ�ֱ���
-volatile float action_Data[6];
-extern UART_HandleTypeDef huart3;
-
-
-//reset action module(with toggle switch)
-void Action_Reset(void) {
-    const char *str = "ACT0";
-    while (*str) {
-        HAL_UART_Transmit(&huart3, (uint8_t *)str++, 1, HAL_MAX_DELAY);
-    }
-}
 
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
@@ -201,56 +166,3 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 		HAL_UART_Receive_IT(&huart3,RxBuffer_for3, 1);
     }
 }
-
-
-
-//����actionȫ����λ��ֵ
-void Update_Action(float value[6])
-{
-	
-//������һ�ε�ֵ
-	ACTION_GL_POS_DATA.LAST_POS_X = ACTION_GL_POS_DATA.POS_X;
-	ACTION_GL_POS_DATA.LAST_POS_Y = ACTION_GL_POS_DATA.POS_Y;
-	ACTION_GL_POS_DATA.LAST_YAW = ACTION_GL_POS_DATA.YAW;
-// ��¼��ε�ֵ
-	ACTION_GL_POS_DATA.YAW = value[0]; // �Ƕȣ�-180~180
-	ACTION_GL_POS_DATA.POS_X = value[3]; 
-	ACTION_GL_POS_DATA.POS_Y = value[4]; 
-	ACTION_GL_POS_DATA.W_Z = value[5];//���ٶ� 
-//	(ACTION_GL_POS_DATA.W_Z)*PI/180
-	// �������
-	ACTION_GL_POS_DATA.DELTA_POS_X = ACTION_GL_POS_DATA.POS_X - ACTION_GL_POS_DATA.LAST_POS_X;
-	ACTION_GL_POS_DATA.DELTA_POS_Y = ACTION_GL_POS_DATA.POS_Y - ACTION_GL_POS_DATA.LAST_POS_Y;
-	ACTION_GL_POS_DATA.DELTA_YAW = ACTION_GL_POS_DATA.YAW - ACTION_GL_POS_DATA.LAST_YAW;
-	
-	ACTION_GL_POS_DATA.REAL_X += (-ACTION_GL_POS_DATA.DELTA_POS_X);
-	ACTION_GL_POS_DATA.REAL_Y += (-ACTION_GL_POS_DATA.DELTA_POS_Y);
-	ACTION_GL_POS_DATA.REAL_YAW += (-ACTION_GL_POS_DATA.DELTA_YAW);
-	
-	ROBOT_REAL_POS_DATA.POS_X = (ACTION_GL_POS_DATA.REAL_X - 128.901f*sin(ROBOT_REAL_POS_DATA.POS_YAW * PI / 180+0.30688)) * 0.001;
-	ROBOT_REAL_POS_DATA.POS_Y = (ACTION_GL_POS_DATA.REAL_Y - 128.901f*cos(ROBOT_REAL_POS_DATA.POS_YAW * PI / 180+0.30688)) * 0.001;	 
-}
-
-
-/***********************************************  air pump control  ************************************/
-
-void Air_Pump_Control(uint16_t buf[10])//control the pumps to push the ball
-{
-	
-	//put the two pumps into the same state
-	if(buf[6]>1500){
-		HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
-	}
-	else{
-		HAL_GPIO_WritePin(GPIOF, GPIO_PIN_6, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);
-	}
-
-	
-}
-	
-
-
-
-

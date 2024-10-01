@@ -26,7 +26,7 @@ extern "C"
         public:
         virtual void Task_Function() = 0; // 纯虚函数,需要在派生类重写，内部为需要循环执行的内容
         virtual ~Task_Thread() {}; 
-        std::string name = {'0'};           // 实例的名字(最大为20字节)，便于debug
+        std::string name = "";           // 实例的名字(最大为20字节)，便于debug
     };
 
 

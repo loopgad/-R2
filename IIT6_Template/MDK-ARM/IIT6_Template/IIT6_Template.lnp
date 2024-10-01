@@ -55,6 +55,8 @@
 "iit6_template\task_manager.o"
 "iit6_template\pid.o"
 "iit6_template\base_calculation.o"
+"iit6_template\callback_function.o"
+"iit6_template\hardware_peripheral.o"
 --strict --scatter "IIT6_Template\IIT6_Template.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

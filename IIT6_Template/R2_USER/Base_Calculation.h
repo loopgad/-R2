@@ -1,19 +1,19 @@
 #ifndef BASE_CALCULATION_H
 #define BASE_CALCULATION_H
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+//#ifdef __cplusplus
+//extern "C"
+//{
+//#endif
 
 #include "Global_Namespace.h"
 #include "Task_Manager.h"
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
-#ifdef __cplusplus
+//#ifdef __cplusplus
 
 
 using namespace Remote_Namespace;
@@ -36,6 +36,6 @@ using namespace Action_Namespace;
 	};
 
 
-#endif
+//#endif
 
 #endif 

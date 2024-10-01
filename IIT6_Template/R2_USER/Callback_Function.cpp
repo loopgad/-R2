@@ -1,11 +1,13 @@
 #include"Callback_Function.h"
 
-
+uint8_t RxBuffer_for3[1];
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {   
+	static uint16_t PPM_buf[10]={0};
 	static uint8_t ppm_update_flag=0;
     static uint32_t now_ppm_time_send=0;
+	static uint32_t TIME_ISR_CNT=0,LAST_TIME_ISR_CNT=0;
     static int PPM_Connected_Flag=0;
 	static uint32_t last_ppm_time=0,now_ppm_time=0;
 	static uint8_t ppm_ready=0,ppm_sample_cnt=0;
@@ -19,19 +21,19 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		now_ppm_time_send=now_ppm_time=10000*TIME_ISR_CNT+TIM2->CNT;//us
 		ppm_time_delta=now_ppm_time-last_ppm_time;//计算脉冲时间
 		
-		if(ppm_ready==1)//�ж�֡����ʱ����ʼ�����µ�һ��PPM
+		if(ppm_ready==1)//检测PPM信号是否是第一个通道
 		{
 			
-			if(ppm_time_delta>=2200)//֡������ƽ����2ms=2000us�����ڲ����ϰ汾ң������//���ջ����PPM�źŲ���׼�������ֽ����쳣ʱ�����Ը�С��ֵ�������������һ����ʹ����ط��ϰ汾ң����
+			if(ppm_time_delta>=2200)//对ppm信号进行限幅
 			{
 				ppm_ready = 1;
-				ppm_sample_cnt=0;//��Ӧ��ͨ��ֵ
+				ppm_sample_cnt=0;//设置该信号为第一个
 				ppm_update_flag=1;
 			} 
-			else if(ppm_time_delta>=950&&ppm_time_delta<=2050)//����PWM������1000-2000us
+			else if(ppm_time_delta>=950&&ppm_time_delta<=2050)//PWM在1000-2000us区间内
 			{         
-				PPM_buf[ppm_sample_cnt++]=ppm_time_delta;//��Ӧͨ��д�뻺���� 
-				if(ppm_sample_cnt>=8)//���ν�������0-7��ʾ8��ͨ���������������ʾ10��ͨ���������ֵӦ��Ϊ0-9�������޸�
+				PPM_buf[ppm_sample_cnt++]=ppm_time_delta;//值传递 
+				if(ppm_sample_cnt>=8)//只用到0-7�的8个通道，但是总共有10个通道
 				{
 					memcpy(PPM_Databuf,PPM_buf,ppm_sample_cnt*sizeof(uint16_t));
 					//ppm_ready=0;
@@ -47,7 +49,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 			ppm_sample_cnt=0;
 			ppm_update_flag=0;
 		}
-		if(ROCK_L_X>1450&&ROCK_L_X<1550)ROCK_L_X=1500; //��������
+		if(ROCK_L_X>1450&&ROCK_L_X<1550)ROCK_L_X=1500; //添加死区
 		if(ROCK_L_Y>1450&&ROCK_L_Y<1550)ROCK_L_Y=1500;
 		
 		if(ROCK_R_X>1400&&ROCK_R_X<1600)ROCK_R_X=1500;
@@ -86,15 +88,13 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
     static uint8_t count = 0;
     static uint8_t i = 0;
 
-    // ����Ƿ���USART3���ж�
+    // 判断是否为USART3
     if (huart==&huart3) {
-        // ��ȡ���յ�������
 		
 		ch = RxBuffer_for3[0];
 		
 		//ch = huart->Instance->DR & 0xFF;
 
-        // �������յ�������
         switch (count) {
             case 0:
 			{
@@ -112,7 +112,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
                     count++;
                 }
 				else if (ch == 0x0d)
-                    count = 6; // �������0x0dֱ�ӽ���Ĭ��case
+                    count = 6; // 判断是否为帧尾
                 else
                     count = 0;
 			}
@@ -162,7 +162,34 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 		
 		RxBuffer_for3[0]=0;
 		
-        // ����ʹ�ܴ��ڽ����ж�
+        //重新启动USART3接收中断
 		HAL_UART_Receive_IT(&huart3,RxBuffer_for3, 1);
     }
+}
+
+//action数据更新
+void Update_Action(float value[6])
+{
+	
+//update data
+	ACTION_GL_POS_DATA.LAST_POS_X = ACTION_GL_POS_DATA.POS_X;
+	ACTION_GL_POS_DATA.LAST_POS_Y = ACTION_GL_POS_DATA.POS_Y;
+	ACTION_GL_POS_DATA.LAST_YAW = ACTION_GL_POS_DATA.YAW;
+// update angleֵ
+	ACTION_GL_POS_DATA.YAW = value[0]; // 角度值为-180~180
+	ACTION_GL_POS_DATA.POS_X = value[3]; 
+	ACTION_GL_POS_DATA.POS_Y = value[4]; 
+	ACTION_GL_POS_DATA.W_Z = value[5];
+//	(ACTION_GL_POS_DATA.W_Z)*PI/180
+
+	ACTION_GL_POS_DATA.DELTA_POS_X = ACTION_GL_POS_DATA.POS_X - ACTION_GL_POS_DATA.LAST_POS_X;
+	ACTION_GL_POS_DATA.DELTA_POS_Y = ACTION_GL_POS_DATA.POS_Y - ACTION_GL_POS_DATA.LAST_POS_Y;
+	ACTION_GL_POS_DATA.DELTA_YAW = ACTION_GL_POS_DATA.YAW - ACTION_GL_POS_DATA.LAST_YAW;
+	
+	ACTION_GL_POS_DATA.REAL_X += (-ACTION_GL_POS_DATA.DELTA_POS_X);
+	ACTION_GL_POS_DATA.REAL_Y += (-ACTION_GL_POS_DATA.DELTA_POS_Y);
+	ACTION_GL_POS_DATA.REAL_YAW += (-ACTION_GL_POS_DATA.DELTA_YAW);
+	
+	ROBOT_Namespace::ROBOT_REAL_POS_DATA.POS_X = (ACTION_GL_POS_DATA.REAL_X - 128.901f*sin(ROBOT_Namespace::ROBOT_REAL_POS_DATA.POS_YAW * PI / 180+0.30688)) * 0.001;
+	ROBOT_Namespace::ROBOT_REAL_POS_DATA.POS_Y = (ACTION_GL_POS_DATA.REAL_Y - 128.901f*cos(ROBOT_Namespace::ROBOT_REAL_POS_DATA.POS_YAW * PI / 180+0.30688)) * 0.001;	 
 }

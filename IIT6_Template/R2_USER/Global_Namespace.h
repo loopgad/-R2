@@ -17,36 +17,6 @@ namespace ***_Namespace {
 
 
 namespace Motor_Namespace {
-
-    
-
-}
-
-namespace Remote_Namespace {
-	inline uint16_t PPM_Databuf[10]={0};//只用到前8个通道
-	inline uint16_t &SWA = PPM_Databuf[7];
-	inline uint16_t &SWB = PPM_Databuf[6];
-	inline uint16_t &SWC = PPM_Databuf[5];
-	inline uint16_t &SWD = PPM_Databuf[4];
-	inline uint16_t &ROCK_R_X = PPM_Databuf[3];
-	inline uint16_t &ROCK_R_Y = PPM_Databuf[2];
-	inline uint16_t &ROCK_L_Y = PPM_Databuf[1];
-	inline uint16_t &ROCK_L_X = PPM_Databuf[0];
-    
-
-}
-
-namespace ROBOT_Namespace {
-	typedef struct ROBOT_REAL_POS
-	{
-  		float POS_X;
-  		float POS_Y;     
-  		float POS_YAW;
-  		int robot_location;
-	
-	}ROBOT_REAL_POS;
-
-
 	typedef struct MOTO_REAL_INFO
 	{
 	// 电机模式
@@ -79,7 +49,35 @@ namespace ROBOT_Namespace {
 		int16_t filter_RPM;                  // 滤波后的速度值
 	} MOTO_REAL_INFO;
 
+	inline MOTO_REAL_INFO MOTOR_REAL_INFO[8];
+}
 
+namespace Remote_Namespace {
+	inline uint16_t PPM_Databuf[10]={0};//只用到前8个通道
+	inline uint16_t &SWA = PPM_Databuf[7];
+	inline uint16_t &SWB = PPM_Databuf[6];
+	inline uint16_t &SWC = PPM_Databuf[5];
+	inline uint16_t &SWD = PPM_Databuf[4];
+	inline uint16_t &ROCK_R_X = PPM_Databuf[3];
+	inline uint16_t &ROCK_R_Y = PPM_Databuf[2];
+	inline uint16_t &ROCK_L_Y = PPM_Databuf[1];
+	inline uint16_t &ROCK_L_X = PPM_Databuf[0];
+    
+
+}
+
+namespace ROBOT_Namespace {
+	typedef struct ROBOT_REAL_POS
+	{
+  		float POS_X;
+  		float POS_Y;     
+  		float POS_YAW;
+  		int robot_location;
+	
+	}ROBOT_REAL_POS;
+
+
+	
 	typedef struct ROBOT_CHASSIS
 	{
 		float World_V[3]; // Y , X , W
@@ -94,6 +92,7 @@ namespace ROBOT_Namespace {
 
     inline ROBOT_REAL_POS ROBOT_REAL_POS_DATA = {0, 0, 0};
 	inline ROBOT_CHASSIS Robot_Chassis;
+	
 }
 namespace Action_Namespace {
 	typedef struct ACTION_GL_POS//action����

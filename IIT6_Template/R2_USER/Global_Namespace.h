@@ -46,6 +46,40 @@ namespace ROBOT_Namespace {
 	
 	}ROBOT_REAL_POS;
 
+
+	typedef struct MOTO_REAL_INFO
+	{
+	// 电机模式
+		uint32_t unitMode;//电机模式
+		// POSITION_CONTROL_MODE 位置模式
+		// POSITION_TARQUE_CONTROL_MODE 位置_力矩模式
+	    // SPEED_TARQUE_CONTROL_MODE 速度_力矩模式
+		// SPEED_CONTROL_MODE 速度模式
+		// MOTO_OFF 电机关机 --> 电流不发送
+	    // VELOCITY_PLANNING_MODE 速度规划模式
+	//
+		MotorType_TypeDef type; // 电机类型：m3508, m2006
+		uint16_t ANGLE;   		// 采样角度						
+		int16_t  RPM;			// 速度值			
+		int16_t  CURRENT;       // 电流值
+		int16_t  TARGET_CURRENT; // 目标电流值
+		int16_t  TARGET_POS;     // 目标角度
+		float    TARGET_RPM;     // 目标转速
+		int      Velflag;        // 速度为零时，置1 
+	// 结构体
+		HomingModeType homingMode;           // 电机回零模式
+		Pos_TorqueModeType pos_torquemode;   // 位置转矩模式
+		Vel_TorqueModeType vel_torquemode;   // 速度转矩模式
+		VELOCITY_PLANNING velocity_planning; // 速度规划
+
+	// 角度积分时用到下面的变量
+		float		 REAL_ANGLE;              // 处理过的真实角度（必须用float）
+		uint8_t	 FIRST_ANGLE_INTEGRAL_FLAG; // 第一次角度积分标志
+		uint16_t LAST_ANGLE;                 // 上一次角度
+		int16_t filter_RPM;                  // 滤波后的速度值
+	} MOTO_REAL_INFO;
+
+
 	typedef struct ROBOT_CHASSIS
 	{
 		float World_V[3]; // Y , X , W
@@ -59,6 +93,7 @@ namespace ROBOT_Namespace {
 	} ROBOT_CHASSIS;
 
     inline ROBOT_REAL_POS ROBOT_REAL_POS_DATA = {0, 0, 0};
+	inline ROBOT_CHASSIS Robot_Chassis;
 }
 namespace Action_Namespace {
 	typedef struct ACTION_GL_POS//action����

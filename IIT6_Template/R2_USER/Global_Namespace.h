@@ -14,7 +14,12 @@ namespace ***_Namespace {
 */
 
 
-
+namespace ROS_Namespace{
+	inline float Robot_Relative_x;
+	inline float Robot_Relative_y;
+	inline float Robot_Relative_Vx;
+	inline float Robot_Relative_Vy;
+}
 
 namespace Motor_Namespace {
 	typedef struct MOTO_REAL_INFO
@@ -37,10 +42,7 @@ namespace Motor_Namespace {
 		float    TARGET_RPM;     // 目标转速
 		int      Velflag;        // 速度为零时，置1 
 	// 结构体
-		HomingModeType homingMode;           // 电机回零模式
-		Pos_TorqueModeType pos_torquemode;   // 位置转矩模式
-		Vel_TorqueModeType vel_torquemode;   // 速度转矩模式
-		VELOCITY_PLANNING velocity_planning; // 速度规划
+
 
 	// 角度积分时用到下面的变量
 		float		 REAL_ANGLE;              // 处理过的真实角度（必须用float）

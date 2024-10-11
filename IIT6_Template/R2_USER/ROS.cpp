@@ -9,107 +9,77 @@
  */
 #include "ROS.h"
 
-SystemTick_Fun ROS::get_systemTick = NULL;
+SystemTick_Fun ROS::get_systemTick = NULL; // 定义一个系统时钟的函数指针，用于获取系统时间
 
-union ROS_data
-{
-    float f;
-    uint8_t c[4];
-}x,y,z;
-
-
+// 注册获取系统时钟的函数
 uint8_t ROS::getMicroTick_regist(uint32_t (*getTick_fun)(void))
 {
-    if(getTick_fun != NULL)
+    if(getTick_fun != NULL) // 如果传入的函数指针不为空
     {
-        ROS::get_systemTick = getTick_fun;
-        return 1;
+        ROS::get_systemTick = getTick_fun; // 将传入的函数指针赋值给系统时钟函数指针
+        return 1; // 返回成功
     }
     else 
-        return 0;
+        return 0; // 如果传入的函数指针为空，返回失败
 }
 
 
 /**
- * @brief stm32 send data to ROS
- * @note 该函数用于将数据打包发送给ROS, 通过轮子速度解算后的速度转化为了mm/s和mRad/s
- */
-void ROS::Send_To_ROS(Robot_Twist_t speed)
-{
-    uint8_t buffer[6+6];
-    int index = 0;
-    buffer[index++] = header[0];
-    buffer[index++] = header[1];
-    buffer[index++] = 1;
-    _tool_buffer_append_int16(buffer, (int16_t)(speed.linear.x*1000), &index);
-    _tool_buffer_append_int16(buffer, (int16_t)(speed.linear.y*1000), &index);
-    _tool_buffer_append_int16(buffer, (int16_t)(speed.angular.z*1000), &index);
-    buffer[index++] = serial_get_crc8_value(buffer, 4);
-    buffer[index++] = tail[0];
-    buffer[index++] = tail[1];
-}
-
-
-/**
- * @brief upack the data from ROS
+ * @brief unpack the data from ROS
  * @param buffer pack that recieved from ROS
  * @return int8_t unpack success return 0, else return 1
  */
 int8_t ROS::Recieve_From_ROS(uint8_t *buffer)
 {
-    int index = 0;
-    for(int i = 0; i < 2; i++)
+    int index = 0; // 初始化索引
+    for(int i = 0; i < 2; i++) // 检查数据包头部
     {
-        if(buffer[index++] != header[i])
-            return 2;
+        if(buffer[index++] != header[i]) // 如果头部不匹配
+            return 2; // 返回错误
     }
 
-    lenth = buffer[index++];
+    lenth = buffer[index++]; // 获取数据包长度
 
-    for(int i=0; i<2; i++)
+    for(int i=0; i<2; i++) // 检查数据包尾部
     {
-        if(buffer[4+lenth+i] != tail[i])
-            return 1;
+        if(buffer[4+lenth+i] != tail[i]) // 如果尾部不匹配
+            return 1; // 返回错误
     }
     
-    for(int i=0; i<4; i++)
+    for(int i=0; i<4; i++) // 解包x分量
     {
         x.c[i] = buffer[index++];
     }
 
-    for(int i=0; i<4; i++)
+    for(int i=0; i<4; i++) // 解包y分量
     {
         y.c[i] = buffer[index++];
     }
 
-    for(int i=0; i<4; i++)
+    for(int i=0; i<4; i++) // 解包vx分量
     {
-        z.c[i] = buffer[index++];
+        vx.c[i] = buffer[index++];
     }
-    //8位强转32位
-    readFromRosData.x = x.f;
-    readFromRosData.y = y.f;
-    readFromRosData.z = z.f;
-		//控制状态
-    readFromRosData.ctrl_mode = buffer[index++];
-    readFromRosData.ctrl_flag = buffer[index++];
-		//底盘状态赋值
-    readFromRosData.chassis_init = buffer[index++];
-    readFromRosData.status.robot_init = (PLAYLIST)buffer[index++];
-    readFromRosData.status.path_mode = (PLAYLIST)buffer[index++];
-    readFromRosData.status.sensor = (PLAYLIST)buffer[index++];
-    readFromRosData.status.control_mode = (PLAYLIST)buffer[index++];
-
-		//CRC校验 
-    if(buffer[index++]!=serial_get_crc8_value(buffer, lenth+3))
+     for(int i=0; i<4; i++) // 解包vy分量
     {
-        readFromRosData.x = 0;
-        readFromRosData.y = 0;
-        readFromRosData.z = 0;
-        readFromRosData.ctrl_mode = NORMAL;
-        readFromRosData.ctrl_flag = 0;
-        readFromRosData.chassis_init = false;
+        vy.c[i] = buffer[index++];
     }
 
-    return 0;
+    //8位强转32位,获取相对位置与速度
+    Robot_Relative_x = x.f; // x分量传递
+    Robot_Relative_y = y.f; // y分量传递
+    Robot_Relative_Vx = vx.f; //vx分量传递
+    Robot_Relative_Vy = vy.f; //vy分量传递
+   
+
+    //CRC校验 
+    if(buffer[index++]!=serial_get_crc8_value(buffer, lenth+3)) // 如果CRC校验失败
+    {   // 重置赋值量
+        Robot_Relative_x = 0; 
+        Robot_Relative_x = 0; 
+        Robot_Relative_Vx = 0;
+        Robot_Relative_Vx = 0;
+    }
+
+    return 0; // 返回成功
 }

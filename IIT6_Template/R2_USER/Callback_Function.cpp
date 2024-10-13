@@ -1,7 +1,7 @@
 #include"Callback_Function.h"
 
-uint8_t RxBuffer_for3[1];
-
+uint8_t RxBuffer_for3[1] = {0};
+uint8_t RxBuffer_for2[23] = {0};
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {   
 	static uint16_t PPM_buf[10]={0};
@@ -78,7 +78,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-	
+	static ROS ROS;
+	static uint8_t buffer_tmp[24] = {0}; //只用到前23
+	static uint_fast8_t index = 0;
+
     static union {
         uint8_t data[24];
         float ActVal[6];
@@ -161,10 +164,27 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
         }
 		
 		RxBuffer_for3[0]=0;
-		
         //重新启动USART3接收中断
 		HAL_UART_Receive_IT(&huart3,RxBuffer_for3, 1);
+		
     }
+
+		// 判断是否为USART2
+    if (huart==&huart2) {
+    	// 使用位操作将32位数据拷贝到buffer_tmp数组中
+    	{
+			uint32_t tmp = USART2->RDR;
+    		buffer_tmp[index++] = (tmp >> 24) & 0xFF; // 高8位
+    		buffer_tmp[index++] = (tmp >> 16) & 0xFF; // 中高8位
+    		buffer_tmp[index++] = (tmp >> 8) & 0xFF;  // 中低8位
+    		buffer_tmp[index++] = tmp & 0xFF;        // 低8位
+    	}
+
+		if(index > 23)
+    	ROS.Recieve_From_ROS(buffer_tmp);
+		//重新启动USART2接收中断
+		HAL_UART_Receive_IT(&huart2,RxBuffer_for3, 1);
+	}
 }
 
 //action数据更新

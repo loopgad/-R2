@@ -1,9 +1,10 @@
-iit6_template/base_calculation.o: ..\R2_USER\Base_Calculation.cpp \
-  ..\R2_USER\Base_Calculation.h ..\R2_USER\Global_Namespace.h \
+iit6_template/motor.o: ..\R2_USER\Motor.cpp ..\R2_USER\Motor.h \
+  ..\R2_USER\Global_Namespace.h \
   D:\Keil\ARM\ARMCLANG\Bin\..\include\libcxx\cstdint \
   D:\Keil\ARM\ARMCLANG\Bin\..\include\libcxx\__config \
   D:\Keil\ARM\ARMCLANG\Bin\..\include\libcxx\stdint.h \
-  D:\Keil\ARM\ARMCLANG\Bin\..\include\stdint.h ..\R2_USER\Task_Manager.h \
+  D:\Keil\ARM\ARMCLANG\Bin\..\include\stdint.h ..\R2_USER\PID.h \
+  ..\R2_USER\Task_Manager.h \
   D:\Keil\ARM\ARMCLANG\Bin\..\include\libcxx\string \
   D:\Keil\ARM\ARMCLANG\Bin\..\include\libcxx\string_view \
   D:\Keil\ARM\ARMCLANG\Bin\..\include\libcxx\__string \

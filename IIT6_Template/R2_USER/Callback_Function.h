@@ -6,6 +6,7 @@
 //#endif
 
 #include "stm32h7xx_hal.h"
+#include "ROS.h"
 #include "Global_Namespace.h"
 #include <cstdint>
 #include <string.h>
@@ -29,8 +30,8 @@ using namespace Action_Namespace;
 #define x 		1
 #define w		2
 
+extern UART_HandleTypeDef huart2;
 extern UART_HandleTypeDef huart3;
-
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);

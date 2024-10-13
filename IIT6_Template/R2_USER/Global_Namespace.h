@@ -33,7 +33,7 @@ namespace Motor_Namespace {
 		// MOTO_OFF 电机关机 --> 电流不发送
 	    // VELOCITY_PLANNING_MODE 速度规划模式
 	//
-		MotorType_TypeDef type; // 电机类型：m3508, m2006
+		//MotorType_TypeDef type; // 电机类型：m3508, m2006
 		uint16_t ANGLE;   		// 采样角度						
 		int16_t  RPM;			// 速度值			
 		int16_t  CURRENT;       // 电流值

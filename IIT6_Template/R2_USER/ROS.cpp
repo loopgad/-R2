@@ -29,9 +29,10 @@ uint8_t ROS::getMicroTick_regist(uint32_t (*getTick_fun)(void))
  * @param buffer pack that recieved from ROS
  * @return int8_t unpack success return 0, else return 1
  */
-int8_t ROS::Recieve_From_ROS(uint8_t *buffer)
+inline int8_t ROS::Recieve_From_ROS(uint8_t *buffer)
 {
-    int index = 0; // 初始化索引
+    uint_fast8_t index = 0; // 初始化索引
+    float *p = NULL;//未用到控制量
     for(int i = 0; i < 2; i++) // 检查数据包头部
     {
         if(buffer[index++] != header[i]) // 如果头部不匹配
@@ -71,7 +72,7 @@ int8_t ROS::Recieve_From_ROS(uint8_t *buffer)
     Robot_Relative_Vx = vx.f; //vx分量传递
     Robot_Relative_Vy = vy.f; //vy分量传递
    
-
+    *p = buffer[index++];
     //CRC校验 
     if(buffer[index++]!=serial_get_crc8_value(buffer, lenth+3)) // 如果CRC校验失败
     {   // 重置赋值量

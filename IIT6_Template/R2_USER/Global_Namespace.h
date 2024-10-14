@@ -25,7 +25,7 @@ namespace Motor_Namespace {
 	typedef struct MOTO_REAL_INFO
 	{
 	// 电机模式
-		uint32_t unitMode;//电机模式
+		//uint32_t unitMode;//电机模式
 		// POSITION_CONTROL_MODE 位置模式
 		// POSITION_TARQUE_CONTROL_MODE 位置_力矩模式
 	    // SPEED_TARQUE_CONTROL_MODE 速度_力矩模式
@@ -40,7 +40,7 @@ namespace Motor_Namespace {
 		int16_t  TARGET_CURRENT; // 目标电流值
 		int16_t  TARGET_POS;     // 目标角度
 		float    TARGET_RPM;     // 目标转速
-		int      Velflag;        // 速度为零时，置1 
+		bool      Velflag;        // 速度为零时，置1 
 	// 结构体
 
 

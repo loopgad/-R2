@@ -6,6 +6,12 @@
 #include <cmath>
 #include <iostream>
 
+//用于选择速度规划方式
+#define Speed_Plan_Mode Trapezoidal_Mode
+//#define Speed_Plan_Mode S-Shaped_Mode
+//#define Speed_Plan_Mode Polynomail_Mode
+//#define Speed_Plan_Mode PT_Mode
+
 using namespace ROS_Namespace;
 
 // 节点类
@@ -46,6 +52,19 @@ public:
 
     // 主路径规划方法
     std::vector<Node> planPath(int goalX, int goalY);
+
+    //速度规划方法
+    void speedPlan(std::vector<Node>);
+    
+
 };
 
-#endif // ASTAR_PLANNER_H
+//路径规划函数声明
+// 梯形速度规划
+inline void trapezoidal_velocity_planning(float x, float y, float max_v, float accel, float &vx, float &vy);
+// S型速度规划
+inline void s_curve_velocity_planning(float x, float y, float max_v, float accel, float jerk, float &vx, float &vy);
+// 多项式速度规划
+inline void polynomial_velocity_planning(float x, float y, float max_v, float t_total, float &vx, float &vy);
+// PT速度规划
+inline void pt_velocity_planning(float x, float y, float max_v, float k_p, float &vx, float &vy);

@@ -54,17 +54,9 @@ namespace Motor_Namespace {
 	inline MOTO_REAL_INFO MOTOR_REAL_INFO[8];
 }
 
-namespace Remote_Namespace {
-	inline uint16_t PPM_Databuf[10]={0};//只用到前8个通道
-	inline uint16_t &SWA = PPM_Databuf[7];
-	inline uint16_t &SWB = PPM_Databuf[6];
-	inline uint16_t &SWC = PPM_Databuf[5];
-	inline uint16_t &SWD = PPM_Databuf[4];
-	inline uint16_t &ROCK_R_X = PPM_Databuf[3];
-	inline uint16_t &ROCK_R_Y = PPM_Databuf[2];
-	inline uint16_t &ROCK_L_Y = PPM_Databuf[1];
-	inline uint16_t &ROCK_L_X = PPM_Databuf[0];
-    
+namespace Xbox_Namespace {
+
+    inline uint8_t xbox_received_data[64];  // 存储接收到的最终数据
 
 }
 

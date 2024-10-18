@@ -185,16 +185,20 @@ void AStarPlanner::speedPlan(std::vector<Node> path) {
 
         float max_v = 1.5, accel = 1.0, jerk = 0.5, t_total = 10.0, k_p = 0.6;//accel:加速,  jerk:加速度变化率,  t_total:总时间 ,  k_p:比例系数
 
-        if constexpr(Speed_Plan_Mode == Trapezoidal_Mode){
+        if constexpr(Speed_Plan_Mode == Trapezoidal_Mode) // 梯形速度规划
+        {
             trapezoidal_velocity_planning(x, y, max_v, accel, vx, vy);
         }
-        else if constexpr(Speed_Plan_Mode == S-Shaped_Mode){
+        else if constexpr(Speed_Plan_Mode == S-Shaped_Mode)// S型速度规划
+        {
             s_curve_velocity_planning(x, y, max_v, accel, jerk, vx, vy);
         }   
-        else if constexpr(Speed_Plan_Mode == Polynomail_Mode){
+        else if constexpr(Speed_Plan_Mode == Polynomail_Mode)// 多项式速度规划
+        {
             polynomial_velocity_planning(x, y, max_v, t_total, vx, vy);
         }
-        else if constexpr(Speed_Plan_Mode == PT_Mode){
+        else if constexpr(Speed_Plan_Mode == PT_Mode)// PT速度规划
+        {
             pt_velocity_planning(x, y, max_v, k_p, vx, vy);
         }
         else {

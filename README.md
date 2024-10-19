@@ -27,3 +27,6 @@ store the history code for R2
 ## v1.3
 
 加入了Motor和回调函数与外设类管理，全局变量进行了部分补充（待完成通讯类和加入雷达监测后的跟随底盘解算）
+
+ - [ ] Motor
+ - [x] CallbackFunction

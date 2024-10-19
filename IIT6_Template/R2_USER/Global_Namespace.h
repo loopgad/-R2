@@ -89,27 +89,26 @@ namespace ROBOT_Namespace {
 	
 }
 namespace Action_Namespace {
-	typedef struct ACTION_GL_POS//action����
-	{
-		float POS_X;
-		float POS_Y;
-		float YAW;
-		float W_Z;
+	typedef struct ACTION_GL_POS { // 动作全局位置结构体
+    float POS_X;               // 当前X坐标
+    float POS_Y;               // 当前Y坐标
+    float YAW;                 // 当前偏航角度（绕Z轴旋转的角度）
+    float W_Z;                 // W轴在Z方向上的分量
 
-		float LAST_POS_X;
-		float LAST_POS_Y;
-		float LAST_YAW;
+    float LAST_POS_X;          // 上一次的X坐标
+    float LAST_POS_Y;          // 上一次的Y坐标
+    float LAST_YAW;            // 上一次的偏航角度
 
-		float DELTA_POS_X;
-		float DELTA_POS_Y;
-		float DELTA_YAW;	
-	
-		float REAL_X;
-		float REAL_Y;
-		float REAL_YAW;
-	
-		float OFFSET_YAW;
-	} ACTION_GL_POS;
+    float DELTA_POS_X;         // X坐标的变化量（当前位置 - 上一次位置）
+    float DELTA_POS_Y;         // Y坐标的变化量
+    float DELTA_YAW;           // 偏航角度的变化量
+
+    float REAL_X;              // 实际的X坐标，可能用于与虚拟坐标系的转换
+    float REAL_Y;              // 实际的Y坐标
+    float REAL_YAW;            // 实际的偏航角度
+
+    float OFFSET_YAW;          // 偏航角度的偏移量
+} ACTION_GL_POS;
 
 	inline volatile float action_Data[6];
 	inline volatile ACTION_GL_POS ACTION_GL_POS_DATA;

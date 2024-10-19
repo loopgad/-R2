@@ -7,9 +7,14 @@ extern "C"
 {
 #endif
 #include "TaskManager.h"
-#include "RC9Protocol.h"
+// #include "RC9Protocol.h"
 #include "chassis.h"
-#include "Action.h"
+#include"Callback_Function.h"
+// #include "Action.h"
+
+using namespace Action_Namespace;
+using namespace Xbox_Namespace;
+
 #ifdef __cplusplus
 }
 #endif
@@ -83,14 +88,14 @@ public:
     float locking_heading = 0.0f;
     float MAX_ROBOT_SPEED_W = 3.60f;
     XboxControllerData_t xbox_msgs;
-    action *ACTION = nullptr;
+    ACTION_GL_POS *ACTION = nullptr;
     chassis *control_chassis = nullptr;
     float target_trackpoint_x = 0.0f;
     float target_trackpoint_y = 0.0f;
     float target_tracking_dis = 500.0f;
 
 public:
-    xbox(action *ACTION_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_ = 1.50f, float MAX_ROBOT_SPEED_X_ = 1.50f, float MAX_ROBOT_SPEED_W_ = 3.60f);
+    xbox(ACTION_GL_POS *ACTION_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_ = 1.50f, float MAX_ROBOT_SPEED_X_ = 1.50f, float MAX_ROBOT_SPEED_W_ = 3.60f);
     void chassis_control();
     void update(uint8_t data_id, uint8_t data_length, const uint8_t *data_char, const float *data_float);
     void detectButtonEdge(bool currentBtnState, bool *lastBtnState, uint8_t *toggleState, uint8_t maxState);
@@ -101,15 +106,15 @@ public:
 
 // 以下是具体车辆的xbox遥控器类
 
-// 九期r1的遥控
-class xbox_r1n : public xbox, public ITaskProcessor
-{
-private:
-    /* data */
-public:
-    xbox_r1n(action *ACTION_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_ = 1.50f, float MAX_ROBOT_SPEED_X_ = 1.50f, float MAX_ROBOT_SPEED_W_ = 3.60f);
-    void process_data();
-};
+// // 九期r1的遥控
+// class xbox_r1n : public xbox, public ITaskProcessor
+// {
+// private:
+//     /* data */
+// public:
+//     xbox_r1n(ACTION_GL_POS *ACTION_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_ = 1.50f, float MAX_ROBOT_SPEED_X_ = 1.50f, float MAX_ROBOT_SPEED_W_ = 3.60f);
+//     void process_data();
+// };
 
 // 九期r2的遥控
 class xbox_r2n : public xbox, public ITaskProcessor
@@ -118,13 +123,15 @@ private:
     RC9Protocol *robot_data_chain;
 
 public:
-    xbox_r2n(action *ACTION_, RC9Protocol *robot_data_chain_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_ = 1.50f, float MAX_ROBOT_SPEED_X_ = 1.50f, float MAX_ROBOT_SPEED_W_ = 3.60f);
+    xbox_r2n(ACTION_GL_POS *ACTION_, RC9Protocol *robot_data_chain_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_ = 1.50f, float MAX_ROBOT_SPEED_X_ = 1.50f, float MAX_ROBOT_SPEED_W_ = 3.60f);
     void process_data();
 };
 
 #endif
-extern UART_HandleTypeDef huart3;
 
+extern UART_HandleTypeDef huart1;
+extern UART_HandleTypeDef huart3;
+void Action_Reset(void);//重啓action
 
 
 

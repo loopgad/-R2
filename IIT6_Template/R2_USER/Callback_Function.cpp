@@ -212,7 +212,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 }
 
 //action数据更新
-void Update_Action(float value[6])
+inline void Update_Action(float value[6])
 {
 	
 //update data

@@ -82,7 +82,7 @@ extern UART_HandleTypeDef huart3;//action使用
 
 inline void Handle_Receive_Data(uint8_t byte);//数据接收处理函数
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
-void Update_Action(float value[6]);
+inline void Update_Action(float value[6]);
 
 //#ifdef __cplusplus
 //}

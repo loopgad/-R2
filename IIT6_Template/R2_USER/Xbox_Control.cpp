@@ -1,7 +1,7 @@
 #include "Xbox_Control.h"
 
 // xbox 构造函数，初始化成员变量
-xbox::xbox(action *ACTION_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_, float MAX_ROBOT_SPEED_X_, float MAX_ROBOT_SPEED_W_) 
+xbox::xbox(ACTION_GL_POS *ACTION_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_, float MAX_ROBOT_SPEED_X_, float MAX_ROBOT_SPEED_W_) 
     : ACTION(ACTION_), control_chassis(control_chassis_), MAX_ROBOT_SPEED_Y(MAX_ROBOT_SPEED_Y_), MAX_ROBOT_SPEED_X(MAX_ROBOT_SPEED_X_), MAX_ROBOT_SPEED_W(MAX_ROBOT_SPEED_W_) 
 {
 }
@@ -57,7 +57,7 @@ void xbox::detectButtonEdgeRb(bool currentBtnState, bool *lastBtnState, uint8_t 
     if (currentBtnState && !(*lastBtnState)) // 检测到按键上升沿
     { 
         *toggleState = (*toggleState + 1) % (maxState + 1); // 更新状态
-        locking_heading = ACTION->pose_data.yaw_rad; // 锁定当前方向角
+        locking_heading = ACTION->YAW; // 锁定当前方向角
     }
     *lastBtnState = currentBtnState; // 更新上一次的按键状态
 }
@@ -123,7 +123,7 @@ void xbox::chassis_control()
     // 如果按下 Xbox 按钮，重启动作
     if (xbox_msgs.btnXbox == 1)
     {
-        ACTION->restart();
+        Action_Reset();
     }
 
     if (xbox_msgs.joyLHori > 31000 && xbox_msgs.joyLHori < 350000)
@@ -192,16 +192,16 @@ void xbox::chassis_control()
     }
 }
 
-xbox_r1n::xbox_r1n(action *ACTION_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_, float MAX_ROBOT_SPEED_X_, float MAX_ROBOT_SPEED_W_) : xbox(ACTION_, control_chassis_, MAX_ROBOT_SPEED_Y_, MAX_ROBOT_SPEED_X_, MAX_ROBOT_SPEED_W_)
-{
-}
+// xbox_r1n::xbox_r1n(ACTION_GL_POS *ACTION_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_, float MAX_ROBOT_SPEED_X_, float MAX_ROBOT_SPEED_W_) : xbox(ACTION_, control_chassis_, MAX_ROBOT_SPEED_Y_, MAX_ROBOT_SPEED_X_, MAX_ROBOT_SPEED_W_)
+// {
+// }
 
-void xbox_r1n::process_data()
-{
-    chassis_control();
-}
+// void xbox_r1n::process_data()
+// {
+//     chassis_control();
+// }
 
-xbox_r2n::xbox_r2n(action *ACTION_, RC9Protocol *robot_data_chain_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_, float MAX_ROBOT_SPEED_X_, float MAX_ROBOT_SPEED_W_) : xbox(ACTION_, control_chassis_, MAX_ROBOT_SPEED_Y_, MAX_ROBOT_SPEED_X_, MAX_ROBOT_SPEED_W_), robot_data_chain(robot_data_chain_)
+xbox_r2n::xbox_r2n(ACTION_GL_POS *ACTION_, RC9Protocol *robot_data_chain_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_, float MAX_ROBOT_SPEED_X_, float MAX_ROBOT_SPEED_W_) : xbox(ACTION_, control_chassis_, MAX_ROBOT_SPEED_Y_, MAX_ROBOT_SPEED_X_, MAX_ROBOT_SPEED_W_), robot_data_chain(robot_data_chain_)
 {
 }
 void xbox_r2n::process_data()
@@ -209,4 +209,13 @@ void xbox_r2n::process_data()
     target_trackpoint_x = robot_data_chain->rx_frame_mat.data.msg_get[0];
     target_trackpoint_y = robot_data_chain->rx_frame_mat.data.msg_get[1];
     chassis_control();
+}
+
+
+//reset action module(with botton switch)
+void Action_Reset(void) {
+    const char *str = "ACT0";
+    while (*str) {
+        HAL_UART_Transmit(&huart3, (uint8_t *)str++, 1, HAL_MAX_DELAY);
+    }
 }

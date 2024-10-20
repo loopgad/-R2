@@ -73,7 +73,7 @@ inline void Handle_Receive_Data(uint8_t byte)
                 // CRC 校验成功，将数据复制到最终数组
                 for (uint8_t i = 0; i < rx_frame_mat.data_length; i++)
                 {
-                    xbox_received_data[i] = rx_frame_mat.rx_temp_data_mat[i];
+                    xbox_raw_data[i] = rx_frame_mat.rx_temp_data_mat[i];
                 }
             }
 

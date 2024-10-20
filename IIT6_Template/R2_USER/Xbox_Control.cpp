@@ -1,219 +1,214 @@
 #include "Xbox_Control.h"
 
 // xbox 构造函数，初始化成员变量
-xbox::xbox(ACTION_GL_POS *ACTION_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_, float MAX_ROBOT_SPEED_X_, float MAX_ROBOT_SPEED_W_) 
-    : ACTION(ACTION_), control_chassis(control_chassis_), MAX_ROBOT_SPEED_Y(MAX_ROBOT_SPEED_Y_), MAX_ROBOT_SPEED_X(MAX_ROBOT_SPEED_X_), MAX_ROBOT_SPEED_W(MAX_ROBOT_SPEED_W_) 
-{
+xbox::xbox()
+{   
+    //初始化命名空间状态全部为默认值
+    Xbox_State_Info.btnA_State = false;
+    Xbox_State_Info.btnB_State = false;
+    Xbox_State_Info.btnRB_State = false;
+    Xbox_State_Info.btnX_State = false;
+    Xbox_State_Info.btnY_State  = false;
+    Xbox_State_Info.Speed_Threshold = 1;
+    // 初始化所有按钮状态为 false
+    xbox_msgs.btnY = false;
+    xbox_msgs.btnB = false;
+    xbox_msgs.btnA = false;
+    xbox_msgs.btnX = false;
+    xbox_msgs.btnShare = false;
+    xbox_msgs.btnStart = false;
+    xbox_msgs.btnSelect = false;
+    xbox_msgs.btnXbox = false;
+    xbox_msgs.btnLB = false;
+    xbox_msgs.btnRB = false;
+    xbox_msgs.btnLS = false;
+    xbox_msgs.btnRS = false;
+    xbox_msgs.btnDirUp = false;
+    xbox_msgs.btnDirLeft = false;
+    xbox_msgs.btnDirRight = false;
+    xbox_msgs.btnDirDown = false;
+
+    // 初始化所有按钮的上一次状态为 false
+    xbox_msgs.btnY_last = false;
+    xbox_msgs.btnB_last = false;
+    xbox_msgs.btnA_last = false;
+    xbox_msgs.btnX_last = false;
+    xbox_msgs.btnShare_last = false;
+    xbox_msgs.btnStart_last = false;
+    xbox_msgs.btnSelect_last = false;
+    xbox_msgs.btnXbox_last = false;
+    xbox_msgs.btnLB_last = false;
+    xbox_msgs.btnRB_last = false;
+    xbox_msgs.btnLS_last = false;
+    xbox_msgs.btnRS_last = false;
+    xbox_msgs.btnDirUp_last = false;
+    xbox_msgs.btnDirLeft_last = false;
+    xbox_msgs.btnDirRight_last = false;
+    xbox_msgs.btnDirDown_last = false;
+
+    // 初始化摇杆和触发器的状态为 0
+    xbox_msgs.joyLHori = 0;
+    xbox_msgs.joyLVert = 0;
+    xbox_msgs.joyRHori = 0;
+    xbox_msgs.joyRVert = 0;
+    xbox_msgs.trigLT = 0;
+    xbox_msgs.trigRT = 0;
 }
 
-// update 函数，用于更新手柄数据
-void xbox::update(uint8_t data_id, uint8_t data_length, const uint8_t *data_char, const float *data_float) 
+// update 函数，用于更新手柄的状态数据
+void xbox::update()
 {
-    if (data_length == 28) // 判断数据长度是否为28字节
+    // 判断数据长度是否符合要求
+    if (sizeof(xbox_raw_data) == 28)
     {
-        // 解析按键数据 (bool 值)
-        xbox_msgs.btnY = data_char[0];    // Y 按钮
-        xbox_msgs.btnB = data_char[1];    // B 按钮
-        xbox_msgs.btnA = data_char[2];    // A 按钮
-        xbox_msgs.btnX = data_char[3];    // X 按钮
-        xbox_msgs.btnShare = data_char[4]; // 分享按钮
-        xbox_msgs.btnStart = data_char[5]; // 开始按钮
-        xbox_msgs.btnSelect = data_char[6]; // 选择按钮
-        xbox_msgs.btnXbox = data_char[7];   // Xbox 按钮
-        xbox_msgs.btnLB = data_char[8];    // LB 按钮
-        xbox_msgs.btnRB = data_char[9];    // RB 按钮
-        xbox_msgs.btnLS = data_char[10];   // 左摇杆按钮
-        xbox_msgs.btnRS = data_char[11];   // 右摇杆按钮
-        xbox_msgs.btnDirUp = data_char[12];   // 方向键上
-        xbox_msgs.btnDirLeft = data_char[13]; // 方向键左
-        xbox_msgs.btnDirRight = data_char[14]; // 方向键右
-        xbox_msgs.btnDirDown = data_char[15]; // 方向键下
+        // 将当前状态保存到“上一次状态”
+        xbox_msgs.btnShare_last = xbox_msgs.btnShare;
+        xbox_msgs.btnStart_last = xbox_msgs.btnStart;
+        xbox_msgs.btnSelect_last = xbox_msgs.btnSelect;
+        xbox_msgs.btnXbox_last = xbox_msgs.btnXbox;
+        xbox_msgs.btnLB_last = xbox_msgs.btnLB;
+        xbox_msgs.btnRB_last = xbox_msgs.btnRB;
+        xbox_msgs.btnLS_last = xbox_msgs.btnLS;
+        xbox_msgs.btnRS_last = xbox_msgs.btnRS;
+        xbox_msgs.btnDirUp_last = xbox_msgs.btnDirUp;
+        xbox_msgs.btnDirLeft_last = xbox_msgs.btnDirLeft;
+        xbox_msgs.btnDirRight_last = xbox_msgs.btnDirRight;
+        xbox_msgs.btnDirDown_last = xbox_msgs.btnDirDown;
 
-        // 解析霍尔传感器值（16位数据，高8位和低8位拼接）
-        xbox_msgs.joyLHori = ((uint16_t)data_char[16] << 8) | data_char[17];  // 左摇杆水平
-        xbox_msgs.joyLVert = ((uint16_t)data_char[18] << 8) | data_char[19];  // 左摇杆垂直
-        xbox_msgs.joyRHori = ((uint16_t)data_char[20] << 8) | data_char[21];  // 右摇杆水平
-        xbox_msgs.joyRVert = ((uint16_t)data_char[22] << 8) | data_char[23];  // 右摇杆垂直
-        xbox_msgs.trigLT = ((uint16_t)data_char[24] << 8) | data_char[25];    // 左扳机
-        xbox_msgs.trigRT = ((uint16_t)data_char[26] << 8) | data_char[27];    // 右扳机
+        // 更新每个按键和摇杆的状态
+        xbox_msgs.btnY = xbox_raw_data[0];
+        xbox_msgs.btnB = xbox_raw_data[1];
+        xbox_msgs.btnA = xbox_raw_data[2];
+        xbox_msgs.btnX = xbox_raw_data[3];
+        xbox_msgs.btnShare = xbox_raw_data[4];
+        xbox_msgs.btnStart = xbox_raw_data[5];
+        xbox_msgs.btnSelect = xbox_raw_data[6];
+        xbox_msgs.btnXbox = xbox_raw_data[7];
+        xbox_msgs.btnLB = xbox_raw_data[8];
+        xbox_msgs.btnRB = xbox_raw_data[9];
+        xbox_msgs.btnLS = xbox_raw_data[10];
+        xbox_msgs.btnRS = xbox_raw_data[11];
+        xbox_msgs.btnDirUp = xbox_raw_data[12];
+        xbox_msgs.btnDirLeft = xbox_raw_data[13];
+        xbox_msgs.btnDirRight = xbox_raw_data[14];
+        xbox_msgs.btnDirDown = xbox_raw_data[15];
+
+        // 调用通用的按键边沿检测函数
+        detectButtonEdge_A(xbox_msgs.btnA, &xbox_msgs.btnA_last);  // 检测A键
+        detectButtonEdge_B(xbox_msgs.btnB, &xbox_msgs.btnB_last);  // 检测B键
+        detectButtonEdge_X(xbox_msgs.btnX, &xbox_msgs.btnX_last);  // 检测X键
+        detectButtonEdge_Y(xbox_msgs.btnY, &xbox_msgs.btnY_last);  // 检测Y键
+
+        // 检测RB按键的状态变化
+        detectButtonEdgeRb(xbox_msgs.btnRB, &xbox_msgs.btnRB_last);  // 检测RB键
+
+        //检测左摇杆按键
+        detectButtonEdge_Action(xbox_msgs.btnLS, &xbox_msgs.btnLS_last); //重启Action
+
+        // 处理速度控制按钮
+        detectButtonEdgeD(xbox_msgs.btnX, &xbox_msgs.btnX_last);  // 降低速度
+        detectButtonEdgeI(xbox_msgs.btnB, &xbox_msgs.btnB_last);  // 提升速度
+
+
+    
+
+        // 组合两个字节来形成16位的霍尔传感器值
+        Xbox_State_Info.joyHori_LX = ((uint16_t)xbox_raw_data[16] << 8) | xbox_raw_data[17];
+        Xbox_State_Info.joyVert_LY = ((uint16_t)xbox_raw_data[18] << 8) | xbox_raw_data[19];
+        Xbox_State_Info.joyHori_RX = ((uint16_t)xbox_raw_data[20] << 8) | xbox_raw_data[21];
+        Xbox_State_Info.joyVert_RY = ((uint16_t)xbox_raw_data[22] << 8) | xbox_raw_data[23];
+        Xbox_State_Info.trigLT = ((uint16_t)xbox_raw_data[24] << 8) | xbox_raw_data[25];
+        Xbox_State_Info.trigRT = ((uint16_t)xbox_raw_data[26] << 8) | xbox_raw_data[27];
     }
 }
 
-// 按钮边沿检测函数，检测按键的状态变化（上升沿）
-void xbox::detectButtonEdge(bool currentBtnState, bool *lastBtnState, uint8_t *toggleState, uint8_t maxState)
+// 通用按钮边沿检测函数，用于检测按键的上升沿（按下时）
+inline bool xbox::detectButtonEdge(bool currentBtnState, bool *lastBtnState)
 {
-    if (currentBtnState && !(*lastBtnState)) // 检测到按键上升沿
-    { 
-        *toggleState = (*toggleState + 1) % (maxState + 1); // 更新状态
-
-        // locking_heading = ROBOT_REAL_POS_DATA.POS_YAW_RAD;  // 示例代码，未使用
+    // 检测是否按键从未按下变为按下
+    if (currentBtnState && !(*lastBtnState))
+    {
+        *lastBtnState = currentBtnState;
+        // 按键按下事件处理逻辑可以放在这里
+        return true;
     }
-    *lastBtnState = currentBtnState; // 更新上一次的按键状态
+    // 更新上一次的按键状态
+    *lastBtnState = currentBtnState;
+    return false;
 }
 
-// 按钮边沿检测函数，检测RB按键的状态变化（上升沿）
-void xbox::detectButtonEdgeRb(bool currentBtnState, bool *lastBtnState, uint8_t *toggleState, uint8_t maxState)
+// 检测A按键的上升沿（按下时）
+void xbox::detectButtonEdge_A(bool currentBtnState, bool *lastBtnState)
 {
-    if (currentBtnState && !(*lastBtnState)) // 检测到按键上升沿
-    { 
-        *toggleState = (*toggleState + 1) % (maxState + 1); // 更新状态
-        locking_heading = ACTION->YAW; // 锁定当前方向角
-    }
-    *lastBtnState = currentBtnState; // 更新上一次的按键状态
+    Xbox_State_Info.btnA_State = (currentBtnState, lastBtnState);
 }
 
-// 检测按钮 X 是否按下，并更新速度等级减小
+// 检测B按键的上升沿（按下时）
+void xbox::detectButtonEdge_B(bool currentBtnState, bool *lastBtnState)
+{
+    Xbox_State_Info.btnB_State = (currentBtnState, lastBtnState);
+}
+
+// 检测X按键的上升沿（按下时）
+void xbox::detectButtonEdge_X(bool currentBtnState, bool *lastBtnState)
+{
+    Xbox_State_Info.btnX_State = detectButtonEdge(currentBtnState, lastBtnState);
+}
+
+// 检测Y按键的上升沿（按下时）
+void xbox::detectButtonEdge_Y(bool currentBtnState, bool *lastBtnState)
+{
+    Xbox_State_Info.btnY_State = detectButtonEdge(currentBtnState, lastBtnState);
+}
+
+
+// 检测RB按键的上升沿（按下时）
+void xbox::detectButtonEdgeRb(bool currentBtnState, bool *lastBtnState)
+{
+    Xbox_State_Info.btnRB_State = detectButtonEdge(currentBtnState, lastBtnState);
+}
+
+// 检测X键按下，降低速度等级
 void xbox::detectButtonEdgeD(bool currentBtnState, bool *lastBtnState)
 {
-    if (currentBtnState && !(*lastBtnState)) // 检测到按键上升沿
+    if (currentBtnState && !(*lastBtnState))
     {
-        if (speed_level > 0) // 如果当前速度等级大于 0，则减小速度等级
-        {
-            speed_level--;
-        }
+        // 降低速度的处理逻辑
+        Xbox_State_Info.Speed_Threshold = (Xbox_State_Info.Speed_Threshold > 1 ) ? (Xbox_State_Info.Speed_Threshold--) : Xbox_State_Info.Speed_Threshold;
+        Xbox_State_Info.btnX_State = false; //清除状态
     }
-    *lastBtnState = currentBtnState; // 更新上一次的按键状态
+    *lastBtnState = currentBtnState;
 }
 
-// 检测按钮 B 是否按下，并更新速度等级增大
+// 检测B键按下，提升速度等级
 void xbox::detectButtonEdgeI(bool currentBtnState, bool *lastBtnState)
 {
-    if (currentBtnState && !(*lastBtnState)) // 检测到按键上升沿
+    if (currentBtnState && !(*lastBtnState))
     {
-        if (speed_level < 2) // 如果当前速度等级小于 2，则增大速度等级
-        {
-            speed_level++;
-        }
+        // 提升速度的处理逻辑
+        Xbox_State_Info.Speed_Threshold = (Xbox_State_Info.Speed_Threshold < 3 ) ? (Xbox_State_Info.Speed_Threshold++) : Xbox_State_Info.Speed_Threshold;
+        Xbox_State_Info.btnB_State = false; //清除状态
     }
-    *lastBtnState = currentBtnState; // 更新上一次的按键状态
+    *lastBtnState = currentBtnState;
 }
 
-// 底盘控制函数，根据按钮和摇杆状态控制底盘运动
-void xbox::chassis_control()
-{
-    // 检测各个按钮的边沿并更新对应的标志位
-    detectButtonEdgeRb(xbox_msgs.btnRB, &xbox_msgs.btnRB_last, &head_locking_flag, 1);
-    detectButtonEdge(xbox_msgs.btnLS, &xbox_msgs.btnLS_last, &robot_stop_flag, 1);
-    detectButtonEdge(xbox_msgs.btnRS, &xbox_msgs.btnRS_last, &world_robot_flag, 1);
-    detectButtonEdge(xbox_msgs.btnLB, &xbox_msgs.btnLB_last, &catch_ball_flag, 1);
-    detectButtonEdgeD(xbox_msgs.btnX, &xbox_msgs.btnX_last);  // 降低速度
-    detectButtonEdgeI(xbox_msgs.btnB, &xbox_msgs.btnB_last);  // 提升速度
-    detectButtonEdge(xbox_msgs.btnA, &xbox_msgs.btnA_last, &if_point_track_flag, 1);
-
-    // 根据速度等级设置最大速度
-    if (speed_level == 1)
+void xbox::detectButtonEdge_Action(bool currentBtnState, bool *lastBtnState){
+    if (currentBtnState && !(*lastBtnState))
     {
-        MAX_ROBOT_SPEED_X = 1.20f;
-        MAX_ROBOT_SPEED_Y = 1.20f;
-        MAX_ROBOT_SPEED_W = 3.20f;
-    }
-    if (speed_level == 0)
-    {
-        MAX_ROBOT_SPEED_X = 0.40f;
-        MAX_ROBOT_SPEED_Y = 0.40f;
-        MAX_ROBOT_SPEED_W = 1.10f;
-    }
-    if (speed_level == 2)
-    {
-        MAX_ROBOT_SPEED_X = 1.96f;
-        MAX_ROBOT_SPEED_Y = 1.96f;
-        MAX_ROBOT_SPEED_W = 3.98f;
-    }
-
-    // 如果按下 Xbox 按钮，重启动作
-    if (xbox_msgs.btnXbox == 1)
-    {
+        // call Action_Reset
         Action_Reset();
+            
     }
-
-    if (xbox_msgs.joyLHori > 31000 && xbox_msgs.joyLHori < 350000)
-    {
-        xbox_msgs.joyLHori_map = 0.0f;
-    }
-    if (xbox_msgs.joyLHori <= 31000)
-    {
-        xbox_msgs.joyLHori_map = (31000.0f - (float)xbox_msgs.joyLHori) / 31000.0f;
-    }
-    if (xbox_msgs.joyLHori >= 35000)
-    {
-        xbox_msgs.joyLHori_map = (35000.0f - (float)xbox_msgs.joyLHori) / 30535.0f;
-    }
-
-    if (xbox_msgs.joyLVert > 31000 && xbox_msgs.joyLVert < 350000)
-    {
-        xbox_msgs.joyLVert_map = 0.0f;
-    }
-    if (xbox_msgs.joyLVert <= 31000)
-    {
-        xbox_msgs.joyLVert_map = (31000.0f - (float)xbox_msgs.joyLVert) / 31000.0f;
-    }
-    if (xbox_msgs.joyLVert >= 35000)
-    {
-        xbox_msgs.joyLVert_map = (35000.0f - (float)xbox_msgs.joyLVert) / 30535.0f;
-    }
-
-    if (xbox_msgs.joyRHori > 31000 && xbox_msgs.joyRHori < 35000)
-    {
-        xbox_msgs.joyRHori_map = 0.0f;
-    }
-    if (xbox_msgs.joyRHori <= 31000)
-    {
-        xbox_msgs.joyRHori_map = (31000.0f - (float)xbox_msgs.joyRHori) / 31000.0f;
-    }
-    if (xbox_msgs.joyRHori >= 35000)
-    {
-        xbox_msgs.joyRHori_map = (35000.0f - (float)xbox_msgs.joyRHori) / 30535.0f;
-    }
-    if (head_locking_flag == 1)
-    {
-        control_chassis->lock();
-    }
-    if (head_locking_flag == 0)
-    {
-        control_chassis->unlock();
-    }
-    if (world_robot_flag == 0 && robot_stop_flag == 0 && if_point_track_flag == 0)
-    {
-        control_chassis->switch_chassis_mode(remote_robotv);
-        control_chassis->setrobotv(MAX_ROBOT_SPEED_X * xbox_msgs.joyLHori_map, MAX_ROBOT_SPEED_Y * xbox_msgs.joyLVert_map, -MAX_ROBOT_SPEED_W * xbox_msgs.joyRHori_map);
-    }
-    if (world_robot_flag == 1 && robot_stop_flag == 0 && if_point_track_flag == 0)
-    {
-        control_chassis->switch_chassis_mode(remote_worldv);
-        control_chassis->setworldv(MAX_ROBOT_SPEED_X * xbox_msgs.joyLHori_map, MAX_ROBOT_SPEED_Y * xbox_msgs.joyLVert_map, -MAX_ROBOT_SPEED_W * xbox_msgs.joyRHori_map);
-    }
-    if (robot_stop_flag == 1)
-    {
-        control_chassis->switch_chassis_mode(chassis_standby);
-    }
-    if (if_point_track_flag == 1 && robot_stop_flag == 0)
-    {
-        control_chassis->switch_chassis_mode(point_tracking);
-    }
+    *lastBtnState = currentBtnState;
 }
 
-// xbox_r1n::xbox_r1n(ACTION_GL_POS *ACTION_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_, float MAX_ROBOT_SPEED_X_, float MAX_ROBOT_SPEED_W_) : xbox(ACTION_, control_chassis_, MAX_ROBOT_SPEED_Y_, MAX_ROBOT_SPEED_X_, MAX_ROBOT_SPEED_W_)
-// {
-// }
-
-// void xbox_r1n::process_data()
-// {
-//     chassis_control();
-// }
-
-xbox_r2n::xbox_r2n(ACTION_GL_POS *ACTION_, RC9Protocol *robot_data_chain_, chassis *control_chassis_, float MAX_ROBOT_SPEED_Y_, float MAX_ROBOT_SPEED_X_, float MAX_ROBOT_SPEED_W_) : xbox(ACTION_, control_chassis_, MAX_ROBOT_SPEED_Y_, MAX_ROBOT_SPEED_X_, MAX_ROBOT_SPEED_W_), robot_data_chain(robot_data_chain_)
-{
+//任务进程如下函数内容
+void xbox::Task_Function() {
+    update();
 }
-void xbox_r2n::process_data()
-{
-    target_trackpoint_x = robot_data_chain->rx_frame_mat.data.msg_get[0];
-    target_trackpoint_y = robot_data_chain->rx_frame_mat.data.msg_get[1];
-    chassis_control();
-}
-
 
 //reset action module(with botton switch)
-void Action_Reset(void) {
+inline void Action_Reset(void) {
     const char *str = "ACT0";
     while (*str) {
         HAL_UART_Transmit(&huart3, (uint8_t *)str++, 1, HAL_MAX_DELAY);

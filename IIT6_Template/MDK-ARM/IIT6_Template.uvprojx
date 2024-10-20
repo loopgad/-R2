@@ -10,7 +10,7 @@
       <TargetName>IIT6_Template</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
+      <pCCUsed>6220000::V6.22::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -186,6 +186,7 @@
             <RvdsVP>3</RvdsVP>
             <RvdsMve>0</RvdsMve>
             <RvdsCdeCp>0</RvdsCdeCp>
+            <nBranchProt>0</nBranchProt>
             <hadIRAM2>1</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -339,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32H743xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32H7xx/Include;../Drivers/CMSIS/Include;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../IIT6_Template/R2_USER;..\R2_USER\ros_dependence</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32H7xx/Include;../Drivers/CMSIS/Include;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../IIT6_Template/R2_USER</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1355,24 +1356,14 @@
           <GroupName>R2_USER</GroupName>
           <Files>
             <File>
-              <FileName>Task_Manager.cpp</FileName>
+              <FileName>A-Star_Planner.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\R2_USER\Task_Manager.cpp</FilePath>
+              <FilePath>..\R2_USER\A-Star_Planner.cpp</FilePath>
             </File>
             <File>
-              <FileName>Task_Manager.h</FileName>
+              <FileName>A-Star_Planner.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\R2_USER\Task_Manager.h</FilePath>
-            </File>
-            <File>
-              <FileName>PID.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\R2_USER\PID.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>PID.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\R2_USER\PID.h</FilePath>
+              <FilePath>..\R2_USER\A-Star_Planner.h</FilePath>
             </File>
             <File>
               <FileName>Base_Calculation.cpp</FileName>
@@ -1385,11 +1376,6 @@
               <FilePath>..\R2_USER\Base_Calculation.h</FilePath>
             </File>
             <File>
-              <FileName>Global_Namespace.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\R2_USER\Global_Namespace.h</FilePath>
-            </File>
-            <File>
               <FileName>Callback_Function.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\R2_USER\Callback_Function.cpp</FilePath>
@@ -1400,29 +1386,39 @@
               <FilePath>..\R2_USER\Callback_Function.h</FilePath>
             </File>
             <File>
-              <FileName>Hardware_Peripheral.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\R2_USER\Hardware_Peripheral.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Hardware_Peripheral.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\R2_USER\Hardware_Peripheral.h</FilePath>
-            </File>
-            <File>
-              <FileName>drive_uart.c</FileName>
+              <FileName>crc_util.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\R2_USER\ros_dependence\drive_uart.c</FilePath>
+              <FilePath>..\R2_USER\crc_util.c</FilePath>
             </File>
             <File>
-              <FileName>drive_uart.h</FileName>
+              <FileName>crc_util.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\R2_USER\ros_dependence\drive_uart.h</FilePath>
+              <FilePath>..\R2_USER\crc_util.h</FilePath>
             </File>
             <File>
-              <FileName>tool.h</FileName>
+              <FileName>Global_Namespace.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\R2_USER\ros_dependence\tool.h</FilePath>
+              <FilePath>..\R2_USER\Global_Namespace.h</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\R2_USER\Motor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\R2_USER\Motor.h</FilePath>
+            </File>
+            <File>
+              <FileName>PID.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\R2_USER\PID.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PID.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\R2_USER\PID.h</FilePath>
             </File>
             <File>
               <FileName>ROS.cpp</FileName>
@@ -1435,14 +1431,29 @@
               <FilePath>..\R2_USER\ROS.h</FilePath>
             </File>
             <File>
-              <FileName>Motor.cpp</FileName>
+              <FileName>Task_Manager.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\R2_USER\Motor.cpp</FilePath>
+              <FilePath>..\R2_USER\Task_Manager.cpp</FilePath>
             </File>
             <File>
-              <FileName>Motor.h</FileName>
+              <FileName>Task_Manager.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\R2_USER\Motor.h</FilePath>
+              <FilePath>..\R2_USER\Task_Manager.h</FilePath>
+            </File>
+            <File>
+              <FileName>tool.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\R2_USER\tool.h</FilePath>
+            </File>
+            <File>
+              <FileName>Xbox_Control.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\R2_USER\Xbox_Control.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Xbox_Control.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\R2_USER\Xbox_Control.h</FilePath>
             </File>
           </Files>
         </Group>

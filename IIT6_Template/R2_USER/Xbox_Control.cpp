@@ -46,13 +46,15 @@ xbox::xbox()
     xbox_msgs.btnDirRight_last = false;
     xbox_msgs.btnDirDown_last = false;
 
+
+		
     // 初始化摇杆和触发器的状态为 0
-    xbox_msgs.joyLHori = 0;
-    xbox_msgs.joyLVert = 0;
-    xbox_msgs.joyRHori = 0;
-    xbox_msgs.joyRVert = 0;
-    xbox_msgs.trigLT = 0;
-    xbox_msgs.trigRT = 0;
+    Xbox_State_Info.joyHori_LX = 0;
+    Xbox_State_Info.joyVert_LY = 0;
+    Xbox_State_Info.joyHori_RX = 0;
+    Xbox_State_Info.joyVert_RY = 0;
+    Xbox_State_Info.trigLT = 0;
+    Xbox_State_Info.trigRT = 0;
 }
 
 // update 函数，用于更新手柄的状态数据
@@ -140,13 +142,13 @@ inline bool xbox::detectButtonEdge(bool currentBtnState, bool *lastBtnState)
 // 检测A按键的上升沿（按下时）
 void xbox::detectButtonEdge_A(bool currentBtnState, bool *lastBtnState)
 {
-    Xbox_State_Info.btnA_State = (currentBtnState, lastBtnState);
+    Xbox_State_Info.btnA_State = detectButtonEdge(currentBtnState, lastBtnState);
 }
 
 // 检测B按键的上升沿（按下时）
 void xbox::detectButtonEdge_B(bool currentBtnState, bool *lastBtnState)
 {
-    Xbox_State_Info.btnB_State = (currentBtnState, lastBtnState);
+    Xbox_State_Info.btnB_State = detectButtonEdge(currentBtnState, lastBtnState);
 }
 
 // 检测X按键的上升沿（按下时）

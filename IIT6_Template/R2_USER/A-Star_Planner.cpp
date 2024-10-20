@@ -189,7 +189,7 @@ void AStarPlanner::speedPlan(std::vector<Node> path) {
         {
             trapezoidal_velocity_planning(x, y, max_v, accel, vx, vy);
         }
-        else if constexpr(Speed_Plan_Mode == S-Shaped_Mode)// S型速度规划
+        else if constexpr(Speed_Plan_Mode == S_Shaped_Mode)// S型速度规划
         {
             s_curve_velocity_planning(x, y, max_v, accel, jerk, vx, vy);
         }   

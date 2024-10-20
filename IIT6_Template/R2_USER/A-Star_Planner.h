@@ -6,6 +6,13 @@
 #include <cmath>
 #include <iostream>
 
+
+//赋予模式离散数值用于constexpr判断
+#define  Trapezoidal_Mode 1
+#define  S_Shaped_Mode 2
+#define  Polynomail_Mode 3
+#define  PT_Mode 4
+
 //用于选择速度规划方式
 #define Speed_Plan_Mode Trapezoidal_Mode
 //#define Speed_Plan_Mode S-Shaped_Mode

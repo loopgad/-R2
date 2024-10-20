@@ -1,16 +1,11 @@
 
 #pragma once
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+
 #include "Task_Manager.h"
 #include "Callback_Function.h"
 #include "Global_Namespace.h"
 
-#ifdef __cplusplus
-}
-#endif
 
 using namespace Xbox_Namespace;
 
@@ -104,7 +99,7 @@ public:
     //任务运行函数
     void Task_Function();
 };
-#endif
+
 
 // 以下是具体车辆的xbox遥控器类
 
@@ -129,7 +124,6 @@ public:
 //     void process_data();
 // };
 
-#endif
 
 extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart3;

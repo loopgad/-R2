@@ -22,6 +22,14 @@ namespace ROS_Namespace{
 }
 
 namespace Motor_Namespace {
+	// enum {
+	// 	 POSITION_CONTROL_MODE, //位置模式
+	// 	 POSITION_TARQUE_CONTROL_MODE, //位置_力矩模式
+	//      SPEED_TARQUE_CONTROL_MODE, //速度_力矩模式
+	// 	 SPEED_CONTROL_MODE, //速度模式
+	// 	 MOTO_OFF, //电机关机 --> 电流不发送
+	//      VELOCITY_PLANNING_MODE //速度规划模式
+	// } UnitMode;
 	typedef struct MOTO_REAL_INFO
 	{
 	// 电机模式
@@ -56,33 +64,7 @@ namespace Motor_Namespace {
 
 namespace Xbox_Namespace {
 
-    inline uint8_t xbox_raw_data[64];  // 存储接收到的最终数据
-
-	typedef struct XBOX_STATE
-	{
-		//摇杆数据
-		    // 摇杆和扳机键的霍尔传感器值（16位整数）
-    	uint_fast16_t joyHori_LX;      // 左摇杆水平方向
-    	uint_fast16_t joyVert_LY;      // 左摇杆垂直方向
-    	uint_fast16_t joyHori_RX;      // 右摇杆水平方向
-    	uint_fast16_t joyVert_RY;      // 右摇杆垂直方向
-    	uint_fast16_t trigLT;        // 左扳机键
-    	uint_fast16_t trigRT;        // 右扳机键
-		
-		//按键状态
-  		bool btnA_State;
-		bool btnB_State;
-		bool btnX_State;
-		bool btnY_State;
-		bool btnRB_State;
-		
-		//速度档位
-		uint_fast8_t Speed_Threshold;
-
-	
-	}XBOX_STATE;
-
-	inline XBOX_STATE Xbox_State_Info;
+    inline uint8_t xbox_received_data[64];  // 存储接收到的最终数据
 
 }
 

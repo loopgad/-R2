@@ -68,6 +68,7 @@ namespace Xbox_Namespace {
     	uint_fast16_t joyVert_RY;      // 右摇杆垂直方向
     	uint_fast16_t trigLT;        // 左扳机键
     	uint_fast16_t trigRT;        // 右扳机键
+		
 		//按键状态
   		bool btnA_State;
 		bool btnB_State;

@@ -9,19 +9,6 @@
  */
 #include "ROS.h"
 
-SystemTick_Fun ROS::get_systemTick = NULL; // 定义一个系统时钟的函数指针，用于获取系统时间
-
-// 注册获取系统时钟的函数
-uint8_t ROS::getMicroTick_regist(uint32_t (*getTick_fun)(void))
-{
-    if(getTick_fun != NULL) // 如果传入的函数指针不为空
-    {
-        ROS::get_systemTick = getTick_fun; // 将传入的函数指针赋值给系统时钟函数指针
-        return 1; // 返回成功
-    }
-    else 
-        return 0; // 如果传入的函数指针为空，返回失败
-}
 
 
 /**

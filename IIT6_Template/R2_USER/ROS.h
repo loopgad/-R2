@@ -1,6 +1,5 @@
 #pragma once
 #include "Global_Namespace.h"
-#include "drive_uart.h"
 #include "tool.h"
 
 using namespace ROS_Namespace;
@@ -12,7 +11,6 @@ union ROS_data
 }x,y,vx,vy;
 
 
-typedef uint32_t (*SystemTick_Fun)(void);
 
 #ifdef __cplusplus
 
@@ -33,8 +31,7 @@ class ROS : Tools
       tail[1] = 0x0A;
     }
     inline int8_t Recieve_From_ROS(uint8_t *buffer);
-    static uint8_t getMicroTick_regist(uint32_t (*getTick_fun)(void));
-    static SystemTick_Fun get_systemTick;
+
     
 
 };

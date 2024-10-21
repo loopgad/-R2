@@ -187,19 +187,19 @@ void AStarPlanner::speedPlan(std::vector<Node> path) {
 
         if constexpr(Speed_Plan_Mode == Trapezoidal_Mode) // 梯形速度规划
         {
-            trapezoidal_velocity_planning(x, y, max_v, accel, vx, vy);
+            trapezoidal_velocity_planning(x, y, max_v, accel, ROBOT_Namespace::Robot_Chassis.World_V, ROBOT_Namespace::Robot_Chassis.World_Y);
         }
         else if constexpr(Speed_Plan_Mode == S_Shaped_Mode)// S型速度规划
         {
-            s_curve_velocity_planning(x, y, max_v, accel, jerk, vx, vy);
+            s_curve_velocity_planning(x, y, max_v, accel, jerk, ROBOT_Namespace::Robot_Chassis.World_V, ROBOT_Namespace::Robot_Chassis.World_Y);
         }   
         else if constexpr(Speed_Plan_Mode == Polynomail_Mode)// 多项式速度规划
         {
-            polynomial_velocity_planning(x, y, max_v, t_total, vx, vy);
+            polynomial_velocity_planning(x, y, max_v, t_total, ROBOT_Namespace::Robot_Chassis.World_V, ROBOT_Namespace::Robot_Chassis.World_Y);
         }
         else if constexpr(Speed_Plan_Mode == PT_Mode)// PT速度规划
         {
-            pt_velocity_planning(x, y, max_v, k_p, vx, vy);
+            pt_velocity_planning(x, y, max_v, k_p, ROBOT_Namespace::Robot_Chassis.World_V, ROBOT_Namespace::Robot_Chassis.World_Y);
         }
         else {
             std::cout << "error:haven't planned" << std::endl;

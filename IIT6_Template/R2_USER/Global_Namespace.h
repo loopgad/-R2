@@ -83,10 +83,11 @@ namespace Xbox_Namespace {
 		bool btnX_State;
 		bool btnY_State;
 		bool btnRB_State;
-		
+		bool btnLB_State;
 		//速度档位
 		uint_fast8_t Speed_Threshold;
-
+		//切换底盘解算
+		uint_fast8_t Base_Mode;
 	
 	}XBOX_STATE;
 

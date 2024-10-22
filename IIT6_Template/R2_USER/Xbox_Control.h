@@ -86,12 +86,17 @@ public:
     // 检测RB按键的边沿变化
     void detectButtonEdgeRb(bool currentBtnState, bool *lastBtnState);
 
+    // 检测LB按键的边沿变化
+    void detectButtonEdgeLb(bool currentBtnState, bool *lastBtnState);
 
     // 检测下降按键（降低速度等级）
     void detectButtonEdgeD(bool currentBtnState, bool *lastBtnState);
 
     // 检测上升按键（提升速度等级）
     void detectButtonEdgeI(bool currentBtnState, bool *lastBtnState);
+
+    // 检测LB键按下，切换底盘模式
+    void detectButtonEdge_BaseMode(bool currentBtnState, bool *lastBtnState);
 
     //检测action重启按键
     void detectButtonEdge_Action(bool currentBtnState, bool *lastBtnState);

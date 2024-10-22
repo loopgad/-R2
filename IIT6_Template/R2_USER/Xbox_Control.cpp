@@ -7,9 +7,11 @@ xbox::xbox()
     Xbox_State_Info.btnA_State = false;
     Xbox_State_Info.btnB_State = false;
     Xbox_State_Info.btnRB_State = false;
+    Xbox_State_Info.btnLB_State = false;
     Xbox_State_Info.btnX_State = false;
     Xbox_State_Info.btnY_State  = false;
     Xbox_State_Info.Speed_Threshold = 1;
+    Xbox_State_Info.Base_Mode = 1;
     // 初始化所有按钮状态为 false
     xbox_msgs.btnY = false;
     xbox_msgs.btnB = false;
@@ -103,6 +105,9 @@ void xbox::update()
 
         // 检测RB按键的状态变化
         detectButtonEdgeRb(xbox_msgs.btnRB, &xbox_msgs.btnRB_last);  // 检测RB键
+        
+        // 检测LB按键的状态变化
+        detectButtonEdgeLb(xbox_msgs.btnLB, &xbox_msgs.btnLB_last);  // 检测LB键
 
         //检测左摇杆按键
         detectButtonEdge_Action(xbox_msgs.btnLS, &xbox_msgs.btnLS_last); //重启Action
@@ -170,6 +175,12 @@ void xbox::detectButtonEdgeRb(bool currentBtnState, bool *lastBtnState)
     Xbox_State_Info.btnRB_State = detectButtonEdge(currentBtnState, lastBtnState);
 }
 
+// 检测LB按键的上升沿（按下时）
+void xbox::detectButtonEdgeLb(bool currentBtnState, bool *lastBtnState)
+{
+    Xbox_State_Info.btnLB_State = detectButtonEdge(currentBtnState, lastBtnState);
+}
+
 // 检测X键按下，降低速度等级
 void xbox::detectButtonEdgeD(bool currentBtnState, bool *lastBtnState)
 {
@@ -190,6 +201,19 @@ void xbox::detectButtonEdgeI(bool currentBtnState, bool *lastBtnState)
         // 提升速度的处理逻辑
         Xbox_State_Info.Speed_Threshold = (Xbox_State_Info.Speed_Threshold < 3 ) ? (Xbox_State_Info.Speed_Threshold++) : Xbox_State_Info.Speed_Threshold;
         Xbox_State_Info.btnB_State = false; //清除状态
+    }
+    *lastBtnState = currentBtnState;
+}
+
+
+// 检测LB键按下，切换底盘模式
+void xbox::detectButtonEdge_BaseMode(bool currentBtnState, bool *lastBtnState)
+{
+    if (currentBtnState && !(*lastBtnState))
+    {
+        // 切换底盘模式的处理逻辑
+        Xbox_State_Info.Base_Mode = (Xbox_State_Info.Base_Mode < 3 ) ? (Xbox_State_Info.Base_Mode++) : 1;
+        Xbox_State_Info.btnLB_State = false; //清除状态
     }
     *lastBtnState = currentBtnState;
 }

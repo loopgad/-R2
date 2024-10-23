@@ -22,14 +22,15 @@ namespace ROS_Namespace{
 }
 
 namespace Motor_Namespace {
-	// enum {
-	// 	 POSITION_CONTROL_MODE, //位置模式
-	// 	 POSITION_TARQUE_CONTROL_MODE, //位置_力矩模式
-	//      SPEED_TARQUE_CONTROL_MODE, //速度_力矩模式
-	// 	 SPEED_CONTROL_MODE, //速度模式
-	// 	 MOTO_OFF, //电机关机 --> 电流不发送
-	//      VELOCITY_PLANNING_MODE //速度规划模式
-	// } UnitMode;
+	 enum {
+	 	 POSITION_CONTROL_MODE, //位置模式
+	 	 POSITION_TARQUE_CONTROL_MODE, //位置_力矩模式
+	      SPEED_TARQUE_CONTROL_MODE, //速度_力矩模式
+		 SPEED_CONTROL_MODE, //速度模式
+	 	 MOTO_OFF, //电机关机 --> 电流不发送
+	      VELOCITY_PLANNING_MODE //速度规划模式
+	 } unitMode;
+	 
 	typedef struct MOTO_REAL_INFO
 	{
 	// 电机模式

@@ -127,8 +127,8 @@ void Calculation::Semi_auto_Control(void)//默认世界坐标系
 	}
 	//和速度+=用于保持相对距离的速度       ——————位移差转速度的倍率待调整
 	
-	Vx_temp=-(Xbox_State_Info.joyHori_LX < 31000 ? ((Xbox_State_Info.joyHori_LX-31000)/31000) : ((Xbox_State_Info.joyHori_LX-35000)/35000))*sin(Alpha)*0.003f;
-	Vy_temp=(Xbox_State_Info.joyHori_LX < 31000 ? ((Xbox_State_Info.joyHori_LX-31000)/31000) : ((Xbox_State_Info.joyHori_LX-35000)/35000))*cos(Alpha)*0.003f;
+	Vx_temp=-(Xbox_State_Info.joyHori_LX < 31000 ? ((Xbox_State_Info.joyHori_LX-31000)/31000) : ((Xbox_State_Info.joyHori_LX-35000)/35000))*sin(Alpha);
+	Vy_temp=(Xbox_State_Info.joyHori_LX < 31000 ? ((Xbox_State_Info.joyHori_LX-31000)/31000) : ((Xbox_State_Info.joyHori_LX-35000)/35000))*cos(Alpha);
 	//通过角度将左摇杆的数据转化成切向速度实现绕敌方车的圆周运动		
 	//和速度+=圆周运动
 	
@@ -171,10 +171,11 @@ void Calculation::YawAdjust(float Target_Yaw)
 	Output=7.0f*Err_Yaw+0.7f*(Err_Yaw-Last_Yaw);
 	if(Err_Yaw>0.5||Err_Yaw<-0.5)
 	{	
-		if(Output>50)
-			Output=50;
-		if(Output<-50)
-			Output=-50;
+		if(Output>1)
+			Output=1;
+		if(Output<-1)
+			Output=-1;
+
 		Robot_Chassis.World_V[w]=Output;
 	}
 }
@@ -191,7 +192,6 @@ void Calculation::Move_State(void){
 		default:
 			Robot_Control();
 	}
-
 }
 
 void Calculation::Task_Function(void){

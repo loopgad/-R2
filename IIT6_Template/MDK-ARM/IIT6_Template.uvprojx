@@ -1441,6 +1441,16 @@
               <FilePath>..\R2_USER\Task_Manager.h</FilePath>
             </File>
             <File>
+              <FileName>Task_Process.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\R2_USER\Task_Process.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Task_Process.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\R2_USER\Task_Process.h</FilePath>
+            </File>
+            <File>
               <FileName>tool.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\R2_USER\tool.h</FilePath>

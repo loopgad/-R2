@@ -1,6 +1,6 @@
 #include "Task_Process.h"
 
-extern "C" void Task_Creator(void){
+void My_Task_Creator(void){
     //创建实例
     Motor_Manager motor_core;
     xbox xbox_core;

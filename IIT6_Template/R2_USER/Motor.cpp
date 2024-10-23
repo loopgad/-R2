@@ -12,12 +12,36 @@
 	MOTOR_REAL_INFO[1].unitMode = SPEED_CONTROL_MODE;
 	MOTOR_REAL_INFO[2].unitMode = SPEED_CONTROL_MODE;
 
-}
 
-void Motor_Manager::Motor_control(void){
-	name = "Motor_control";
-	MotorrCtrl();
+
+//Motor m3508[3];  创建电机类实例
+
+/**
+  * @brief  电机组重初始化
+	* @param  None
+	* @retval None
+  * @attention  在main调用一下初始化
+  *电机初始化（包含PID，电机类型）
+  */
+void  Motor_Init(Motor Motor[], uint_fast8_t sizeof_Motor)
+{
+	//PID *pp, float Kp, float Ki, float Kd, float outputmax, float Integralmax, float deadzone
+	
+	//速度环
+    for(int i = 0; i < sizeof_Motor; i++){
+        Motor[i].Motor_PID_RPM.PID_Parameter_Deinit(12.0f, 0.4f, 0.1f, 10000, 10000, -0.5);
+	    //m3508[1].Motor_PID_RPM.PID_Parameter_Deinit(12.0f, 0.4f, 0.1f, 10000, 10000, -0.5);
+	    //m3508[2].Motor_PID_RPM.PID_Parameter_Deinit(12.0f, 0.4f, 0.1f, 10000, 10000, -0.5);
+
+	//位置环pid
+	    Motor[i].Motor_PID_POS.PID_Parameter_Deinit(100, 0, 1, 7000, 7000, 0.05);
+	    //m3508[1].Motor_PID_POS.PID_Parameter_Deinit(100, 0, 1, 7000, 7000, 0.05);
+	    //m3508[2].Motor_PID_POS.PID_Parameter_Deinit(100, 0, 1, 7000, 7000, 0.05);
 }
+	
+
+
+
 
 /**
   * @brief  MotorrCtrl电机控制
@@ -75,8 +99,14 @@ void Motor_Manager::Motor_CAN_update(CAN_RxHeaderTypeDef *msg, uint8_t can1_RxDa
 	}
 }
 
+void Motor_Manager::Task_Function(void){
+	name = "Motor_control";
+	MotorrCtrl();
+}
+
+
 //发送电流
-void Motor_Task::MotorCURRENT_CAN_send(void)
+void Motor_Manager::MotorCURRENT_CAN_send(void)
 {
 	/***********************************用于ID为 1 2 3 4 的电机*********************************/
 	CAN_TxHeaderTypeDef tx_message_1;
@@ -104,4 +134,3 @@ void Motor_Task::MotorCURRENT_CAN_send(void)
         // Failed to add message to the transmit mailbox
     }		
 }
-

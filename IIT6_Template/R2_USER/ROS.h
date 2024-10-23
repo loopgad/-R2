@@ -4,11 +4,7 @@
 
 using namespace ROS_Namespace;
 
-union ROS_data
-{
-    float f;
-    uint8_t c[4];
-}x,y,vx,vy;
+
 
 
 
@@ -18,6 +14,12 @@ class ROS : Tools
 {
 
   private:
+		union ROS_data
+	{
+		float f;
+		uint8_t c[4];
+	}x,y,vx,vy;
+	
     uint8_t header[2];
     uint8_t tail[2];
     uint8_t lenth=0;

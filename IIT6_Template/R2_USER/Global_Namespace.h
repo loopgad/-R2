@@ -150,11 +150,6 @@ namespace Action_Namespace {
 
 }
 
-namespace ROS_Namespace {
-
-    
-
-}
 
 
 #endif

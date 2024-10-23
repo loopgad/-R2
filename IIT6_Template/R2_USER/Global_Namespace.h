@@ -33,7 +33,7 @@ namespace Motor_Namespace {
 	typedef struct MOTO_REAL_INFO
 	{
 	// 电机模式
-		//uint32_t unitMode;//电机模式
+		uint8_t unitMode;//电机模式
 		// POSITION_CONTROL_MODE 位置模式
 		// POSITION_TARQUE_CONTROL_MODE 位置_力矩模式
 	    // SPEED_TARQUE_CONTROL_MODE 速度_力矩模式

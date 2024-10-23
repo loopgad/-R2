@@ -29,18 +29,6 @@ using namespace Motor_Namespace;
 #define  SPEED_CONTROL_MODE				1		//速度模式
 
 
-class Motor_Manager : public Task_Thread //, public can 要加
-{
-private:
-	
-	void MotorrCtrl(void);
-	void Motor_CAN_update(CAN_RxHeaderTypeDef *msg, uint8_t can1_RxData[8]);
-	void MotorCURRENT_CAN_send(void);
-		
-public:
-	void Motor_control(void);
-};
-
 class Motor : public PID_Class 
 {
 private:
@@ -48,13 +36,13 @@ private:
 	PID_Class Motor_PID_POS;//位置pid信息
 		
 public:
-	friend void Motor_DeInit(Motor Motor[], , uint_fast8_t sizeof_Motor);
+	friend void Motor_Init(Motor Motor[], , uint_fast8_t sizeof_Motor);
 	friend Motor_Manager;
 };
 
 
 
-void  Motor_DeInit(void);
+
 
 
 //#endif

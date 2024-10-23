@@ -107,6 +107,9 @@ inline void trapezoidal_velocity_planning(float x, float y, float max_v, float a
     float angle = std::atan2(y, x);
     vx = max_v * std::cos(angle);
     vy = max_v * std::sin(angle);
+
+    //限速逻辑（待添加）
+
 }
 
 
@@ -128,6 +131,8 @@ inline void s_curve_velocity_planning(float x, float y, float max_v, float accel
     float angle = std::atan2(y, x);
     vx = max_v * std::cos(angle);
     vy = max_v * std::sin(angle);
+
+        //限速逻辑（待添加）
 }
 
 
@@ -144,6 +149,8 @@ inline void polynomial_velocity_planning(float x, float y, float max_v, float t_
     float angle = std::atan2(y, x);
     vx = velocity_factor * std::cos(angle);
     vy = velocity_factor * std::sin(angle);
+
+        //限速逻辑（待添加）
 }
 
 // PT速度规划
@@ -161,6 +168,8 @@ inline void pt_velocity_planning(float x, float y, float max_v, float k_p, float
     float angle = std::atan2(y, x);
     vx = velocity_factor * std::cos(angle);
     vy = velocity_factor * std::sin(angle);
+
+        //限速逻辑（待添加）
 }
 
 

@@ -37,6 +37,7 @@ void  Motor_Init(Motor Motor[], uint_fast8_t sizeof_Motor)
 	    Motor[i].Motor_PID_POS.PID_Parameter_Deinit(100, 0, 1, 7000, 7000, 0.05);
 	    //m3508[1].Motor_PID_POS.PID_Parameter_Deinit(100, 0, 1, 7000, 7000, 0.05);
 	    //m3508[2].Motor_PID_POS.PID_Parameter_Deinit(100, 0, 1, 7000, 7000, 0.05);
+	}
 }
 	
 

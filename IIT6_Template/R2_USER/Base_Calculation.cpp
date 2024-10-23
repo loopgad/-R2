@@ -12,11 +12,10 @@
  * \retval void
  */
 inline void Calculation::Kinematic_Analysis_Inverse(void){
-
+	//直接用浮点数代替sqrt计算，节省一点算力
 	MOTOR_REAL_INFO[0].TARGET_RPM = 19*((0 + Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);
-	MOTOR_REAL_INFO[1].TARGET_RPM = 19*((-(sqrt(3)/2) * Robot_Chassis.Robot_V[y] - (0.5) * Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);
-	MOTOR_REAL_INFO[2].TARGET_RPM = 19*(((sqrt(3)/2) * Robot_Chassis.Robot_V[y] - (0.5) * Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);
-	
+	MOTOR_REAL_INFO[1].TARGET_RPM = 19*((-(0.866025403) * Robot_Chassis.Robot_V[y] - (0.5) * Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);
+	MOTOR_REAL_INFO[2].TARGET_RPM = 19*(((0.866025403) * Robot_Chassis.Robot_V[y] - (0.5) * Robot_Chassis.Robot_V[x] + RADIUS * Robot_Chassis.Robot_V[w])*60)/(Radius_Wheel*2*PI);	
 }
 
 /*!
@@ -180,8 +179,29 @@ void Calculation::YawAdjust(float Target_Yaw)
 	}
 }
 
+//根据速比进行速度映射
+inline void Calculation::Speed_Level_Map(void){
+	for(int i = 0 ; i < 3 ; i++){
+		if(Xbox_State_Info.Speed_Threshold == 2){
+			Robot_Chassis.Robot_V[i] = Robot_Chassis.Robot_V[i] * 1.3 ;
+			Robot_Chassis.World_V[i] = Robot_Chassis.World_V[i] * 1.3 ;
+		}
+		else if(Xbox_State_Info.Speed_Threshold == 3){
+			Robot_Chassis.Robot_V[i] = Robot_Chassis.Robot_V[i] * 1.8 ;
+			Robot_Chassis.World_V[i] = Robot_Chassis.World_V[i] * 1.8 ;
+		}
+		else//速比为1则保持原值
+		{	
+		}
+	}			
+}
+
+
 //读取手柄的底盘状态值进行模式选择
 void Calculation::Move_State(void){
+
+	Speed_Level_Map();//先根据手柄映射速度，然后再进行底盘解算
+
 	switch(Xbox_State_Info.Base_Mode){
 		case 1:
 			Robot_Control();

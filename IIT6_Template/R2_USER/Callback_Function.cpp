@@ -1,7 +1,8 @@
 #include"Callback_Function.h"
 
-uint8_t RxBuffer_for3[1] = {0};
 uint8_t RxBuffer_for2[23] = {0};
+uint8_t RxBuffer_for3[1] = {0};
+
 
 /***********************************************xbox信息处理函数************************************/
 inline void Handle_Receive_Data(uint8_t byte)

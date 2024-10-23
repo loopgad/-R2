@@ -35,10 +35,12 @@ enum direction{
 		private:
 			inline void Kinematic_Analysis_Inverse(void);                
 			inline void Axis_analyse_for_WORLDtoROBOT(void);
+			inline void Speed_Level_Map(void);
 			void World_Control(void);
 			void Robot_Control(void);
 			void Semi_auto_Control(void);
 			void Move_State(void);
+			
 		public:
 			void Task_Function();
    

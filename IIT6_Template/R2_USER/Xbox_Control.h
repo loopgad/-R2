@@ -8,7 +8,8 @@
 
 
 using namespace Xbox_Namespace;
-
+// xbox默认用串口1
+extern UART_HandleTypeDef huart1;
 // 定义最大和最小的射击转速
 #define MAX_SHOOT_RPM_UP 4600.0f
 #define MAX_SHOOT_RPM_DOWN 3600.0f
@@ -130,9 +131,9 @@ public:
 // };
 
 
-extern UART_HandleTypeDef huart1;
-extern UART_HandleTypeDef huart3;
-inline void Action_Reset(void);//重啓action
+
+
+
 
 
 

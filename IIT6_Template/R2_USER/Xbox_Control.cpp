@@ -12,6 +12,9 @@ xbox::xbox()
     Xbox_State_Info.btnY_State  = false;
     Xbox_State_Info.Speed_Threshold = 1;
     Xbox_State_Info.Base_Mode = 1;
+    Xbox_State_Info.Action_Reset = false;
+    Xbox_State_Info.Air_Pump  =  false;
+
     // 初始化所有按钮状态为 false
     xbox_msgs.btnY = false;
     xbox_msgs.btnB = false;
@@ -97,6 +100,7 @@ void xbox::update()
         xbox_msgs.btnDirRight = xbox_raw_data[14];
         xbox_msgs.btnDirDown = xbox_raw_data[15];
 
+        /*
         // 调用通用的按键边沿检测函数
         detectButtonEdge_A(xbox_msgs.btnA, &xbox_msgs.btnA_last);  // 检测A键
         detectButtonEdge_B(xbox_msgs.btnB, &xbox_msgs.btnB_last);  // 检测B键
@@ -109,14 +113,17 @@ void xbox::update()
         // 检测LB按键的状态变化
         detectButtonEdgeLb(xbox_msgs.btnLB, &xbox_msgs.btnLB_last);  // 检测LB键
 
-        //检测左摇杆按键
-        detectButtonEdge_Action(xbox_msgs.btnLS, &xbox_msgs.btnLS_last); //重启Action
+        */
 
         // 处理速度控制按钮
-        detectButtonEdgeD(xbox_msgs.btnX, &xbox_msgs.btnX_last);  // 降低速度
-        detectButtonEdgeI(xbox_msgs.btnB, &xbox_msgs.btnB_last);  // 提升速度
+        detectButtonEdgeD(xbox_msgs.btnX, &xbox_msgs.btnX_last);  // 速度档位降低
+        detectButtonEdgeI(xbox_msgs.btnB, &xbox_msgs.btnB_last);  // 速度档位升高
 
+        //处理模式切换按键
+        detectButtonEdge_BaseMode(xbox_msgs.btnLB, &xbox_msgs.btnLB_last); //底盘模式切换
 
+        //处理Action标志位
+        detectButtonEdge_Action(xbox_msgs.btnShare, &xbox_msgs.btnShare_last); //重启Action标志位置位
     
 
         // 组合两个字节来形成16位的霍尔传感器值
@@ -144,6 +151,7 @@ inline bool xbox::detectButtonEdge(bool currentBtnState, bool *lastBtnState)
     return false;
 }
 
+/*  ***********************************以按键区分的标志位**************************
 // 检测A按键的上升沿（按下时）
 void xbox::detectButtonEdge_A(bool currentBtnState, bool *lastBtnState)
 {
@@ -181,6 +189,11 @@ void xbox::detectButtonEdgeLb(bool currentBtnState, bool *lastBtnState)
     Xbox_State_Info.btnLB_State = detectButtonEdge(currentBtnState, lastBtnState);
 }
 
+
+*/
+
+
+/********************************以功能区分的标志位**************************/
 // 检测X键按下，降低速度等级
 void xbox::detectButtonEdgeD(bool currentBtnState, bool *lastBtnState)
 {
@@ -221,8 +234,8 @@ void xbox::detectButtonEdge_BaseMode(bool currentBtnState, bool *lastBtnState)
 void xbox::detectButtonEdge_Action(bool currentBtnState, bool *lastBtnState){
     if (currentBtnState && !(*lastBtnState))
     {
-        // call Action_Reset
-        Action_Reset();
+        // Set Action_Reset state
+        Xbox_State_Info.Action_Reset = true; 
             
     }
     *lastBtnState = currentBtnState;
@@ -231,12 +244,4 @@ void xbox::detectButtonEdge_Action(bool currentBtnState, bool *lastBtnState){
 //任务进程如下函数内容
 void xbox::Task_Function() {
     update();
-}
-
-//reset action module(with botton switch)
-inline void Action_Reset(void) {
-    const char *str = "ACT0";
-    while (*str) {
-        HAL_UART_Transmit(&huart3, (uint8_t *)str++, 1, HAL_MAX_DELAY);
-    }
 }

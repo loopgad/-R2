@@ -52,12 +52,6 @@ namespace Motor_Namespace {
 		bool      Velflag;        // 速度为零时，置1 
 	// 结构体
 
-
-	// 角度积分时用到下面的变量
-		float		 REAL_ANGLE;              // 处理过的真实角度（必须用float）
-		uint8_t	 FIRST_ANGLE_INTEGRAL_FLAG; // 第一次角度积分标志
-		uint16_t LAST_ANGLE;                 // 上一次角度
-		int16_t filter_RPM;                  // 滤波后的速度值
 	} MOTO_REAL_INFO;
 
 	inline MOTO_REAL_INFO MOTOR_REAL_INFO[8];
@@ -78,17 +72,25 @@ namespace Xbox_Namespace {
     	uint_fast16_t trigLT;        // 左扳机键
     	uint_fast16_t trigRT;        // 右扳机键
 		
-		//按键状态
+		/**************按键状态***********/
+		/*
   		bool btnA_State;
 		bool btnB_State;
 		bool btnX_State;
 		bool btnY_State;
 		bool btnRB_State;
 		bool btnLB_State;
+		*/
+
+		/**************功能状态************/
 		//速度档位
 		uint_fast8_t Speed_Threshold;
 		//切换底盘解算
 		uint_fast8_t Base_Mode;
+		//软重启Action(默认串口3)
+		bool Action_Reset;
+		//气泵控制（GPIO口）
+		bool Air_Pump;
 	
 	}XBOX_STATE;
 
@@ -96,17 +98,14 @@ namespace Xbox_Namespace {
 
 }
 namespace ROBOT_Namespace {
-	typedef struct ROBOT_REAL_POS
-	{
-  		float POS_X;
-  		float POS_Y;     
-  		float POS_YAW;
-  		int robot_location;
+	// typedef struct ROBOT_REAL_POS
+	// {
+  	// 	float POS_X;
+  	// 	float POS_Y;     
+  	// 	float POS_YAW;
+  	// 	int robot_location;
 	
-	}ROBOT_REAL_POS;
-
-
-	
+	// }ROBOT_REAL_POS;
 	typedef struct ROBOT_CHASSIS
 	{
 		float World_V[3]; // Y , X , W
@@ -119,7 +118,7 @@ namespace ROBOT_Namespace {
 	
 	} ROBOT_CHASSIS;
 
-    inline ROBOT_REAL_POS ROBOT_REAL_POS_DATA = {0, 0, 0};
+    //inline ROBOT_REAL_POS ROBOT_REAL_POS_DATA = {0, 0, 0};
 	inline ROBOT_CHASSIS Robot_Chassis;
 	
 }

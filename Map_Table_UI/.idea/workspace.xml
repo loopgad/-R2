@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9850ea7c-5bfb-4e3a-baf5-71e6aa6f225b" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R2_F4_cpp.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../R2_F4_cpp.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R2_F4_cpp/R2_USER/Callback_Function.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../R2_F4_cpp/R2_USER/Callback_Function.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R2_F4_cpp/R2_USER/Callback_Function.h" beforeDir="false" afterPath="$PROJECT_DIR$/../R2_F4_cpp/R2_USER/Callback_Function.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R2_F4_cpp/R2_USER/Motor.h" beforeDir="false" afterPath="$PROJECT_DIR$/../R2_F4_cpp/R2_USER/Motor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R2_F4_cpp/R2_USER/Task_Manager.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R2_F4_cpp/R2_USER/Task_Manager.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R2_F4_cpp/R2_USER/Task_Process.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../R2_F4_cpp/R2_USER/Task_Process.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R2_F4_cpp/R2_USER/Task_Process.h" beforeDir="false" afterPath="$PROJECT_DIR$/../R2_F4_cpp/R2_USER/Task_Process.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R2_F4_cpp/R2_USER/Xbox_Control.h" beforeDir="false" afterPath="$PROJECT_DIR$/../R2_F4_cpp/R2_USER/Xbox_Control.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R2_F4_cpp/can.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R2_F4_cpp/try.ioc" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2o37mZ4qQmvy2P2znjsSPiP1GW2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/STM32CubeMx_Projest/-R2/Map_Table_UI&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-d7ad00fb9fc3-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23726.102" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="9850ea7c-5bfb-4e3a-baf5-71e6aa6f225b" name="更改" comment="" />
+      <created>1730086564878</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730086564878</updated>
+    </task>
+    <servers />
+  </component>
+</project>

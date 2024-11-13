@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "callback_function.h": "c",
+        "global_namespace.h": "c",
+        "cmath": "cpp",
+        "crc_util.h": "c",
+        "gpio.h": "c",
+        "cstdint": "cpp"
+    },
+
+    "C_Cpp.errorSquiggles": "disabled",
+    "window.density.editorTabHeight": "default",
+    "editor.mouseWheelZoom": true,
+    "terminal.integrated.mouseWheelZoom": true,
+    "window.zoomLevel": 0.1,
+    "editor.fontSize": 16
+}

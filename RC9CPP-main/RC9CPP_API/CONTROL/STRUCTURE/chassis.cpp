@@ -119,7 +119,7 @@ void chassis::worldv_to_robotv()
 void chassis::point_track_compute() //上位机控制的点跟踪
 {
 	//采用接收的ros数据直接执行速度
-    input_wvx = ROS->nextpoint[0];
+    input_wvx = -ROS->nextpoint[0]; //由于不可抗力的影响，需要取负值
     input_wvy = ROS->nextpoint[1];
 //	worldv_to_robotv();
 //    point_track_info.distan_error = sqrt(dis_vector_x * dis_vector_x + dis_vector_y * dis_vector_y); // 求模
@@ -229,15 +229,18 @@ void omni3_unusual::process_data()
     case chassis_standby:
         target_rvx = 0.0f;
         target_rvy = 0.0f;
+        ROS->Send_to_ROS(ACTION->pose_data.world_pos_x,ACTION->pose_data.world_pos_y,ACTION->pose_data.world_speed_x,ACTION->pose_data.world_speed_y);//更新发送的数据包
 
         break;
     case remote_robotv:
+        ROS->Send_to_ROS(ACTION->pose_data.world_pos_x,ACTION->pose_data.world_pos_y,ACTION->pose_data.world_speed_x,ACTION->pose_data.world_speed_y);//更新发送的数据包
 
         target_rvx = input_rvx;
         target_rvy = input_rvy;
         break;
     case remote_worldv:
         worldv_to_robotv();
+        ROS->Send_to_ROS(ACTION->pose_data.world_pos_x,ACTION->pose_data.world_pos_y,ACTION->pose_data.world_speed_x,ACTION->pose_data.world_speed_y);//更新发送的数据包
         break;
     case line_tracking:
 
@@ -284,15 +287,16 @@ void omni3::process_data()
     case chassis_standby:
         target_rvx = 0.0f;
         target_rvy = 0.0f;
+        ROS->Send_to_ROS(ACTION->pose_data.world_pos_x,ACTION->pose_data.world_pos_y,ACTION->pose_data.world_speed_x,ACTION->pose_data.world_speed_y);//更新发送的数据包
 
         break;
     case remote_robotv:
-
+        ROS->Send_to_ROS(ACTION->pose_data.world_pos_x,ACTION->pose_data.world_pos_y,ACTION->pose_data.world_speed_x,ACTION->pose_data.world_speed_y);//更新发送的数据包
         target_rvx = input_rvx;
         target_rvy = input_rvy;
         break;
     case remote_worldv:
-
+        ROS->Send_to_ROS(ACTION->pose_data.world_pos_x,ACTION->pose_data.world_pos_y,ACTION->pose_data.world_speed_x,ACTION->pose_data.world_speed_y);//更新发送的数据包
         worldv_to_robotv();
         break;
     case line_tracking:

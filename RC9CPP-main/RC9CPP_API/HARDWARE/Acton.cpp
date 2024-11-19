@@ -87,10 +87,10 @@ void action::Update_Action_gl_position(float value[6])
     action_info.last_pos_y = action_info.now_pos_y;
     action_info.last_pos_z = action_info.now_pos_z;
 
-    if (if_inverse_install)
+    if (if_inverse_install)//用上位机计算的缘故，部分数据用-
     {
         action_info.now_pos_z = value[0];
-        action_info.now_pos_x = value[3];
+        action_info.now_pos_x = -value[3];
         action_info.now_pos_y = -value[4];
     }
     else

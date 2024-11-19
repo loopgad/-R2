@@ -22,80 +22,105 @@ SOFTWARE.
 
 
 #include "Serialport_Drive.h"
+#include <cstdint>
 
 
 using namespace ROS_Namespace;
 
 
 /***********************************ROS部分***************************************/
-/**
- * @brief unpack the data from ROS
- * @param buffer pack that recieved from ROS
- * @return int8_t unpack success return 0, else return 1
- */
-int8_t Serialport_Drive::Recieve_From_ROS(uint8_t *buffer)
+
+unsigned char Serialport_Drive::ros_serial_get_crc8_value(unsigned char *tem_array, unsigned char len)
 {
-	//包头包尾
-      header[0] = 0x55;
-      header[1] = 0xAA;
-      tail[0] = 0x0D;
-      tail[1] = 0x0A;
-	
-    uint_fast8_t index = 0; // 初始化索引
-    float *p = nullptr;//未用到控制量
-    for(int i = 0; i < 2; i++) // 检查数据包头部
+    unsigned char crc = 0;
+    unsigned char i;
+    while(len--)
     {
-        if(buffer[index++] != header[i]) // 如果头部不匹配
-            return 2; // 返回错误
+        crc ^= *tem_array++;
+        for(i = 0; i < 8; i++)
+        {
+            if(crc&0x01)
+                crc=(crc>>1)^0x8C;
+            else
+                crc >>= 1;
+        }
     }
-
-    lenth = buffer[index++]; // 获取数据包长度
-
-    for(int i=0; i<2; i++) // 检查数据包尾部
-    {
-        if(buffer[4+lenth+i] != tail[i]) // 如果尾部不匹配
-            return 1; // 返回错误
-    }
-    
-    for(int i=0; i<4; i++) // 解包x分量
-    {
-        x.c[i] = buffer[index++];
-    }
-
-    for(int i=0; i<4; i++) // 解包y分量
-    {
-        y.c[i] = buffer[index++];
-    }
-
-    for(int i=0; i<4; i++) // 解包vx分量
-    {
-        vx.c[i] = buffer[index++];
-    }
-     for(int i=0; i<4; i++) // 解包vy分量
-    {
-        vy.c[i] = buffer[index++];
-    }
-
-    //8位强转32位,获取相对位置与速度
-    Robot_Relative_x = x.f; // x分量传递
-    Robot_Relative_y = y.f; // y分量传递
-    Robot_Relative_Vx = vx.f; //vx分量传递
-    Robot_Relative_Vy = vy.f; //vy分量传递
-   
-    *p = buffer[index++];
-    //CRC校验 
-   
-//	if (buffer[index++] != CRC8_Table(buffer, lenth + 3)) // 如果CRC校验失败
-//	{
-//    // 重置赋值量
-//    Robot_Relative_x = 0; 
-//    Robot_Relative_y = 0; 
-//    Robot_Relative_Vx = 0;
-//    Robot_Relative_Vy = 0;
-//	}
-
-    return 0; // 返回成功
+    return crc;
 }
+
+
+void Serialport_Drive::Send_to_ROS(float wx, float wy, float vx, float vy,  UART_HandleTypeDef *huart)
+{
+    unsigned char ros_tx_buffer[22]; // 每次 Send_to_ROS 修改完后直接发送这个 buffer
+	int index=0;
+    int length = 16;
+	ToROSworld_px.data=wx/1000;
+	ToROSworld_py.data=wy/1000;
+	ToROSworld_vx.data=vx/1000;
+	ToROSworld_vy.data=vy/1000;
+	ros_tx_buffer[0] = header[0];
+    ros_tx_buffer[1] = header[1];
+    ros_tx_buffer[2] = length;
+    for (int i=0;i<4;i++)
+	{
+		ros_tx_buffer[i+3]= ToROSworld_px.array[i];
+		ros_tx_buffer[i+7]= ToROSworld_py.array[i];
+		ros_tx_buffer[i+11]=ToROSworld_vx.array[i];
+		ros_tx_buffer[i+15]=ToROSworld_vy.array[i];
+	}
+    ros_tx_buffer[19] = ros_serial_get_crc8_value(ros_tx_buffer, length+1);
+    ros_tx_buffer[20] = ender[0];
+    ros_tx_buffer[21] = ender[1];
+	HAL_UART_Transmit(huart, ros_tx_buffer, sizeof(ros_tx_buffer),HAL_MAX_DELAY);
+}
+
+void Serialport_Drive::GET_ROS_DATA(uint8_t buffer[])
+{
+	static int index = 0;
+	static unsigned char length = 0;
+	static bool header_received = false;
+
+ // 判断包头是否已经收到
+ if (!header_received) {
+     if (index == 0 && buffer[0] == header[0]) {
+     }
+     else if (index == 1 && buffer[1] == header[1]) {
+         header_received = true;
+     }
+     else {
+         index = 0;
+     }
+     return;
+ }
+
+ // 包头已收到，继续自增索引
+        index++;
+ // 当接收到长度字节时，更新包长
+ if (index == 3) {
+     length = buffer[2];
+ }
+
+ // 检查是否接收完整个包
+ if (index == length + 4) {
+     unsigned char check_value = ros_serial_get_crc8_value(&buffer[11], length + 1);
+     if (check_value == buffer[length + 3]) { // 校验通过
+         for (int i = 0; i < 4; i++) {
+             FromROS_NEXTPOINTX.array[i] = buffer[i + 3];
+             FromROS_NEXTPOINTY.array[i] = buffer[i + 7];
+         }
+         nextpoint[0] = FromROS_NEXTPOINTX.data;
+         nextpoint[1] = FromROS_NEXTPOINTY.data;
+
+     }
+     else {
+     }
+
+     // 重置状态以接收下一个数据包
+     index = 0;
+     header_received = false;
+ }
+}
+
 /******************************************************************************/
 
 

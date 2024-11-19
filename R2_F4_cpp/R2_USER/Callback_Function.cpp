@@ -28,7 +28,7 @@ extern "C" {
 
 //串口缓冲区定义
 uint8_t RxBuffer_for1[1] = {0};
-uint8_t RxBuffer_for2[1] = {0};
+uint8_t RxBuffer_for2[24] = {0};
 uint8_t RxBuffer_for3[1] = {0};
 
 /****************************启动串口接收中断******************************/
@@ -70,16 +70,12 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 
 		// 判断是否为USART2
     if (huart==&huart2) {
-    	// 使用位操作将32位数据拷贝到buffer_tmp数组中
-    	{
-			uint8_t tmp = USART2->DR;
-    		buffer_tmp[index++] = tmp & 0xFF;        // 8位
-    	}
 
-		if(index > 23)
-    	my_serial.Recieve_From_ROS(buffer_tmp);
+    	my_serial.GET_ROS_DATA(buffer_tmp);
+		ROS_Namespace::Robot_Relative_Vx = my_serial.nextpoint[0];
+		ROS_Namespace::Robot_Relative_Vy = my_serial.nextpoint[1];
 		//重新启动USART2接收中断
-		HAL_UART_Receive_IT(&huart2,RxBuffer_for2, 1);
+		HAL_UART_Receive_IT(&huart2,RxBuffer_for2, 24);
 	}
 }
 

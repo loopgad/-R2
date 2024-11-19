@@ -86,7 +86,7 @@ void Motor_Control_Task(void *argument) {
 //      core->motor[i].Motor_PID_POS.PID_Parameter_Deinit(100.0f, 0, 1.0f, 7000, 7000, 0.05f);
     }
     Motor_Namespace::MOTOR_REAL_INFO[0].TARGET_RPM = data_output;
-	VOFA.Debug_With_UART_Send(&huart6);
+
     osDelay(5);
     }
 }

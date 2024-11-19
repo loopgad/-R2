@@ -48,17 +48,25 @@ class Serialport_Drive
 {
 /********************************ROS部分***************************/
  private:
- union ROS_data
-	{
-		float f;
-		uint8_t c[4];
-	}x,y,vx,vy;
-	
-    uint8_t header[2];
-    uint8_t tail[2];
-    uint8_t lenth=0;		
- public: 
-    int8_t Recieve_From_ROS(uint8_t *buffer);
+    //数据包头包尾
+    char header[2] = {0x55, 0xAA};
+    char ender[2] = {0x0D, 0x0A};
+    //发送共用体    
+	union Send {
+        float data;
+        unsigned char array[4];
+    } ToROSworld_px, ToROSworld_py, ToROSworld_vx, ToROSworld_vy;
+    //接收共用体
+    union Recieve {
+        float data;
+        unsigned char array[4];
+    } FromROS_NEXTPOINTX, FromROS_NEXTPOINTY;
+
+ public:
+    float nextpoint[2]; // 用于接收下一个目标点
+    void Send_to_ROS(float wx, float wy, float vx, float vy, UART_HandleTypeDef *huart);
+    void GET_ROS_DATA(uint8_t buffer[]);
+    unsigned char ros_serial_get_crc8_value(unsigned char *tem_array, unsigned char len);
 /**************************************************************/
 
 /*****************************Xbox部分************************/

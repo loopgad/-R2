@@ -1,9 +1,8 @@
 # -R2
 
-<<<<<<< HEAD
+
 store the history code for R2
-=======
->>>>>>> b4ab8eccdf0a5c243a73c08b1cbb8da125ac8dcc
+
 
 ## v0.1
 
@@ -42,25 +41,19 @@ store the history code for R2
 ## v2.1
 
 解决了串口接收和手柄问题，但是action数据有点奇怪，can还没解决
-<<<<<<< HEAD
-=======
 
->>>>>>> b4ab8eccdf0a5c243a73c08b1cbb8da125ac8dcc
 - [X] Callback_Function
 - [X] Xbox_Map
 
 ## v2.2
 
-<<<<<<< HEAD
-- [ ] Auto_trace
-- [ ] CAN
-- [ ] Action
-=======
 - [X] CAN
 - [X] Action
 
 ## v2.3
 
-- [ ] pid_adjust
-- [ ] Auto_trace
->>>>>>> b4ab8eccdf0a5c243a73c08b1cbb8da125ac8dcc
+- [X] Auto_trace
+
+## v3.0
+
+- [X] Migrate to Jerry'sm architecture and add filters

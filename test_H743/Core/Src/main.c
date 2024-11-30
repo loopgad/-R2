@@ -149,16 +149,29 @@ void Action_Receive_Data(uint8_t RxBuffer_for3[])
 		RxBuffer_for3[0]=0;
 }
 
+//void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+//// 判断是否为USART5,接收action数据
+//    if (huart==&huart5) {
+//		
+//        Action_Receive_Data(RxBuffer_for5); //接收并处理action数据
+//        //重新启动USART5接收中断
+//		HAL_UART_Receive_IT(&huart5,RxBuffer_for5, 22);
+//		
+//    }
+//}
+
+//***************************#[test]***************************//
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 // 判断是否为USART5,接收action数据
     if (huart==&huart5) {
 		
-        Action_Receive_Data(RxBuffer_for5); //接收并处理action数据
+        HAL_UART_Transmit(&huart5, RxBuffer_for5, 22, HAL_MAX_DELAY);
         //重新启动USART5接收中断
 		HAL_UART_Receive_IT(&huart5,RxBuffer_for5, 22);
 		
     }
 }
+/****************************************************************/
 /* USER CODE END 0 */
 
 /**
@@ -207,7 +220,7 @@ int main(void)
   MX_USB_OTG_FS_PCD_Init();
   MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
-	HAL_UART_Receive_IT(&huart5, RxBuffer_for5, 22);
+	HAL_UART_Receive_IT(&huart5,RxBuffer_for5, 22);
   /* USER CODE END 2 */
 
   /* Init scheduler */

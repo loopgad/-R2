@@ -1,0 +1,1 @@
+C:\Users\32806\Desktop\9th_R2\my_rust_embeded_test\hello_world\target\thumbv7em-none-eabi\debug\hello_world: C:\Users\32806\Desktop\9th_R2\my_rust_embeded_test\hello_world\build.rs C:\Users\32806\Desktop\9th_R2\my_rust_embeded_test\hello_world\memory.x C:\Users\32806\Desktop\9th_R2\my_rust_embeded_test\hello_world\src\main.rs

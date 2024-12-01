@@ -1,4 +1,0 @@
-cargo:rustc-link-search=C:\Users\32806\Desktop\9th_R2\my_rust_embeded_test\hello_world\target\thumbv7em-none-eabi\debug\build\hello_world-130b8d67afabaddf\out
-cargo:rerun-if-changed=memory.x
-cargo:rustc-link-arg=--nmagic
-cargo:rustc-link-arg=-Tlink.x

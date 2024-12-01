@@ -1,5 +1,0 @@
-cargo:rustc-link-lib=static=cortex-m
-cargo:rustc-link-search=C:\Users\32806\Desktop\9th_R2\my_rust_embeded_test\hello_world\target\thumbv7em-none-eabi\debug\build\cortex-m-62305d8bd05a692e\out
-cargo:rustc-cfg=cortex_m
-cargo:rustc-cfg=armv7m
-cargo:rustc-cfg=armv7em

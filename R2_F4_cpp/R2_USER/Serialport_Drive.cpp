@@ -1,5 +1,5 @@
 #include "Serialport_Drive.h"
-#include "R2_F4_cpp/R2_USER/Global_Namespace.h"
+#include "Global_Namespace.h"
 #include <cstdint>
 
 using namespace ROS_Namespace;

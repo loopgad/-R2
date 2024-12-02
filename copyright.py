@@ -1,7 +1,7 @@
 import os
 
 # 指定版权信息和 MIT License 内容
-COPYRIGHT_TEXT = """\
+COPYRIGHT_TEXT = """
 /*
 Copyright (c) 2024 loopgad 9th_R2_Member
 

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
 #include "crc_util.h"
 
 // CRC16 查表

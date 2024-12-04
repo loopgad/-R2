@@ -38,7 +38,11 @@
 "m3508_test\port.o"
 "m3508_test\base_calculation.o"
 "m3508_test\callback_function.o"
+<<<<<<< HEAD
 "m3508_test\can.o"
+=======
+"m3508_test\can_1.o"
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
 "m3508_test\global_namespace.o"
 "m3508_test\motor.o"
 "m3508_test\peripheral_control_unit.o"

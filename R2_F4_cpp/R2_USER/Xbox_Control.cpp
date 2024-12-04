@@ -1,6 +1,33 @@
+<<<<<<< HEAD
 #include "Xbox_Control.h"
 
 using namespace Xbox_Namespace;
+=======
+/*
+Copyright (c) 2024 loopgad 9th_R2_Member
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+#include "Xbox_Control.h"
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
 
 // xbox 构造函数，初始化成员变量
 xbox::xbox()
@@ -49,7 +76,11 @@ xbox::xbox()
 void xbox::update()
 {
     // 判断数据长度是否符合要求
+<<<<<<< HEAD
     if (sizeof(xbox_raw_data) == 28)
+=======
+    if (sizeof(Xbox_Namespace::xbox_raw_data) == 28)
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
     {
         // 将当前状态保存到“上一次状态”
         xbox_msgs.btnShare_last = xbox_msgs.btnShare;
@@ -66,6 +97,7 @@ void xbox::update()
         xbox_msgs.btnDirDown_last = xbox_msgs.btnDirDown;
 
         // 更新每个按键和摇杆的状态
+<<<<<<< HEAD
         xbox_msgs.btnY = (bool)xbox_raw_data[0];
         xbox_msgs.btnB = (bool)xbox_raw_data[1];
         xbox_msgs.btnA = (bool)xbox_raw_data[2];
@@ -82,6 +114,24 @@ void xbox::update()
         xbox_msgs.btnDirLeft = xbox_raw_data[13];
         xbox_msgs.btnDirRight = xbox_raw_data[14];
         xbox_msgs.btnDirDown = xbox_raw_data[15];
+=======
+        xbox_msgs.btnY = (bool)Xbox_Namespace::xbox_raw_data[0];
+        xbox_msgs.btnB = (bool)Xbox_Namespace::xbox_raw_data[1];
+        xbox_msgs.btnA = (bool)Xbox_Namespace::xbox_raw_data[2];
+        xbox_msgs.btnX = (bool)Xbox_Namespace::xbox_raw_data[3];
+        xbox_msgs.btnShare = Xbox_Namespace::xbox_raw_data[4];
+        xbox_msgs.btnStart = Xbox_Namespace::xbox_raw_data[5];
+        xbox_msgs.btnSelect = Xbox_Namespace::xbox_raw_data[6];
+        xbox_msgs.btnXbox = Xbox_Namespace::xbox_raw_data[7];
+        xbox_msgs.btnLB = Xbox_Namespace::xbox_raw_data[8];
+        xbox_msgs.btnRB = Xbox_Namespace::xbox_raw_data[9];
+        xbox_msgs.btnLS = Xbox_Namespace::xbox_raw_data[10];
+        xbox_msgs.btnRS = Xbox_Namespace::xbox_raw_data[11];
+        xbox_msgs.btnDirUp = Xbox_Namespace::xbox_raw_data[12];
+        xbox_msgs.btnDirLeft = Xbox_Namespace::xbox_raw_data[13];
+        xbox_msgs.btnDirRight = Xbox_Namespace::xbox_raw_data[14];
+        xbox_msgs.btnDirDown = Xbox_Namespace::xbox_raw_data[15];
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
 
         /*
         // 调用通用的按键边沿检测函数
@@ -108,12 +158,21 @@ void xbox::update()
 		
 
         // 组合两个字节来形成16位的霍尔传感器值
+<<<<<<< HEAD
         Xbox_State_Info.joyHori_LX = ((uint16_t)xbox_raw_data[16] << 8) | xbox_raw_data[17];
         Xbox_State_Info.joyVert_LY = ((uint16_t)xbox_raw_data[18] << 8) | xbox_raw_data[19];
         Xbox_State_Info.joyHori_RX = ((uint16_t)xbox_raw_data[20] << 8) | xbox_raw_data[21];
         Xbox_State_Info.joyVert_RY = ((uint16_t)xbox_raw_data[22] << 8) | xbox_raw_data[23];
         Xbox_State_Info.trigLT = ((uint16_t)xbox_raw_data[24] << 8) | xbox_raw_data[25];
         Xbox_State_Info.trigRT = ((uint16_t)xbox_raw_data[26] << 8) | xbox_raw_data[27];
+=======
+        Xbox_Namespace::Xbox_State_Info.joyHori_LX = ((uint16_t)Xbox_Namespace::xbox_raw_data[16] << 8) | Xbox_Namespace::xbox_raw_data[17];
+        Xbox_Namespace::Xbox_State_Info.joyVert_LY = ((uint16_t)Xbox_Namespace::xbox_raw_data[18] << 8) | Xbox_Namespace::xbox_raw_data[19];
+        Xbox_Namespace::Xbox_State_Info.joyHori_RX = ((uint16_t)Xbox_Namespace::xbox_raw_data[20] << 8) | Xbox_Namespace::xbox_raw_data[21];
+        Xbox_Namespace::Xbox_State_Info.joyVert_RY = ((uint16_t)Xbox_Namespace::xbox_raw_data[22] << 8) | Xbox_Namespace::xbox_raw_data[23];
+        Xbox_Namespace::Xbox_State_Info.trigLT = ((uint16_t)Xbox_Namespace::xbox_raw_data[24] << 8) | Xbox_Namespace::xbox_raw_data[25];
+        Xbox_Namespace::Xbox_State_Info.trigRT = ((uint16_t)Xbox_Namespace::xbox_raw_data[26] << 8) | Xbox_Namespace::xbox_raw_data[27];
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
     }
 }
 
@@ -137,38 +196,62 @@ inline bool xbox::detectButtonEdge(bool currentBtnState, bool *lastBtnState)
 // 检测A按键的上升沿（按下时）
 void xbox::detectButtonEdge_A()
 {
+<<<<<<< HEAD
 		Xbox_State_Info.btnA_State = detectButtonEdge(xbox_msgs.btnA, &xbox_msgs.btnA_last);
+=======
+		Xbox_Namespace::Xbox_State_Info.btnA_State = detectButtonEdge(xbox_msgs.btnA, &xbox_msgs.btnA_last);
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
 }
 
 // 检测B按键的上升沿（按下时）
 void xbox::detectButtonEdge_B()
 {
+<<<<<<< HEAD
 		Xbox_State_Info.btnB_State = detectButtonEdge(xbox_msgs.btnB, &xbox_msgs.btnB_last);
+=======
+		Xbox_Namespace::Xbox_State_Info.btnB_State = detectButtonEdge(xbox_msgs.btnB, &xbox_msgs.btnB_last);
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
 }
 
 // 检测X按键的上升沿（按下时）
 void xbox::detectButtonEdge_X()
 {
+<<<<<<< HEAD
     Xbox_State_Info.btnX_State = detectButtonEdge(xbox_msgs.btnX, &xbox_msgs.btnX_last);
+=======
+    Xbox_Namespace::Xbox_State_Info.btnX_State = detectButtonEdge(xbox_msgs.btnX, &xbox_msgs.btnX_last);
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
 }
 
 //检测Y按键的上升沿（按下时）
 void xbox::detectButtonEdge_Y()
 {
+<<<<<<< HEAD
     Xbox_State_Info.btnY_State = detectButtonEdge(xbox_msgs.btnY, &xbox_msgs.btnY_last);
+=======
+    Xbox_Namespace::Xbox_State_Info.btnY_State = detectButtonEdge(xbox_msgs.btnY, &xbox_msgs.btnY_last);
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
 }
 
 
 // 检测RB按键的上升沿（按下时）
 void xbox::detectButtonEdgeRb()
 {
+<<<<<<< HEAD
     Xbox_State_Info.btnRB_State = detectButtonEdge(xbox_msgs.btnRB, &xbox_msgs.btnRB_last);
+=======
+    Xbox_Namespace::Xbox_State_Info.btnRB_State = detectButtonEdge(xbox_msgs.btnRB, &xbox_msgs.btnRB_last);
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
 }
 
 // 检测LB按键的上升沿（按下时）
 void xbox::detectButtonEdgeLb()
 {
+<<<<<<< HEAD
     Xbox_State_Info.btnLB_State = detectButtonEdge(xbox_msgs.btnLB, &xbox_msgs.btnLB_last);
+=======
+    Xbox_Namespace::Xbox_State_Info.btnLB_State = detectButtonEdge(xbox_msgs.btnLB, &xbox_msgs.btnLB_last);
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
 }
 
 
@@ -186,8 +269,13 @@ void xbox::detectButtonEdgeD(bool currentBtnState, bool *lastBtnState)
     if (currentBtnState && !(*lastBtnState))
     {
         // 降低速度的处理逻辑
+<<<<<<< HEAD
         Xbox_State_Info.Speed_Threshold = (Xbox_State_Info.Speed_Threshold > 1 ) ? (--Xbox_State_Info.Speed_Threshold) : Xbox_State_Info.Speed_Threshold;
         //Xbox_State_Info.btnX_State = false; //清除状态
+=======
+        Xbox_Namespace::Xbox_State_Info.Speed_Threshold = (Xbox_Namespace::Xbox_State_Info.Speed_Threshold > 1 ) ? (--Xbox_Namespace::Xbox_State_Info.Speed_Threshold) : Xbox_Namespace::Xbox_State_Info.Speed_Threshold;
+        //Xbox_Namespace::Xbox_State_Info.btnX_State = false; //清除状态
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
     }
     *lastBtnState = currentBtnState;
 }
@@ -198,8 +286,13 @@ void xbox::detectButtonEdgeI(bool currentBtnState, bool *lastBtnState)
     if (currentBtnState && !(*lastBtnState))
     {
         // 提升速度的处理逻辑
+<<<<<<< HEAD
         Xbox_State_Info.Speed_Threshold = (Xbox_State_Info.Speed_Threshold < 3 ) ? (++Xbox_State_Info.Speed_Threshold) : Xbox_State_Info.Speed_Threshold;
         //Xbox_State_Info.btnB_State = false; //清除状态
+=======
+        Xbox_Namespace::Xbox_State_Info.Speed_Threshold = (Xbox_Namespace::Xbox_State_Info.Speed_Threshold < 3 ) ? (++Xbox_Namespace::Xbox_State_Info.Speed_Threshold) : Xbox_Namespace::Xbox_State_Info.Speed_Threshold;
+        //Xbox_Namespace::Xbox_State_Info.btnB_State = false; //清除状态
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
     }
     *lastBtnState = currentBtnState;
 }
@@ -211,8 +304,13 @@ void xbox::detectButtonEdge_BaseMode(bool currentBtnState, bool *lastBtnState)
     if (currentBtnState && !(*lastBtnState))
     {
         // 切换底盘模式的处理逻辑
+<<<<<<< HEAD
         Xbox_State_Info.Base_Mode = (Xbox_State_Info.Base_Mode < 3 ) ? (++Xbox_State_Info.Base_Mode) : 1;
         //Xbox_State_Info.btnLB_State = false; //清除状态
+=======
+        Xbox_Namespace::Xbox_State_Info.Base_Mode = (Xbox_Namespace::Xbox_State_Info.Base_Mode < 3 ) ? (++Xbox_Namespace::Xbox_State_Info.Base_Mode) : 1;
+        //Xbox_Namespace::Xbox_State_Info.btnLB_State = false; //清除状态
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
     }
     *lastBtnState = currentBtnState;
 }
@@ -222,8 +320,13 @@ void xbox::detectButtonEdge_Action(bool currentBtnState, bool *lastBtnState){
     if (currentBtnState && !(*lastBtnState))
     {
         // Set Action_Reset state
+<<<<<<< HEAD
         Xbox_State_Info.Action_Reset = true; 
         //Xbox_State_Info.btnShare_State = false; //清除状态    
+=======
+        Xbox_Namespace::Xbox_State_Info.Action_Reset = true; 
+        //Xbox_Namespace::Xbox_State_Info.btnShare_State = false; //清除状态    
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
     }
     *lastBtnState = currentBtnState;
 }
@@ -237,15 +340,26 @@ void xbox::detectButtonEdge_Lock_Yaw(bool currentBtnState, bool *lastBtnState)
     {
 		if(flag){
 			// Set Action_Reset state
+<<<<<<< HEAD
         Xbox_State_Info.Lock_Yaw = true; 
+=======
+        Xbox_Namespace::Xbox_State_Info.Lock_Yaw = true; 
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
 		flag = false;
 		}
         
 		else{
+<<<<<<< HEAD
 			Xbox_State_Info.Lock_Yaw = false;
 			flag = true;
 		}
         //Xbox_State_Info.btnShare_State = false; //清除状态    
+=======
+			Xbox_Namespace::Xbox_State_Info.Lock_Yaw = false;
+			flag = true;
+		}
+        //Xbox_Namespace::Xbox_State_Info.btnShare_State = false; //清除状态    
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
     }
     *lastBtnState = currentBtnState;
 }

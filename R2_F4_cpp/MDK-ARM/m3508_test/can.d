@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 m3508_test/can.o: ..\R2_USER\can.c ..\Core\Inc\can.h ..\Core\Inc\main.h \
+=======
+m3508_test/can.o: ..\Core\Src\can.c ..\Core\Inc\can.h ..\Core\Inc\main.h \
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \

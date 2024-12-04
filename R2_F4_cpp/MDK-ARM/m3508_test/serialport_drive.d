@@ -25,4 +25,8 @@ m3508_test/serialport_drive.o: ..\R2_USER\Serialport_Drive.cpp \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
+<<<<<<< HEAD
   ..\R2_USER\Global_Namespace.h ..\R2_USER\crc_util.h
+=======
+  ..\R2_USER\crc_util.h ..\R2_USER\Global_Namespace.h
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0

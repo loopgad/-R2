@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
 #ifndef __CRC_UTIL_H__
 #define __CRC_UTIL_H__
 

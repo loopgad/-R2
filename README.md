@@ -1,6 +1,12 @@
 # -R2
 
 
+<<<<<<< HEAD
+=======
+store the history code for R2
+
+
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
 ## v0.1
 
   保存了pid调整后的版本1代码
@@ -49,5 +55,13 @@
 
 ## v2.3
 
+<<<<<<< HEAD
 - [ ] pid_adjust
 - [ ] Auto_trace
+=======
+- [X] Auto_trace
+
+## v3.0
+
+- [X] Migrate to Jerry'sm architecture and add filters
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0

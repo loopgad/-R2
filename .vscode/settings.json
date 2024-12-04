@@ -13,5 +13,10 @@
     "editor.mouseWheelZoom": true,
     "terminal.integrated.mouseWheelZoom": true,
     "window.zoomLevel": 0.1,
+<<<<<<< HEAD
     "editor.fontSize": 16
+=======
+    "editor.fontSize": 16,
+    "cmake.sourceDirectory": "C:/Users/32806/Desktop/9th_R2/RC9CPP/filter"
+>>>>>>> 944f7e49b9ca7249e370900b25af451d08e604c0
 }

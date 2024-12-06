@@ -1,0 +1,25 @@
+--cpu Cortex-M3
+"airpump\startup_stm32f103xb.o"
+"airpump\main.o"
+"airpump\gpio.o"
+"airpump\tim.o"
+"airpump\stm32f1xx_it.o"
+"airpump\stm32f1xx_hal_msp.o"
+"airpump\stm32f1xx_hal_gpio_ex.o"
+"airpump\stm32f1xx_hal_tim.o"
+"airpump\stm32f1xx_hal_tim_ex.o"
+"airpump\stm32f1xx_hal.o"
+"airpump\stm32f1xx_hal_rcc.o"
+"airpump\stm32f1xx_hal_rcc_ex.o"
+"airpump\stm32f1xx_hal_gpio.o"
+"airpump\stm32f1xx_hal_dma.o"
+"airpump\stm32f1xx_hal_cortex.o"
+"airpump\stm32f1xx_hal_pwr.o"
+"airpump\stm32f1xx_hal_flash.o"
+"airpump\stm32f1xx_hal_flash_ex.o"
+"airpump\stm32f1xx_hal_exti.o"
+"airpump\system_stm32f1xx.o"
+--strict --scatter "AirPump\AirPump.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "AirPump.map" -o AirPump\AirPump.axf

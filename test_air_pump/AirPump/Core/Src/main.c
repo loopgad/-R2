@@ -49,7 +49,6 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -60,15 +59,14 @@ uint32_t time_count = 0;
 
 //自定义延时
 void set_my_delay(uint16_t triggering_time ){
-//默认为毫秒，可以去tim.h调整宏定义，把分度值改为100us或20us
+//默认为100us
 		uint16_t delta_time = 0;
 		uint32_t last_time = time_count;
-		 HAL_TIM_Base_Start_IT(&htim2); //启动定时器中断
 		while(delta_time<triggering_time){
 			delta_time = time_count - last_time;
 		}
 		time_count = 0; //重置计数值
-		HAL_TIM_Base_Stop_IT(&htim2);  //停止定时器中断
+
 }
 
 /* USER CODE END 0 */
@@ -105,18 +103,19 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
-	
+		 	
+
   /* USER CODE END 2 */
-	
-		set_my_delay(20); //设置为20ms延迟
-		pin_reversal(); //翻转引脚电平（默认为低电平）
-		
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-
+	   pull_up_GPIO();
+	set_my_delay(20000);
+		push_down_GPIO();
+	  	set_my_delay(20000);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

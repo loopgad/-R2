@@ -34,35 +34,8 @@ extern "C" {
 
 extern TIM_HandleTypeDef htim2;
 
-//定义位于main.c
-extern uint32_t time_count; //计数变量
-
 /* USER CODE BEGIN Private defines */
-
-
-/**************************用于修改分度值**************************/
-#define ms_division //ms
-//#define tenth_ms_divsion //100us
-//#define fiftieth_ms_division //20us
-
-
-#if defined(ms_division)
-
-	#define time_division_factor 1000
-
-#elif defined(tenth_ms_divsion)
-
-	#define time_division_factor 100
-	
-#elif defined(fiftieth_ms_division)
-
-	#define time_division_factor 20
-
-#endif
-
-
-/************************************************************************/
-
+extern uint32_t time_count;
 
 
 /* USER CODE END Private defines */

@@ -72,18 +72,14 @@ void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 2 */
 void pull_up_GPIO(void){
-		// 设置PA1为高电平
-	GPIOA->ODR |= GPIO_PIN_1;
-
-	// 设置PA2为高电平
-	GPIOA->ODR |= GPIO_PIN_2;
+	// 设置PA1,PA2为高电平
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1|GPIO_PIN_2,GPIO_PIN_SET);
 }
 void push_down_GPIO(void){
-	// 设置PA1为低电平
-	GPIOA->ODR &= ~GPIO_PIN_1;
+	// 设置PA1,PA2为低电平
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1|GPIO_PIN_2,GPIO_PIN_RESET);
 
-	// 设置PA2为低电平
-	GPIOA->ODR &= ~GPIO_PIN_2;
+
 
 }
 

@@ -51,7 +51,7 @@ extern "C" {
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
-void set_my_delay(uint16_t time);
+
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */

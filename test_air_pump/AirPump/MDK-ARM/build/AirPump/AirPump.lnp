@@ -1,0 +1,22 @@
+--cpu=Cortex-M3 --scatter "c:/Users/32806/Desktop/9th_R2/test_air_pump/AirPump/MDK-ARM/build/AirPump/AirPump.sct" --diag_suppress=L6329 --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers
+--list ./build/AirPump/AirPump.map
+./build/AirPump/.obj/__/Core/Src/gpio.o
+./build/AirPump/.obj/__/Core/Src/main.o
+./build/AirPump/.obj/__/Core/Src/stm32f1xx_hal_msp.o
+./build/AirPump/.obj/__/Core/Src/stm32f1xx_it.o
+./build/AirPump/.obj/__/Core/Src/system_stm32f1xx.o
+./build/AirPump/.obj/__/Core/Src/tim.o
+./build/AirPump/.obj/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+./build/AirPump/.obj/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+./build/AirPump/.obj/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o
+./build/AirPump/.obj/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o
+./build/AirPump/.obj/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o
+./build/AirPump/.obj/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o
+./build/AirPump/.obj/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+./build/AirPump/.obj/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o
+./build/AirPump/.obj/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o
+./build/AirPump/.obj/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
+./build/AirPump/.obj/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o
+./build/AirPump/.obj/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+./build/AirPump/.obj/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+./build/AirPump/.obj/startup_stm32f103xb.o -o ./build/AirPump/AirPump.axf

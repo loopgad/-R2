@@ -1,0 +1,20 @@
+[2024-12-07 11:00:20]	[done]
+	build successfully !
+
+[2024-12-07 11:00:30]	[done]
+	build successfully !
+
+[2024-12-07 11:06:22]	compilation failed at : "c:\Users\32806\Desktop\9th_R2\test_air_pump\AirPump\Core\Src\tim.c", exit code: 1
+command: 
+  "D:\Keil5\ARM\ARMCLANG\bin\armclang.exe" --target=arm-arm-none-eabi -c -xc -std=gnu11 -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -IRTE/_AirPump -DUSE_HAL_DRIVER -DSTM32F103xB -mcpu=cortex-m3 -mlittle-endian -Ofast -ffunction-sections -funsigned-char -fshort-enums -fshort-wchar -fno-rtti -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -g -o ./build/AirPump/.obj/__/Core/Src/tim.o -MMD ./../Core/Src/tim.c
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+./../Core/Src/tim.c:124:7: error: use of undeclared identifier 'time_count'
+  124 |                                                 time_count++; //??<B8><F6>?<BC><E4><B7>??<D4><C9>څ?<D7><D4><D4><F6>
+      |                                                 ^
+1 error generated.
+
+[2024-12-07 11:07:29]	[done]
+	build successfully !
+

@@ -41,9 +41,9 @@ void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 168-1;
+  htim2.Init.Prescaler = 84-1;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 99;
+  htim2.Init.Period = 1000-1;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -62,7 +62,8 @@ void MX_TIM2_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM2_Init 2 */
-
+  __HAL_TIM_CLEAR_IT(&htim2, TIM_IT_UPDATE);
+	HAL_TIM_Base_Start_IT(&htim2); //启动定时器中断
   /* USER CODE END TIM2_Init 2 */
 
 }
@@ -107,5 +108,16 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
 }
 
 /* USER CODE BEGIN 1 */
+// TIM2中断回调函数
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
 
+
+    if (htim->Instance == TIM2)
+    {
+			time_count++; //每一个时间分度对设定值自增,默认一个单位100us
+
+    }
+	
+}
 /* USER CODE END 1 */

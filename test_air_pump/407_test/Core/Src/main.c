@@ -55,7 +55,19 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint32_t time_count = 0;
 
+//自定义延时
+void set_my_delay(uint16_t triggering_time ){
+//默认为100us
+		uint16_t delta_time = 0;
+		uint32_t last_time = time_count;
+		while(delta_time<triggering_time){
+			delta_time = time_count - last_time;
+		}
+		time_count = 0; //重置计数值
+
+}
 /* USER CODE END 0 */
 
 /**
@@ -89,7 +101,10 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+	set_my_delay(3000); //延时3s(分度值1ms)
+	pull_up_GPIO(); // 高电平
+	set_my_delay(3000);
+	push_down_GPIO(); // 低电平
   /* USER CODE END 2 */
 
   /* Infinite loop */

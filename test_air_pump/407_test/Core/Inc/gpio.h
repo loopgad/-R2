@@ -39,7 +39,9 @@ extern "C" {
 void MX_GPIO_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+void pull_up_GPIO(void);
+void push_down_GPIO(void);
+void pin_reversal(void);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

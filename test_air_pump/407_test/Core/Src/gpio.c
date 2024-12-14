@@ -46,20 +46,45 @@ void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOH_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1|GPIO_PIN_2, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : PA1 */
-  GPIO_InitStruct.Pin = GPIO_PIN_1;
+  /*Configure GPIO pins : PC1 PC2 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 }
 
 /* USER CODE BEGIN 2 */
+void pull_up_GPIO(void){
+	// 设置PC1,PC2为高电平
+	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_1|GPIO_PIN_2,GPIO_PIN_SET);
+}
+void push_down_GPIO(void){
+	// 设置PC1,PC2为低电平
+	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_1|GPIO_PIN_2,GPIO_PIN_RESET);
 
+
+
+}
+
+
+void pin_reversal(void){
+	static uint8_t flag = 0; //默认引脚状态为下拉
+		if(!flag){
+			pull_up_GPIO();
+			flag = ~flag;
+		}
+		else
+		{
+			push_down_GPIO();
+			flag = ~flag;
+		}
+}
 /* USER CODE END 2 */

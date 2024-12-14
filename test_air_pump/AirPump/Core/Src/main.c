@@ -103,7 +103,10 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
-		 	
+	pull_up_GPIO();
+	set_my_delay(20000);
+	push_down_GPIO();
+	set_my_delay(20000);	
 
   /* USER CODE END 2 */
 
@@ -112,10 +115,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	   pull_up_GPIO();
-	set_my_delay(20000);
-		push_down_GPIO();
-	  	set_my_delay(20000);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

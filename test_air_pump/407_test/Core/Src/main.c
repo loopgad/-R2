@@ -101,10 +101,17 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-	set_my_delay(3000); //延时3s(分度值1ms)
-	pull_up_GPIO(); // 高电平
-	set_my_delay(3000);
-	push_down_GPIO(); // 低电平
+	HAL_GPIO_WritePin(GPIOG,GPIO_PIN_1,GPIO_PIN_RESET);
+	set_my_delay(1500); //延时(分度值1ms)
+	HAL_GPIO_WritePin(GPIOG,GPIO_PIN_1,GPIO_PIN_SET);
+	set_my_delay(2000);
+	for(int i = 0; i < 30 ; i++){
+		HAL_GPIO_WritePin(GPIOF,GPIO_PIN_2,GPIO_PIN_SET);
+		set_my_delay(10);
+		HAL_GPIO_WritePin(GPIOF,GPIO_PIN_2,GPIO_PIN_RESET);
+		set_my_delay(25);
+	}
+	HAL_GPIO_WritePin(GPIOF,GPIO_PIN_2,GPIO_PIN_SET);
   /* USER CODE END 2 */
 
   /* Infinite loop */

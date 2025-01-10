@@ -1,3 +1,0 @@
-
-
-(check (eq (append) nil))

@@ -1,4 +1,0 @@
-
-(define arr [0xFF 0x00 0xFF 0x00])
-
-(check (= (bufget-u32 arr 0) 0xFF00FF00u32))

@@ -1,2 +1,0 @@
-
-(check (eq 'apa 'apa))

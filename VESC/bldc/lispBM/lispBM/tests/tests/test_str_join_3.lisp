@@ -1,4 +1,0 @@
-(check (eq
-    (str-join '() "-")
-    ""
-))

@@ -1,1 +1,0 @@
-(check (eq (list) nil))

@@ -14,7 +14,7 @@
 					"linkLibraries" : []
 				},
 				"path" : "D:/visual studio/VisualStudio/VC/Tools/MSVC/14.42.34433/bin/Hostx64/x64/cl.exe",
-				"version" : "19.42.34433.0"
+				"version" : "19.42.34435.0"
 			},
 			"language" : "C",
 			"sourceFileExtensions" : 
@@ -35,7 +35,7 @@
 					"linkLibraries" : []
 				},
 				"path" : "D:/visual studio/VisualStudio/VC/Tools/MSVC/14.42.34433/bin/Hostx64/x64/cl.exe",
-				"version" : "19.42.34433.0"
+				"version" : "19.42.34435.0"
 			},
 			"language" : "CXX",
 			"sourceFileExtensions" : 

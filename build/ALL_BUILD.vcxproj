@@ -174,10 +174,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\32806\Desktop\9th_R2\build\filter.vcxproj">
-      <Project>{F8A9CF4B-9DFD-326F-88DD-355D9040987B}</Project>
-      <Name>filter</Name>
-    </ProjectReference>
     <ProjectReference Include="C:\Users\32806\Desktop\9th_R2\build\my_test.vcxproj">
       <Project>{3279A8D1-1615-3EE2-B594-DFD3920C17D6}</Project>
       <Name>my_test</Name>

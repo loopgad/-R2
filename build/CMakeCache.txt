@@ -15,7 +15,7 @@
 ########################
 
 //Path to a program.
-CMAKE_AR:FILEPATH=D:/visual studio/VisualStudio/VC/Tools/MSVC/14.42.34433/bin/Hostx64/x64/lib.exe
+CMAKE_AR:FILEPATH=D:/visual studio/VisualStudio/VC/Tools/MSVC/14.43.34808/bin/Hostx64/x64/lib.exe
 
 //No help, variable specified on the command line.
 CMAKE_BUILD_TYPE:STRING=Debug
@@ -86,7 +86,7 @@ CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=C:/Users/32806/Desktop/9th_R2/build/CMak
 CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/filter
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=D:/visual studio/VisualStudio/VC/Tools/MSVC/14.42.34433/bin/Hostx64/x64/link.exe
+CMAKE_LINKER:FILEPATH=D:/visual studio/VisualStudio/VC/Tools/MSVC/14.43.34808/bin/Hostx64/x64/link.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.

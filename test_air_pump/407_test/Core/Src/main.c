@@ -19,8 +19,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "tim.h"
+#include "usart.h"
 #include "gpio.h"
-
+#include "string.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -51,6 +52,7 @@
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 
+float distance = 0;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -68,6 +70,42 @@ void set_my_delay(uint16_t triggering_time ){
 		time_count = 0; //重置计数值
 
 }
+
+
+
+
+void SendInitCommands() {
+    for(int i=0; i<LaserProcessor::CMD_GROUP_SIZE; i++) {
+        int retry = 0;
+        do {
+            // 发送命令
+            const auto& cmd = laser.InitCommands()[i];
+            HAL_UART_Transmit(&huart1, cmd.data, cmd.length, 100);
+            
+            // 重置状态
+            laser.cmd_tracker_[i].sent_time = HAL_GetTick();
+            laser.cmd_tracker_[i].status = LaserProcessor::CMD_PENDING;
+            
+            // 等待响应（200ms超时）
+            while((HAL_GetTick() - laser.cmd_tracker_[i].sent_time) < 200) {
+                if(laser.GetCmdStatus(i) != LaserProcessor::CMD_PENDING) break;
+                HAL_Delay(10);
+            }
+            
+            // 处理超时
+            if(laser.GetCmdStatus(i) == LaserProcessor::CMD_PENDING) {
+                laser.cmd_tracker_[i].status = LaserProcessor::CMD_TIMEOUT;
+            }
+            
+        } while(retry++ < 3 && 
+              (laser.GetCmdStatus(i) == LaserProcessor::CMD_TIMEOUT ||
+               laser.GetCmdStatus(i) == LaserProcessor::CMD_CHECKSUM_ERR));
+        
+        HAL_Delay(50); // 保持协议要求的时间间隔
+    }
+}
+
+
 /* USER CODE END 0 */
 
 /**
@@ -100,18 +138,20 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_TIM2_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-	HAL_GPIO_WritePin(GPIOG,GPIO_PIN_1,GPIO_PIN_RESET);
-	set_my_delay(1500); //延时(分度值1ms)
-	HAL_GPIO_WritePin(GPIOG,GPIO_PIN_1,GPIO_PIN_SET);
-	set_my_delay(2000);
-	for(int i = 0; i < 30 ; i++){
-		HAL_GPIO_WritePin(GPIOF,GPIO_PIN_2,GPIO_PIN_SET);
-		set_my_delay(10);
-		HAL_GPIO_WritePin(GPIOF,GPIO_PIN_2,GPIO_PIN_RESET);
-		set_my_delay(25);
-	}
-	HAL_GPIO_WritePin(GPIOF,GPIO_PIN_2,GPIO_PIN_SET);
+//	HAL_GPIO_WritePin(GPIOG,GPIO_PIN_1,GPIO_PIN_RESET);
+//	set_my_delay(1500); //延时(分度值1ms)
+//	HAL_GPIO_WritePin(GPIOG,GPIO_PIN_1,GPIO_PIN_SET);
+//	set_my_delay(2000);
+//	for(int i = 0; i < 30 ; i++){
+//		HAL_GPIO_WritePin(GPIOF,GPIO_PIN_2,GPIO_PIN_SET);
+//		set_my_delay(10);
+//		HAL_GPIO_WritePin(GPIOF,GPIO_PIN_2,GPIO_PIN_RESET);
+//		set_my_delay(25);
+//	}
+//	HAL_GPIO_WritePin(GPIOF,GPIO_PIN_2,GPIO_PIN_SET);
+	SendInitCommands();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -122,6 +162,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
   }
+
   /* USER CODE END 3 */
 }
 

@@ -18,7 +18,7 @@ mpc_path_x = [state_mpc(1)];
 mpc_path_y = [state_mpc(2)];
 
 % 设置目标位置更新频率（每多少时间步更新一次目标位置）
-track_time = 2000; % 设置仿真时长
+track_time = 1000; % 设置仿真时长
 
 % 设置正弦路径的参数
 amplitude = 3.0;  % 正弦波幅度

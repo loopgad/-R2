@@ -1,1 +1,0 @@
--I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -IRTE/_AirPump --cpu Cortex-M3 --li -g -o ./build/AirPump/.obj/startup_stm32f103xb.o --depend ./build/AirPump/.obj/startup_stm32f103xb.d ./startup_stm32f103xb.s

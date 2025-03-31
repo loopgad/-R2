@@ -1,8 +1,0 @@
->>> cc
-
-Warning: A1950W: The legacy armasm assembler is deprecated. Consider using the armclang integrated assembler instead.
-0 Errors, 1 Warning
-
->>> ld
-
-Program Size: Code=4670 RO-data=302 RW-data=12 ZI-data=1724  

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/32806/Desktop/9th_R2/RC9CPP/filter
+# Install script for directory: C:/Users/32806/Desktop/9th_R2/filter
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/32806/Desktop/9th_R2/RC9CPP/filter/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/32806/Desktop/9th_R2/filter/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

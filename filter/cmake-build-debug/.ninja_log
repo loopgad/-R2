@@ -1,6 +1,19 @@
 # ninja log v6
-5	305	7545816430147749	CMakeFiles/my_test.dir/main.cpp.obj	484e77724e620325
-302	348	7545817323834760	libfilter.a	a75b703f96807a2a
+114	191	7627767917715834	libfilter.a	a75b703f96807a2a
 348	412	7545817324294755	my_test.exe	8e4a63c37743e129
-3	207	7623661950929406	build.ninja	f822111bb9c21efb
-4	302	7545817320858514	CMakeFiles/filter.dir/filter.cpp.obj	c0823dd3cc4f3691
+3	207	7627768178404372	build.ninja	f822111bb9c21efb
+5	113	7627767916627403	CMakeFiles/filter.dir/filter.cpp.obj	81fca682bdf0180
+5	1691	7627866969638394	CMakeFiles/my_test_main.dir/my_test_main.cpp.obj	144aa57f495d4f3a
+1692	1911	7627866986502614	my_test_main.exe	5dfab995c40825b3
+6	1584	7627867160564591	CMakeFiles/my_test_main.dir/my_test_main.cpp.obj	144aa57f495d4f3a
+1584	1804	7627867176342544	my_test_main.exe	5dfab995c40825b3
+6	1538	7627867247537679	CMakeFiles/my_test_main.dir/my_test_main.cpp.obj	144aa57f495d4f3a
+1539	1756	7627867262876498	my_test_main.exe	5dfab995c40825b3
+6	1462	7627867399356435	CMakeFiles/my_test_main.dir/my_test_main.cpp.obj	144aa57f495d4f3a
+1462	1679	7627867413917602	my_test_main.exe	5dfab995c40825b3
+8	1459	7628734428734740	CMakeFiles/my_test_main.dir/my_test_main.cpp.obj	144aa57f495d4f3a
+1460	1817	7628734443249998	my_test_main.exe	5dfab995c40825b3
+7	1343	7628734591521492	CMakeFiles/my_test_main.dir/my_test_main.cpp.obj	144aa57f495d4f3a
+1343	1562	7628734604883759	my_test_main.exe	5dfab995c40825b3
+6	1325	7628735932927689	CMakeFiles/my_test_main.dir/my_test_main.cpp.obj	144aa57f495d4f3a
+1325	1543	7628735946116798	my_test_main.exe	5dfab995c40825b3

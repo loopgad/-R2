@@ -1,118 +1,120 @@
-// laser_processor.cpp
-#include "laser_processor.h"
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <Eigen/Dense>
+#include <limits>
+using namespace std;
 
-#define max_distance 0.4f
-#define min_distance 0.04f
-
-//my_fabs() function
-static float my_fabs(float x) {
-    return x > 0 ? x : -x;
+// 自定义输出函数
+std::ostream& operator<<(std::ostream& os, const std::vector<Eigen::Matrix<double, 2, 1>>& vec) {
+    os << "[";
+    for (size_t i = 0; i < vec.size(); ++i) {
+        if (i > 0) os << ", ";
+        os << vec[i].transpose();  // 输出矩阵的转置（方便查看）
+    }
+    os << "]";
+    return os;
 }
 
-// 校验和计算（与协议一致）
-static uint8_t CalculateChecksum(const uint8_t* data, uint16_t len) {
-    uint16_t sum = 0;
-    for(uint16_t i=0; i<len; i++) {
-        sum += data[i];
+pair<vector<Eigen::Vector2d>, vector<double>> position_control_mpc(
+    const Eigen::Vector2d& state,
+    const Eigen::Vector2d& target_pos,
+    double time_step,
+    int prediction_horizon = 10,
+    double max_vx = 2.7,
+    double max_vy = 2.7
+) {
+    // 增加静态变量保存历史状态
+    static Eigen::Vector2d prev_velocity(0, 0);
+
+    vector<Eigen::Vector2d> predicted_trajectory;
+
+    // 计算目标误差
+    Eigen::Vector2d error = target_pos - state;
+    double error_norm = error.norm();
+    const double STOP_THRESHOLD = 0.1; // 停止阈值
+
+    // 动态速度衰减因子
+    double dynamic_decay = 2.5;
+    if(error_norm < 0.5) {
+        dynamic_decay = std::max(0.2, error_norm-0.1); // 距离越近速度衰减越大
     }
-    return static_cast<uint8_t>(~sum + 1);
+
+    // 计算理想速度
+    Eigen::Vector2d ideal_velocity = error.normalized() * dynamic_decay * max_vx;
+
+    // 增加加速度约束 (最大加速度 10 m/s²)
+    const double MAX_ACCEL = 10.0;
+    Eigen::Vector2d allowed_delta = ideal_velocity - prev_velocity;
+    if(allowed_delta.norm() > MAX_ACCEL * time_step) {
+        allowed_delta = allowed_delta.normalized() * MAX_ACCEL * time_step;
+    }
+
+    Eigen::Vector2d new_velocity = prev_velocity + allowed_delta;
+
+    // 最终速度限幅
+    new_velocity.x() = std::clamp(new_velocity.x(), -max_vx, max_vx);
+    new_velocity.y() = std::clamp(new_velocity.y(), -max_vy, max_vy);
+
+    // 更新历史速度
+    prev_velocity = new_velocity;
+
+    // 生成预测轨迹
+    Eigen::Vector2d predicted_state = state;
+    for(int i=0; i<prediction_horizon; ++i){
+        predicted_state += new_velocity * time_step;
+        predicted_trajectory.push_back(predicted_state);
+    }
+
+    // 提前停止判断
+    if(error_norm < STOP_THRESHOLD){
+        return {predicted_trajectory, {0, 0}};
+    }
+    vector<double> control = {new_velocity.x(), new_velocity.y()};
+    return {predicted_trajectory, control};
 }
 
-float LaserProcessor::ProcessData(const uint8_t* data, uint16_t len) {
-    if(!ValidatePacket(data, len)) {
-        return -1.0f; // 无效数据标志
-    }
+// 主函数
+int main() {
+    // 输入参数
+    Eigen::Vector2d state(0.0, 0.0); // [x, y]
+    Eigen::Vector2d target_pos(-3.1, -2.5); // 目标位置
+    double time_step = 0.02;              // 时间步长
 
-    static float last_filter_data = 0;
+    // 控制循环
+    int max_steps = 200; // 最大步数
+    for (int step = 0; step < max_steps; ++step) {
+        cout << "Step " << step << ":\n";
 
-    // 提取ASCII数据部分（假设数据从第4字节开始）
-    const uint8_t* ascii_start = data + 3;
-    uint16_t ascii_len = len - 4; // 排除包头3字节和校验1字节
+        // 计算控制输入和新的状态
+        auto [trajectory, control] = position_control_mpc(state, target_pos, time_step);
 
-    // ASCII转浮点数
-    float distance = ParseAsciiDistance(ascii_start, ascii_len);
+        // 输出控制速度（vx, vy）
+        cout << "Control Velocities: ("
+             << control[0] << ", "  // vx
+             << control[1] << ")\n"; // vy
 
-    // 滑动窗口滤波
-    filter_window_[window_index_] = distance;
-    window_index_ = (window_index_ + 1) % FILTER_WINDOW_SIZE;
+        // **状态更新**：根据控制输入更新状态
+        state(0) += control[0] * time_step; // 更新x位置
+        state(1) += control[1] * time_step; // 更新y位置
 
-    // 更新有效数据计数
-    if(data_count_ < FILTER_WINDOW_SIZE) {
-        data_count_++;
-    }
-
-    // 计算滤波值（数据不足时使用当前有效数据）
-    float sum = 0;
-
-    for(uint8_t i=0; i<data_count_; i++) {
-        sum += filter_window_[i];
-    }
-    float filter_data = sum / data_count_;
-    if(my_fabs(filter_data - last_filter_data) > max_distance) {
-        return last_filter_data;
-    }
-    else if(filter_data < min_distance) {
-        return min_distance;
-    }
-    last_filter_data = filter_data;
-    return filter_data;
-}
-
-bool LaserProcessor::ValidatePacket(const uint8_t* data, uint16_t len) {
-    // 基础长度检查
-    if(len < 7) return false; // 最小有效包长度
-
-    // 校验包头（假设标准返回格式）
-    if(data[0] != 0x80 || data[1] != 0x06 || data[2] != 0x83) {
-        return false;
-    }
-
-    // 校验码验证
-    uint8_t checksum = CalculateChecksum(data, len-1);
-    return (checksum == data[len-1]);
-}
-
-float LaserProcessor::ParseAsciiDistance(const uint8_t* start, uint16_t bytes) {
-    char buffer[16] = {0};
-    const uint8_t max_len = (bytes > 15) ? 15 : bytes;
-
-    // Copy valid ASCII characters
-    for(uint8_t i = 0; i < max_len; ++i) {
-        buffer[i] = static_cast<char>(start[i]);
-    }
-
-    int32_t integer_part = 0;
-    int32_t fractional_part = 0;
-    float divisor = 1.0f;
-    bool negative = false;
-    bool is_fraction = false;
-    uint8_t pos = 0;
-
-    // Handle negative sign
-    if(buffer[0] == '-') {
-        negative = true;
-        pos = 1;
-    }
-
-    // Single pass parsing loop
-    for(; pos < max_len; ++pos) {
-        const char c = buffer[pos];
-
-        if(c == '.') {
-            is_fraction = true;
-            continue;
+        // 如果位置足够接近目标位置，就结束
+        if ((target_pos - state).norm() < 0.05) {
+            cout << "Target reached.\n";
+            break;
         }
+        target_pos += Eigen::Vector2d(0.01,0.01);
 
-        if(c >= '0' && c <= '9') {
-            if(is_fraction) {
-                fractional_part = fractional_part * 10 + (c - '0');
-                divisor *= 10.0f;
-            } else {
-                integer_part = integer_part * 10 + (c - '0');
-            }
-        }
     }
 
-    float result = integer_part + (fractional_part / divisor);
-    return negative ? -result : result;
+    // 输出最终位置
+    cout << "Final Position: ("
+         << state(0) << ", "  // x
+         << state(1) << ")\n"; // y
+    // 输出最终位置
+    cout << "Final Target: ("
+         << target_pos(0) << ", "  // x
+         << target_pos(1) << ")\n"; // y
+
+    return 0;
 }

@@ -10,12 +10,12 @@ set(Eigen3_DIR "${CMAKE_SOURCE_DIR}") # 替换为 Eigen 的实际路径
 # 包含 Eigen 的头文件目录
 include_directories(${Eigen3_DIR})
 
-# 添加库
-add_library(filter STATIC filter.cpp
-        filter.h)
+## 添加库
+#add_library(filter STATIC filter.cpp
+#        filter.h)
 
 # 添加可执行文件
-add_executable(my_test main.cpp)
+add_executable(my_test_main my_test_main.cpp)
 
-# 链接库到可执行文件
-target_link_libraries(my_test PRIVATE filter)
+## 链接库到可执行文件
+#target_link_libraries(my_test PRIVATE filter)

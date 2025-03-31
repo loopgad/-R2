@@ -1,4 +1,0 @@
-arm-none-eabi-objcopy --update-section ER_IROM1="C:\Users\32806\AppData\Local\Temp\\AirPump_BjDI+lmR.bin" "c:\Users\32806\Desktop\9th_R2\test_air_pump\AirPump\MDK-ARM\build\AirPump\AirPump.axf" "c:\Users\32806\Desktop\9th_R2\test_air_pump\AirPump\MDK-ARM\build\AirPump\AirPump.elf"
-
-arm-none-eabi-objcopy: c:\Users\32806\Desktop\9th_R2\test_air_pump\AirPump\MDK-ARM\build\AirPump\AirPump.elf: warning: allocated section `RW_IRAM1' not in segment
-

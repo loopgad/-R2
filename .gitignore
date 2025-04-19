@@ -54,10 +54,6 @@
 *.bin
 *.mem
 *.prj
-*.uvopt
-*.uvoptx
-*.uvguix
-*.settings
 *.load
 *.tmp
 *.bak
